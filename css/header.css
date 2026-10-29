@@ -1,0 +1,60 @@
+/* ---------- Header + CTA flotante ---------- */
+.hdr {
+  position: sticky; top: 0; z-index: 60;
+  display: flex; align-items: stretch;
+  height: var(--hdr-h);
+  background: var(--paper);
+  border-bottom: var(--bw) solid var(--ink);
+}
+.hdr__brand { display: flex; align-items: center; gap: 14px; text-decoration: none; }
+.hdr__logo {
+  position: relative; width: var(--hdr-h); height: calc(var(--hdr-h) - var(--bw)); background: var(--ink);
+  display: block; flex: none;
+}
+.hdr__logo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.logo-glitch { opacity: 0; }
+.hdr__brand:hover .logo-glitch, .hdr__brand:focus-visible .logo-glitch { opacity: 1; }
+.hdr__name {
+  font: 800 1.05rem/1 var(--f-display); font-stretch: 70%; text-transform: uppercase; letter-spacing: .02em;
+  white-space: nowrap;
+}
+
+.hdr__nav { margin-left: auto; display: flex; align-items: stretch; }
+.hdr__nav a {
+  display: flex; align-items: center; padding: 0 clamp(14px, 2vw, 30px);
+  font: 700 .9rem/1 var(--f-mono); text-transform: uppercase; letter-spacing: .05em; text-decoration: none;
+  border-left: var(--bw) solid var(--ink);
+  transition: background .12s, color .12s;
+}
+.hdr__nav a:hover, .hdr__nav a[aria-current="true"] { background: var(--ink); color: var(--paper); }
+
+.hdr__cta {
+  border: 0; border-left: var(--bw) solid var(--ink);
+  height: calc(100% + var(--bw)); margin-bottom: calc(var(--bw) * -1);
+  padding: 0 clamp(16px, 2.4vw, 34px); font-size: 1rem;
+}
+.hdr__cta .ico-mark { width: 1.5em; height: 1.3em; }
+
+.hdr__progress { position: absolute; left: 0; right: 0; bottom: calc(var(--bw) * -1); height: var(--bw); pointer-events: none; }
+.hdr__progress i { display: block; height: 100%; background: var(--accent); transform-origin: 0 50%; transform: scaleX(var(--p, 0)); }
+
+@media (max-width: 860px) { .hdr__name { display: none; } }
+@media (max-width: 560px) {
+  :root { --hdr-h: 56px; }
+  .hdr__nav a { padding: 0 11px; font-size: .68rem; letter-spacing: .02em; }
+  .hdr__cta span:last-child { display: none; }
+  .hdr__cta { padding: 0 16px; }
+}
+
+/* CTA flotante: aparece tras el reel y se oculta en Contacto */
+.fab {
+  position: fixed; right: max(16px, env(safe-area-inset-right)); bottom: max(16px, env(safe-area-inset-bottom)); z-index: 55;
+  display: inline-flex; align-items: center; gap: .6em;
+  padding: .9em 1.2em;
+  background: var(--accent); color: #fff; border: var(--bw) solid var(--ink);
+  font: 800 1rem/1 var(--f-display); font-stretch: 75%; text-transform: uppercase; letter-spacing: .04em; text-decoration: none;
+  transform: translateY(160%); transition: transform .3s cubic-bezier(.2,.8,.2,1), background .12s, color .12s;
+}
+.fab.show { transform: none; }
+.fab:hover { background: var(--ink); }
+@media (prefers-reduced-motion: reduce) { .fab { transition: none; } }

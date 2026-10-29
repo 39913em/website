@@ -7,7 +7,7 @@
 <meta name="description" content="Producción y postproducción audiovisual, diseño sonoro y diseño UI. Galería digital de obra: cortometraje, videoarte, fotografía, glitch y piezas sonoras.">
 <meta name="theme-color" content="#0B0B0B">
 
-
+<!-- Seguridad: CSP en <meta> (GitHub Pages no permite headers). Sin scripts ni estilos inline. -->
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' data:; media-src 'self'; frame-src https://www.youtube-nocookie.com; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 
@@ -23,6 +23,7 @@
 
 <link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/archivo-latin-wdth-normal.woff2">
 
+<!-- Un CSS por bloque: edita solo el que necesites -->
 <link rel="stylesheet" href="css/fonts.css">
 <link rel="stylesheet" href="css/base.css">
 <link rel="stylesheet" href="css/header.css">
@@ -37,6 +38,7 @@
 <body>
 <a class="skip" href="#obra">Saltar a la obra</a>
 
+<!-- Cada bloque vive en partials/ y se inyecta con js/include.js -->
 <div data-include="partials/header.html"></div>
 <main>
   <div data-include="partials/hero.html"></div>
@@ -51,6 +53,7 @@
 
 <noscript><p class="noscript">Este sitio necesita JavaScript para mostrar la galería. Reel y contacto: instagram.com/39913em</p></noscript>
 
+<!-- include.js primero: los demás módulos esperan el evento "partials:loaded" -->
 <script src="js/include.js"></script>
 <script src="js/reel.js"></script>
 <script src="js/nav.js"></script>

@@ -1,0 +1,148 @@
+/* ============================================================
+   base.css — tokens, reset, tipografía, botones, secciones
+   Identidad: brutalista. Solo grises neutros + rojo puro de acento.
+   PROHIBIDO en este proyecto: naranja/ámbar/crema y azul/cian/violeta
+   (y derivados). Todo gris es neutro (R=G=B).
+   ============================================================ */
+
+:root {
+  --ink: #0B0B0B;
+  --paper: #EDEDED;
+  --concrete: #CDCDCD;
+  --mid: #7A7A7A;
+  --white: #FAFAFA;
+  --accent: #E0001B;           /* rojo puro, frío (no naranja). Úsalo poco. */
+
+  --bw: 3px;                   /* grosor de borde brutalista */
+  --pad: clamp(16px, 3.2vw, 44px);
+  --max: 1480px;
+  --hdr-h: 64px;
+
+  --f-display: "Archivo", "Arial Narrow", Impact, sans-serif;
+  --f-body: "Archivo", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+
+  /* Obra siempre en B/N; el color original se ve solo dentro de cada pieza al pedirlo */
+  --art-filter: grayscale(1) contrast(1.12);
+  /* Reel: se muestra con su color original. Para B/N total usa: grayscale(1) contrast(1.1) */
+  --reel-filter: none;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; scroll-padding-top: var(--hdr-h); -webkit-text-size-adjust: 100%; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--f-body);
+  font-size: 1rem;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+[hidden] { display: none !important; }
+img, video, svg { display: block; max-width: 100%; }
+a { color: inherit; }
+button { font: inherit; color: inherit; }
+h1, h2, h3, p, ul, ol, dl, dd, figure { margin: 0; }
+ul, ol { padding: 0; list-style: none; }
+
+.mono { font-family: var(--f-mono); }
+.wrap { max-width: var(--max); margin-inline: auto; padding-inline: var(--pad); }
+
+.skip {
+  position: fixed; left: 8px; top: -80px; z-index: 200;
+  background: var(--ink); color: var(--paper); padding: 10px 14px; font-family: var(--f-mono);
+}
+.skip:focus { top: 8px; }
+
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+
+.noscript { padding: 24px; font-family: var(--f-mono); }
+
+/* ---------- Icono de marca (logo vectorizado como máscara) ---------- */
+.ico-mark {
+  display: inline-block; flex: none;
+  width: 1.3em; height: 1.15em;
+  background: currentColor;
+  -webkit-mask: url("../assets/logo/mark.svg") center / contain no-repeat;
+          mask: url("../assets/logo/mark.svg") center / contain no-repeat;
+}
+.ico-mark--lg { width: 2.4em; height: 2.1em; }
+.ico { width: 1.1em; height: 1.1em; fill: currentColor; flex: none; }
+
+/* ---------- Botones: tamaños y variantes ---------- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: .6em;
+  padding: .85em 1.3em;
+  border: var(--bw) solid var(--ink);
+  background: transparent; color: var(--ink);
+  font: 800 .95rem/1 var(--f-display); font-stretch: 75%;
+  text-transform: uppercase; letter-spacing: .04em; text-decoration: none;
+  cursor: pointer;
+  transition: background .12s, color .12s, border-color .12s;
+}
+.btn--solid { background: var(--ink); color: var(--paper); }
+.btn--solid:hover { background: var(--paper); color: var(--ink); }
+.btn--line:hover { background: var(--ink); color: var(--paper); }
+.btn--inv { background: var(--paper); color: var(--ink); border-color: var(--paper); }
+.btn--inv:hover { background: var(--accent); border-color: var(--accent); color: #fff; }
+.btn--line-inv { border-color: var(--paper); color: var(--paper); }
+.btn--line-inv:hover { background: var(--paper); color: var(--ink); }
+.btn--lg { font-size: 1.15rem; padding: 1em 1.5em; }
+.btn--xl { font-size: clamp(1.1rem, 2vw, 1.6rem); padding: 1em 1.6em; }
+
+/* ---------- Secciones ---------- */
+.sec {
+  --bg: var(--paper); --fg: var(--ink);
+  background: var(--bg); color: var(--fg);
+  border-top: var(--bw) solid var(--ink);
+  padding-top: clamp(56px, 9vw, 130px);
+}
+.sec--dark     { --bg: var(--ink);      --fg: var(--paper); border-top-color: var(--ink); }
+.sec--paper    { --bg: var(--paper);    --fg: var(--ink); }
+.sec--concrete { --bg: var(--concrete); --fg: var(--ink); }
+
+.sec__head {
+  display: grid; gap: 24px;
+  margin-bottom: clamp(32px, 6vw, 80px);
+}
+@media (min-width: 900px) {
+  .sec__head { grid-template-columns: 1fr minmax(260px, 400px); align-items: end; gap: 48px; }
+}
+.sec__title {
+  font: 900 clamp(4rem, 15vw, 15rem)/.8 var(--f-display);
+  font-stretch: 62%;
+  text-transform: uppercase;
+  letter-spacing: -.02em;
+  white-space: nowrap;
+}
+.sec__lede { max-width: 42ch; font-size: 1.05rem; }
+.sec--dark .sec__lede { color: var(--concrete); }
+
+/* ---------- Pista de lectura: siguiente sección ---------- */
+.next-cue {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-top: clamp(48px, 8vw, 110px);
+  padding: 22px var(--pad);
+  border-top: var(--bw) solid var(--fg, var(--ink));
+  color: var(--fg, var(--ink));
+  font: 700 .9rem/1 var(--f-mono); text-transform: uppercase; letter-spacing: .06em;
+  text-decoration: none;
+  transition: background .12s, color .12s;
+}
+.next-cue:hover { background: var(--fg, var(--ink)); color: var(--bg, var(--paper)); }
+.next-cue span:last-child { font-size: 1.4rem; }
+
+/* ---------- Aparición al hacer scroll (solo con JS activo) ---------- */
+.js [data-reveal] { opacity: 0; transform: translateY(28px); transition: opacity .6s ease, transform .6s cubic-bezier(.2,.8,.2,1); }
+.js [data-reveal].in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  .js [data-reveal] { opacity: 1; transform: none; transition: none; }
+}
+
+html.no-scroll { overflow: hidden; }

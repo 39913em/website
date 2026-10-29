@@ -1,0 +1,39 @@
+/* ---------- Trayectoria ---------- */
+.tray { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); border: var(--bw) solid var(--ink); background: var(--concrete); }
+.tray__time { border-right: var(--bw) solid var(--ink); display: flex; flex-direction: column; }
+.tray__edu { margin-top: auto; background: var(--ink); color: var(--paper); }
+.tray__edu p { padding: 0 22px 22px; font-size: 1.05rem; }
+.tray__h--plain { border-bottom: 0; padding-bottom: 8px; }
+.tray__h { font: 900 clamp(1.5rem, 2.4vw, 2.2rem)/.9 var(--f-display); font-stretch: 62%; text-transform: uppercase; padding: 20px 22px; border-bottom: var(--bw) solid var(--ink); }
+
+.time button {
+  display: grid; grid-template-columns: 5rem minmax(0, 1fr); gap: 4px 14px; align-items: baseline;
+  width: 100%; padding: 18px 22px; background: transparent; border: 0; border-bottom: var(--bw) solid var(--ink); text-align: left; cursor: pointer;
+  transition: background .12s, color .12s;
+}
+.time li:last-child button { border-bottom: 0; }
+.time button:hover { background: var(--ink); color: var(--paper); }
+.time__y { font-weight: 700; font-size: 1rem; grid-row: span 2; }
+.time__t { font: 800 clamp(1.2rem, 1.9vw, 1.7rem)/1 var(--f-display); font-stretch: 72%; text-transform: uppercase; }
+.time__r { font: 500 .78rem/1.3 var(--f-mono); opacity: .75; }
+
+.tray__cols { display: flex; flex-direction: column; }
+.tray__box { border-bottom: var(--bw) solid var(--ink); }
+.tray__box:last-child { border-bottom: 0; }
+.tray__box .tray__h { border-bottom: 0; padding-bottom: 6px; }
+.tray__box ul, .tray__box p { padding: 6px 22px 22px; }
+.tray__box li { padding: 9px 0; border-top: 1px solid rgba(11,11,11,.35); }
+.tray__box li:first-child { border-top: 0; }
+.tray__box p + p { padding-top: 0; }
+.tray__box--inv { background: var(--ink); color: var(--paper); }
+.tray__link {
+  display: inline-flex; gap: 10px; margin: 0 22px 22px; padding: 12px 16px; border: 2px solid var(--paper);
+  font: 700 .8rem/1 var(--f-mono); text-transform: uppercase; letter-spacing: .05em; text-decoration: none;
+  transition: background .12s, color .12s;
+}
+.tray__link:hover { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+@media (max-width: 860px) {
+  .tray { grid-template-columns: 1fr; }
+  .tray__time { border-right: 0; border-bottom: var(--bw) solid var(--ink); }
+}

@@ -1,0 +1,61 @@
+<section id="top" class="hero" data-section="reel">
+  <div class="hero__grid">
+
+    <div class="hero__copy">
+      <h1 class="hero__name" aria-label="Eduardo M. Gutiérrez Orduña">
+        <span class="ln"><span>Eduardo</span></span>
+        <span class="ln"><span>M. Gutiérrez</span></span>
+        <span class="ln"><span>Orduña</span></span>
+      </h1>
+
+      <p class="hero__role mono">Producción y postproducción audiovisual / Diseño sonoro / Diseño UI</p>
+      <p class="hero__pitch">Tomo datos, error y señal y los convierto en piezas audiovisuales que se sienten. Para festivales, marcas e instituciones.</p>
+
+      <div class="hero__actions">
+        <button type="button" class="btn btn--solid btn--lg" data-reel-sound data-track="cta-reel-sound">
+          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4l13 8-13 8z"/></svg>
+          <span>Ver reel con sonido</span>
+        </button>
+        <a class="btn btn--line btn--lg" href="#contacto" data-track="cta-hero-contacto">Contactar</a>
+      </div>
+
+      <dl class="hero__stats">
+        <div><dt>+200</dt><dd>estudiantes formados</dd></div>
+        <div><dt>3</dt><dd>países de exhibición: MX, US, BO</dd></div>
+        <div><dt>2023</dt><dd>dos festivales de cine con el cortometraje La línea etérea</dd></div>
+      </dl>
+    </div>
+
+    <figure class="reel" data-reel>
+      <video class="reel__video" src="assets/video/reel.mp4" poster="assets/video/reel-poster.jpg" muted loop playsinline autoplay preload="auto" aria-label="Reel de Eduardo M. Gutiérrez Orduña"></video>
+
+      <div class="reel__hud" aria-hidden="true">
+        <span class="reel__rec"><i></i>REEL</span>
+        <span class="reel__tc mono" data-reel-tc>00:00:00:00</span>
+      </div>
+
+      <button type="button" class="reel__cover" data-reel-sound data-track="reel-cover">
+        <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4l13 8-13 8z"/></svg>
+        <span data-reel-cover-label>Activar sonido</span>
+      </button>
+
+      <div class="reel__bar" data-reel-bar>
+        <button type="button" class="reel__btn" data-reel-play aria-label="Pausar">
+          <svg class="ico ico--pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
+          <svg class="ico ico--play" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4l13 8-13 8z"/></svg>
+        </button>
+        <div class="reel__track" data-reel-track role="slider" tabindex="0" aria-label="Posición del reel" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><i data-reel-fill></i></div>
+        <button type="button" class="reel__btn" data-reel-mute aria-label="Silenciar">
+          <svg class="ico ico--sound" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9v6h4l5 4V5L7 9zM15 8a5 5 0 010 8M17.5 5.5a9 9 0 010 13" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+          <svg class="ico ico--mute" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9v6h4l5 4V5L7 9zM16 9l5 6M21 9l-5 6" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+        </button>
+        <button type="button" class="reel__btn" data-reel-full aria-label="Pantalla completa">
+          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+        </button>
+      </div>
+    </figure>
+
+  </div>
+
+  <a class="next-cue" href="#servicios" data-track="next-servicios"><span>Siguiente: Servicios</span><span aria-hidden="true">↓</span></a>
+</section>
