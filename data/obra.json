@@ -301,36 +301,7 @@
     }
    ]
   },
-  {
-   "id": "cortinillas",
-   "cat": "video",
-   "title": "Cortinillas",
-   "kicker": "Motion — piezas breves",
-   "cover": {
-    "text": "Cortinillas"
-   },
-   "desc": "Cortinillas y piezas breves de identidad en movimiento.",
-   "items": [
-    {
-     "type": "yt",
-     "id": "OXrtBoQL5Dw",
-     "vertical": true,
-     "label": "Cortinilla 1"
-    },
-    {
-     "type": "yt",
-     "id": "I3qjmOSe5Ig",
-     "vertical": true,
-     "label": "Cortinilla 2"
-    },
-    {
-     "type": "yt",
-     "id": "5g3MvhzTFKE",
-     "vertical": true,
-     "label": "Cortinilla 3"
-    }
-   ]
-  },
+  
   {
    "id": "ctrl-fe",
    "cat": "sonido",
