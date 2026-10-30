@@ -1,8 +1,6 @@
-/* ---------- Hero: el reel manda ---------- */
 .hero { background: var(--paper); color: var(--ink); display: flex; flex-direction: column; min-height: calc(100svh - var(--hdr-h)); }
 .hero__grid {
   flex: 1; display: grid;
-  /* la columna del reel mide exactamente 9:16 con la altura disponible */
   grid-template-columns: minmax(0, 1fr) clamp(300px, calc((100svh - var(--hdr-h)) * .5625), 46vw);
 }
 .hero__copy { display: flex; flex-direction: column; justify-content: flex-end; gap: clamp(18px, 2.4vw, 30px); padding: clamp(24px, 4vw, 56px) var(--pad) clamp(28px, 4vw, 56px); border-right: var(--bw) solid var(--ink); }
@@ -19,7 +17,6 @@
 .hero__pitch { font-size: clamp(1.15rem, 1.8vw, 1.6rem); line-height: 1.22; max-width: 30ch; font-weight: 600; }
 .hero__actions { display: flex; flex-wrap: wrap; gap: 14px; }
 
-/* Reel */
 .reel { position: relative; background: var(--ink); color: var(--paper); overflow: hidden; min-height: 0; }
 .reel__video { width: 100%; height: 100%; object-fit: cover; filter: var(--art-filter); cursor: pointer; }
 

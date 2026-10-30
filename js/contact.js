@@ -1,5 +1,4 @@
-// contact.js — arma el mailto en el navegador (no queda como texto plano en el HTML).
-// Configura tu correo en data/site.json. Mientras sea "ejemplo.com", el botón de correo permanece oculto.
+
 (function () {
   async function init() {
     const a = document.querySelector("[data-email]");

@@ -1,4 +1,3 @@
-/* ---------- Servicios ---------- */
 .svc { border-top: var(--bw) solid var(--fg); }
 .svc__row {
   display: grid; align-items: center; gap: 12px 28px;

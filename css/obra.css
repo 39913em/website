@@ -1,4 +1,3 @@
-/* ---------- Obra: 3 pestañas (lo que hago) + grilla ---------- */
 .tabs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border: var(--bw) solid var(--ink); border-bottom: 0; }
 .tab {
   opacity: .999;
@@ -31,7 +30,6 @@
 .card__btn:hover .card__media img { transform: scale(1.05); filter: var(--art-filter) contrast(1.3); }
 .card__btn:hover .card__media--text { background: var(--paper); color: var(--ink); }
 
-/* cortes de señal al pasar el cursor (siempre B/N) */
 .slice { position: absolute; inset: 0; z-index: 2; pointer-events: none; opacity: 0; background: var(--img) center / cover no-repeat; filter: var(--art-filter) contrast(1.5); }
 .slice.s1 { clip-path: inset(16% 0 68% 0); }
 .slice.s2 { clip-path: inset(56% 0 26% 0); }

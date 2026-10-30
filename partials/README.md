@@ -1,4 +1,4 @@
-# Portafolio — Eduardo M. Gutiérrez Orduña
+# Portafolio — Eduardo Manuel
 
 Landing brutalista, estática (HTML + CSS + JS puro, sin frameworks ni dependencias). Lista para **GitHub Pages**.
 

@@ -1,13 +1,8 @@
-/* ============================================================
-   base.css — tokens, reset, tipografía, botones, secciones
-   PALETA ÚNICA: blanco, negro y rojo. Nada más.
-   (Sin naranja ni derivados, sin azul, sin grises de color.)
-   ============================================================ */
 
 :root {
   --ink: #000000;
   --paper: #FFFFFF;
-  --accent: #E00000;           /* el único color */
+  --accent: #E00000;           
 
   --bw: 3px;
   --pad: clamp(16px, 3.2vw, 44px);
@@ -18,7 +13,6 @@
   --f-body: "Archivo", system-ui, -apple-system, "Segoe UI", sans-serif;
   --f-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
 
-  /* TODO el material gráfico (fotos, video, YouTube, reel) se muestra en blanco y negro */
   --art-filter: grayscale(1) contrast(1.1);
 }
 
@@ -49,7 +43,6 @@ ul, ol { padding: 0; list-style: none; }
 :focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
 .noscript { padding: 24px; font-family: var(--f-mono); }
 
-/* Icono de marca (logo vectorizado como máscara: sirve a cualquier tamaño y color) */
 .ico-mark {
   display: inline-block; flex: none; width: 1.3em; height: 1.15em; background: currentColor;
   -webkit-mask: url("../assets/logo/mark.svg") center / contain no-repeat;
@@ -58,7 +51,6 @@ ul, ol { padding: 0; list-style: none; }
 .ico-mark--lg { width: 2.4em; height: 2.1em; }
 .ico { width: 1.1em; height: 1.1em; fill: currentColor; flex: none; }
 
-/* Botones */
 .btn {
   display: inline-flex; align-items: center; justify-content: center; gap: .6em;
   padding: .85em 1.3em; border: var(--bw) solid var(--ink); background: transparent; color: var(--ink);
@@ -71,7 +63,6 @@ ul, ol { padding: 0; list-style: none; }
 .btn--lg { font-size: 1.15rem; padding: 1em 1.5em; }
 .btn--xl { font-size: clamp(1.1rem, 2vw, 1.6rem); padding: 1em 1.6em; }
 
-/* Secciones: ritmo blanco / negro */
 .sec { --bg: var(--paper); --fg: var(--ink); background: var(--bg); color: var(--fg); border-top: var(--bw) solid var(--ink); padding-block: clamp(56px, 9vw, 130px); }
 .sec--dark { --bg: var(--ink); --fg: var(--paper); }
 .sec__title {
@@ -80,11 +71,10 @@ ul, ol { padding: 0; list-style: none; }
   margin-bottom: clamp(32px, 6vw, 72px);
 }
 
-/* Aparición al hacer scroll (solo con JS activo) */
 .js [data-reveal] { opacity: 0; transform: translateY(28px); transition: opacity .6s ease, transform .6s cubic-bezier(.2,.8,.2,1); }
 .js [data-reveal].in { opacity: .999; transform: none; }
 @media (prefers-reduced-motion: reduce) { .js [data-reveal] { opacity: 1; transform: none; transition: none; } }
 
-/* Texto siempre en escala de grises: evita los bordes naranja/azul del suavizado LCD (ClearType) */
+
 .hdr, .ticker, .sec, .ftr, .lb, .btn { opacity: .999; }
 .hero { will-change: transform; }

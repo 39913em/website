@@ -1,4 +1,3 @@
-/* ---------- Ticker de exhibiciones ---------- */
 .ticker { background: var(--ink); color: var(--paper); border-block: var(--bw) solid var(--ink); overflow: hidden; }
 .ticker__track { display: flex; width: max-content; animation: tick 60s linear infinite; }
 .ticker:hover .ticker__track { animation-play-state: paused; }

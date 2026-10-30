@@ -1,4 +1,3 @@
-// reveal.js — aparición al hacer scroll + decodificación glitch de títulos (una sola vez).
 (function () {
   const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
   const LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ#";

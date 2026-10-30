@@ -1,4 +1,3 @@
-// nav.js — barra de progreso de lectura, sección activa en el menú y año del footer.
 (function () {
   function init() {
     const y = document.getElementById("year");

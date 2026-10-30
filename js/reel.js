@@ -1,4 +1,3 @@
-// reel.js — reel vertical en loop: timecode real, pausa, sonido, barra y pantalla completa.
 (function () {
   const FPS = 30;
   const pad = (n) => String(n).padStart(2, "0");
@@ -62,7 +61,6 @@
     ["play", "pause", "volumechange"].forEach((ev) => v.addEventListener(ev, sync));
     v.addEventListener("loadedmetadata", paint);
 
-    // ahorro de batería/datos: pausa fuera de pantalla
     new IntersectionObserver(([en]) => {
       if (!en.isIntersecting) v.pause();
       else if (!manualPause && !reduce) v.play().catch(() => {});

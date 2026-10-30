@@ -1,6 +1,4 @@
-// include.js — inyecta cada bloque (partials/*.html) en su placeholder.
-// Requiere servir el sitio por http(s): Live Server en VS Code o GitHub Pages.
-// (Abrir index.html con doble clic no funciona: el navegador bloquea fetch en file://)
+
 document.documentElement.classList.add("js");
 
 async function loadPartial(el) {

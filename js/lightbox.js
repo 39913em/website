@@ -1,4 +1,4 @@
-// lightbox.js — abre cada pieza en pantalla completa, navega por piezas y obras, enlaza #obra/id.
+
 (function () {
   const YT = /^[A-Za-z0-9_-]{11}$/;
   let dlg, stage, S = { id: null, i: 0 };

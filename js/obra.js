@@ -1,5 +1,4 @@
-// obra.js — lee data/obra.json y pinta 3 pestañas (Video / Sonido / Imagen) + su grilla.
-// Para agregar obra edita solo data/obra.json. Para ocultar una pieza: "hidden": true.
+
 (function () {
   const pad = (n) => String(n).padStart(2, "0");
 
@@ -83,7 +82,6 @@
       return b;
     }));
 
-    // flechas ←/→ entre pestañas (accesibilidad)
     tabsEl.addEventListener("keydown", (e) => {
       if (e.key !== "ArrowRight" && e.key !== "ArrowLeft") return;
       const ids = data.categories.map((c) => c.id);
@@ -91,7 +89,6 @@
       current = next; render(); tabsEl.querySelector(`[data-tab="${next}"]`).focus();
     });
 
-    // si llegan por enlace directo #obra/id, mostrar la pestaña de esa pieza
     const m = location.hash.match(/^#obra\/([\w-]+)$/);
     const target = m && data.works.find((w) => w.id === m[1]);
     if (target) current = target.cat;

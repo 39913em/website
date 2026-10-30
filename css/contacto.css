@@ -1,4 +1,3 @@
-/* ---------- Contacto + footer ---------- */
 .contact__title { font: 900 clamp(4.4rem, 21vw, 23rem)/.78 var(--f-display); font-stretch: 62%; text-transform: uppercase; letter-spacing: -.02em; white-space: nowrap; margin-bottom: 0; }
 .contact__lede { margin-top: clamp(20px, 3vw, 40px); font: 600 clamp(1.2rem, 2.2vw, 1.9rem)/1.2 var(--f-body); max-width: 30ch; }
 .contact__actions { display: flex; flex-wrap: wrap; gap: 16px; margin-top: clamp(28px, 4vw, 52px); }
