@@ -1,17 +1,10 @@
 /* ---------- Contacto + footer ---------- */
-.contact { padding-bottom: 0; }
-.contact__title { font: 900 clamp(4.4rem, 21vw, 23rem)/.78 var(--f-display); font-stretch: 62%; text-transform: uppercase; letter-spacing: -.02em; white-space: nowrap; }
-.contact__lede { margin-top: clamp(20px, 3vw, 40px); font: 500 clamp(1.2rem, 2.2vw, 1.9rem)/1.2 var(--f-body); max-width: 30ch; }
+.contact__title { font: 900 clamp(4.4rem, 21vw, 23rem)/.78 var(--f-display); font-stretch: 62%; text-transform: uppercase; letter-spacing: -.02em; white-space: nowrap; margin-bottom: 0; }
+.contact__lede { margin-top: clamp(20px, 3vw, 40px); font: 600 clamp(1.2rem, 2.2vw, 1.9rem)/1.2 var(--f-body); max-width: 30ch; }
 .contact__actions { display: flex; flex-wrap: wrap; gap: 16px; margin-top: clamp(28px, 4vw, 52px); }
-.contact__more { display: flex; flex-wrap: wrap; gap: 0; margin-top: clamp(40px, 6vw, 84px); border-top: var(--bw) solid var(--paper); }
-.contact__more li { flex: 1 1 240px; border-right: var(--bw) solid var(--paper); }
-.contact__more li:last-child { border-right: 0; }
-.contact__more a { display: flex; justify-content: space-between; padding: 22px 18px; font: 700 .9rem/1 var(--f-mono); text-transform: uppercase; letter-spacing: .05em; text-decoration: none; transition: background .12s, color .12s; }
-.contact__more a:hover { background: var(--paper); color: var(--ink); }
 
-.ftr { background: var(--paper); color: var(--ink); border-top: var(--bw) solid var(--paper); }
+.ftr { background: var(--ink); color: var(--paper); border-top: var(--bw) solid var(--ink); }
 .ftr__row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; padding-block: 22px; }
 .ftr__brand { display: inline-flex; align-items: center; gap: 14px; text-decoration: none; font: 800 1.05rem/1 var(--f-display); font-stretch: 70%; text-transform: uppercase; }
-.ftr .mono, .ftr__top { font-size: .8rem; text-decoration: none; }
-.ftr__top:hover { color: var(--accent); }
-body { padding-bottom: 0; }
+.ftr .mono { font-size: .8rem; }
+.ftr__brand:hover { color: var(--accent); }

@@ -1,8 +1,9 @@
-// obra.js — lee data/obra.json y pinta filtros + grilla. Para agregar obra edita solo el JSON.
+// obra.js — lee data/obra.json y pinta 3 pestañas (Video / Sonido / Imagen) + su grilla.
+// Para agregar obra edita solo data/obra.json. Para ocultar una pieza: "hidden": true.
 (function () {
   const pad = (n) => String(n).padStart(2, "0");
 
-  function card(w, index, featured) {
+  function card(w, n, featured) {
     const li = document.createElement("article");
     li.className = "card" + (featured ? " card--feat" : "");
     li.dataset.id = w.id;
@@ -27,7 +28,7 @@
       const b = document.createElement("b"); b.textContent = w.cover.text; media.appendChild(b);
     }
     const idx = document.createElement("span");
-    idx.className = "card__idx"; idx.textContent = "N°" + pad(index + 1);
+    idx.className = "card__idx"; idx.textContent = "N°" + pad(n);
     media.appendChild(idx);
 
     const meta = document.createElement("span");
@@ -43,46 +44,57 @@
 
   async function init() {
     const grid = document.querySelector("[data-grid]");
-    const filtersEl = document.querySelector("[data-filters]");
+    const tabsEl = document.querySelector("[data-tabs]");
     if (!grid) return;
 
     let data;
     try { data = await (await fetch("data/obra.json")).json(); }
     catch (e) { grid.textContent = "No se pudo cargar la obra (data/obra.json)."; console.error(e); return; }
 
+    data.works = data.works.filter((w) => !w.hidden);
     window.OBRA = data;
     data.visibleIds = data.works.map((w) => w.id);
-    let current = "all";
+    let current = data.categories[0].id;
 
     const io = new IntersectionObserver((entries) => entries.forEach((e) => {
       if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
     }), { threshold: 0.1 });
 
     function render() {
-      const list = data.works.filter((w) => current === "all" || w.cat === current);
+      const list = data.works.filter((w) => w.cat === current);
       data.visibleIds = list.map((w) => w.id);
-      const cta = document.createElement("article");
-      cta.className = "card card--cta";
-      const a = document.createElement("a");
-      a.className = "card__btn"; a.href = "#contacto"; a.dataset.track = "grid-cta";
-      const big = document.createElement("b"); big.textContent = "¿Tienes un proyecto?";
-      const go = document.createElement("span"); go.textContent = "Hablemos →";
-      a.append(big, go); cta.appendChild(a);
-      grid.replaceChildren(...list.map((w) => card(w, data.works.indexOf(w), current === "all" && w.featured)), cta);
+      grid.replaceChildren(...list.map((w, i) => card(w, i + 1, i === 0 && w.featured)));
       grid.querySelectorAll(".card").forEach((c, i) => { c.style.transitionDelay = (i % 6) * 50 + "ms"; io.observe(c); });
-      filtersEl.querySelectorAll("button").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.filter === current)));
+      tabsEl.querySelectorAll(".tab").forEach((b) => {
+        b.setAttribute("aria-selected", String(b.dataset.tab === current));
+        b.tabIndex = b.dataset.tab === current ? 0 : -1;
+      });
+      grid.setAttribute("aria-labelledby", "tab-" + current);
     }
 
-    const defs = [{ id: "all", label: "Todo" }, ...data.categories];
-    filtersEl.replaceChildren(...defs.map((c) => {
+    tabsEl.replaceChildren(...data.categories.map((c) => {
       const b = document.createElement("button");
-      b.type = "button"; b.dataset.filter = c.id; b.dataset.track = "filter-" + c.id;
-      const n = c.id === "all" ? data.works.length : data.works.filter((w) => w.cat === c.id).length;
-      b.append(c.label);
-      const sup = document.createElement("sup"); sup.textContent = n; b.appendChild(sup);
+      b.type = "button"; b.className = "tab"; b.id = "tab-" + c.id;
+      b.setAttribute("role", "tab"); b.dataset.tab = c.id; b.dataset.track = "tab-" + c.id;
+      const t = document.createElement("b"); t.textContent = c.label;
+      const d = document.createElement("span"); d.textContent = c.desc;
+      b.append(t, d);
       b.addEventListener("click", () => { current = c.id; render(); });
       return b;
     }));
+
+    // flechas ←/→ entre pestañas (accesibilidad)
+    tabsEl.addEventListener("keydown", (e) => {
+      if (e.key !== "ArrowRight" && e.key !== "ArrowLeft") return;
+      const ids = data.categories.map((c) => c.id);
+      const next = ids[(ids.indexOf(current) + (e.key === "ArrowRight" ? 1 : -1) + ids.length) % ids.length];
+      current = next; render(); tabsEl.querySelector(`[data-tab="${next}"]`).focus();
+    });
+
+    // si llegan por enlace directo #obra/id, mostrar la pestaña de esa pieza
+    const m = location.hash.match(/^#obra\/([\w-]+)$/);
+    const target = m && data.works.find((w) => w.id === m[1]);
+    if (target) current = target.cat;
 
     render();
     document.dispatchEvent(new CustomEvent("obra:ready"));

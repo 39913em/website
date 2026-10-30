@@ -2,23 +2,18 @@
  "categories": [
   {
    "id": "video",
-   "label": "Video"
+   "label": "Video",
+   "desc": "Dirección, edición y postproducción."
   },
   {
-   "id": "foto",
-   "label": "Foto"
+   "id": "sonido",
+   "label": "Sonido",
+   "desc": "Diseño sonoro y música original."
   },
   {
-   "id": "ilustracion",
-   "label": "Ilustración"
-  },
-  {
-   "id": "sonoro",
-   "label": "Sonoro"
-  },
-  {
-   "id": "interactivo",
-   "label": "Interactivo"
+   "id": "imagen",
+   "label": "Imagen",
+   "desc": "Fotografía, arte digital y diseño de interfaces."
   }
  ],
  "works": [
@@ -338,7 +333,7 @@
   },
   {
    "id": "ctrl-fe",
-   "cat": "sonoro",
+   "cat": "sonido",
    "title": "CTRL+FE 39913 ft. Guadarrama",
    "kicker": "Pieza sonora — 2026 — escrita en código",
    "cover": "assets/img/t/ctrlfe-cover.webp",
@@ -365,7 +360,7 @@
   },
   {
    "id": "bitumen",
-   "cat": "sonoro",
+   "cat": "sonido",
    "title": "Bitumen",
    "kicker": "Pieza sonora",
    "cover": {
@@ -381,42 +376,8 @@
    ]
   },
   {
-   "id": "jardin-del-oraculo",
-   "cat": "interactivo",
-   "title": "Jardín del oráculo",
-   "kicker": "Experiencia interactiva web",
-   "cover": {
-    "text": "Jardín del oráculo"
-   },
-   "desc": "Experiencia interactiva en línea. Se abre en una pestaña nueva.",
-   "items": [
-    {
-     "type": "link",
-     "url": "https://39913em.github.io/jardin-del-oraculo/",
-     "label": "Abrir experiencia"
-    }
-   ]
-  },
-  {
-   "id": "sonografia",
-   "cat": "interactivo",
-   "title": "Sonografía",
-   "kicker": "Experiencia interactiva web",
-   "cover": {
-    "text": "Sonografía"
-   },
-   "desc": "Experiencia interactiva en línea. Se abre en una pestaña nueva.",
-   "items": [
-    {
-     "type": "link",
-     "url": "https://39913em.github.io/sonografia/",
-     "label": "Abrir experiencia"
-    }
-   ]
-  },
-  {
    "id": "incarnare",
-   "cat": "foto",
+   "cat": "imagen",
    "title": "Incarnare",
    "kicker": "Serie fotográfica — retrato",
    "cover": "assets/img/t/incarnare-1.webp",
@@ -449,7 +410,7 @@
   },
   {
    "id": "pret-a-mx",
-   "cat": "foto",
+   "cat": "imagen",
    "title": "Pret à MX",
    "kicker": "Fotografía editorial — 2018",
    "cover": "assets/img/t/pret-01.webp",
@@ -518,7 +479,7 @@
   },
   {
    "id": "calle-retrato",
-   "cat": "foto",
+   "cat": "imagen",
    "title": "Calle y retrato",
    "kicker": "Fotografía documental",
    "cover": "assets/img/t/calle-08.webp",
@@ -586,74 +547,8 @@
    ]
   },
   {
-   "id": "simetrias",
-   "cat": "foto",
-   "title": "Espejos y simetrías",
-   "kicker": "Fotografía de espacio",
-   "cover": "assets/img/t/sim-01.webp",
-   "items": [
-    {
-     "type": "img",
-     "src": "assets/img/f/sim-01.webp",
-     "thumb": "assets/img/t/sim-01.webp",
-     "alt": "Espejos y simetrías — 1 de 4"
-    },
-    {
-     "type": "img",
-     "src": "assets/img/f/sim-02.webp",
-     "thumb": "assets/img/t/sim-02.webp",
-     "alt": "Espejos y simetrías — 2 de 4"
-    },
-    {
-     "type": "img",
-     "src": "assets/img/f/sim-03.webp",
-     "thumb": "assets/img/t/sim-03.webp",
-     "alt": "Espejos y simetrías — 3 de 4"
-    },
-    {
-     "type": "img",
-     "src": "assets/img/f/sim-04.webp",
-     "thumb": "assets/img/t/sim-04.webp",
-     "alt": "Espejos y simetrías — 4 de 4"
-    }
-   ]
-  },
-  {
-   "id": "directo",
-   "cat": "foto",
-   "title": "Registro en vivo",
-   "kicker": "Fotografía de directo",
-   "cover": "assets/img/t/directo-2.webp",
-   "items": [
-    {
-     "type": "img",
-     "src": "assets/img/f/directo-1.webp",
-     "thumb": "assets/img/t/directo-1.webp",
-     "alt": "Registro en vivo — 1 de 4"
-    },
-    {
-     "type": "img",
-     "src": "assets/img/f/directo-2.webp",
-     "thumb": "assets/img/t/directo-2.webp",
-     "alt": "Registro en vivo — 2 de 4"
-    },
-    {
-     "type": "img",
-     "src": "assets/img/f/directo-3.webp",
-     "thumb": "assets/img/t/directo-3.webp",
-     "alt": "Registro en vivo — 3 de 4"
-    },
-    {
-     "type": "img",
-     "src": "assets/img/f/directo-4.webp",
-     "thumb": "assets/img/t/directo-4.webp",
-     "alt": "Registro en vivo — 4 de 4"
-    }
-   ]
-  },
-  {
    "id": "glitch-retratos",
-   "cat": "ilustracion",
+   "cat": "imagen",
    "title": "Retratos glitch",
    "kicker": "Arte digital — glitch",
    "cover": "assets/img/t/glitch-01.webp",
@@ -698,7 +593,7 @@
   },
   {
    "id": "tipografia",
-   "cat": "ilustracion",
+   "cat": "imagen",
    "title": "Human / Metaverse / Hypervisual",
    "kicker": "Tipografía y glitch",
    "cover": "assets/img/t/tipo-02.webp",
@@ -737,7 +632,7 @@
   },
   {
    "id": "diseno-grafico",
-   "cat": "ilustracion",
+   "cat": "imagen",
    "title": "Diseño gráfico",
    "kicker": "Collage digital y cartel",
    "cover": "assets/img/t/dg-02.webp",
@@ -769,8 +664,110 @@
    ]
   },
   {
+   "id": "jardin-del-oraculo",
+   "cat": "imagen",
+   "title": "Jardín del oráculo",
+   "kicker": "Experiencia interactiva web",
+   "cover": {
+    "text": "Jardín del oráculo"
+   },
+   "desc": "Experiencia interactiva en línea. Se abre en una pestaña nueva.",
+   "items": [
+    {
+     "type": "link",
+     "url": "https://39913em.github.io/jardin-del-oraculo/",
+     "label": "Abrir experiencia"
+    }
+   ]
+  },
+  {
+   "id": "sonografia",
+   "cat": "imagen",
+   "title": "Sonografía",
+   "kicker": "Experiencia interactiva web",
+   "cover": {
+    "text": "Sonografía"
+   },
+   "desc": "Experiencia interactiva en línea. Se abre en una pestaña nueva.",
+   "items": [
+    {
+     "type": "link",
+     "url": "https://39913em.github.io/sonografia/",
+     "label": "Abrir experiencia"
+    }
+   ]
+  },
+  {
+   "id": "simetrias",
+   "cat": "imagen",
+   "title": "Espejos y simetrías",
+   "kicker": "Fotografía de espacio",
+   "cover": "assets/img/t/sim-01.webp",
+   "items": [
+    {
+     "type": "img",
+     "src": "assets/img/f/sim-01.webp",
+     "thumb": "assets/img/t/sim-01.webp",
+     "alt": "Espejos y simetrías — 1 de 4"
+    },
+    {
+     "type": "img",
+     "src": "assets/img/f/sim-02.webp",
+     "thumb": "assets/img/t/sim-02.webp",
+     "alt": "Espejos y simetrías — 2 de 4"
+    },
+    {
+     "type": "img",
+     "src": "assets/img/f/sim-03.webp",
+     "thumb": "assets/img/t/sim-03.webp",
+     "alt": "Espejos y simetrías — 3 de 4"
+    },
+    {
+     "type": "img",
+     "src": "assets/img/f/sim-04.webp",
+     "thumb": "assets/img/t/sim-04.webp",
+     "alt": "Espejos y simetrías — 4 de 4"
+    }
+   ],
+   "hidden": true
+  },
+  {
+   "id": "directo",
+   "cat": "imagen",
+   "title": "Registro en vivo",
+   "kicker": "Fotografía de directo",
+   "cover": "assets/img/t/directo-2.webp",
+   "items": [
+    {
+     "type": "img",
+     "src": "assets/img/f/directo-1.webp",
+     "thumb": "assets/img/t/directo-1.webp",
+     "alt": "Registro en vivo — 1 de 4"
+    },
+    {
+     "type": "img",
+     "src": "assets/img/f/directo-2.webp",
+     "thumb": "assets/img/t/directo-2.webp",
+     "alt": "Registro en vivo — 2 de 4"
+    },
+    {
+     "type": "img",
+     "src": "assets/img/f/directo-3.webp",
+     "thumb": "assets/img/t/directo-3.webp",
+     "alt": "Registro en vivo — 3 de 4"
+    },
+    {
+     "type": "img",
+     "src": "assets/img/f/directo-4.webp",
+     "thumb": "assets/img/t/directo-4.webp",
+     "alt": "Registro en vivo — 4 de 4"
+    }
+   ],
+   "hidden": true
+  },
+  {
    "id": "dibujo-pintura",
-   "cat": "ilustracion",
+   "cat": "imagen",
    "title": "Dibujo y pintura",
    "kicker": "Técnica mixta",
    "cover": "assets/img/t/dib-01.webp",
@@ -805,11 +802,12 @@
      "thumb": "assets/img/t/dib-05.webp",
      "alt": "Dibujo y pintura — 5 de 5"
     }
-   ]
+   ],
+   "hidden": true
   },
   {
    "id": "loops",
-   "cat": "ilustracion",
+   "cat": "imagen",
    "title": "Loops",
    "kicker": "Glitch en movimiento",
    "cover": "assets/video/loop-kg3.jpg",
@@ -838,7 +836,8 @@
      "thumb": "assets/video/loop-dan.jpg",
      "alt": "Loop"
     }
-   ]
+   ],
+   "hidden": true
   }
  ]
 }

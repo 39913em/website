@@ -92,13 +92,6 @@
     $("[data-lb-prev]").addEventListener("click", () => step(-1));
     $("[data-lb-next]").addEventListener("click", () => step(1));
     $("[data-lb-contact]").addEventListener("click", () => dlg.close());
-    const colorBtn = $("[data-lb-color]");
-    colorBtn.addEventListener("click", () => {
-      const on = dlg.dataset.color !== "on";
-      dlg.dataset.color = on ? "on" : "off";
-      colorBtn.setAttribute("aria-pressed", String(on));
-      colorBtn.textContent = on ? "Ver en B/N" : "Ver a color";
-    });
     dlg.addEventListener("click", (e) => { if (e.target === dlg) dlg.close(); });
     dlg.addEventListener("keydown", (e) => {
       if (e.target.closest("audio, video, [role=slider]")) return;

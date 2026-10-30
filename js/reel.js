@@ -1,4 +1,4 @@
-// reel.js — reel vertical: timecode real, activar sonido, pausa, barra, pantalla completa.
+// reel.js — reel vertical en loop: timecode real, pausa, sonido, barra y pantalla completa.
 (function () {
   const FPS = 30;
   const pad = (n) => String(n).padStart(2, "0");
@@ -11,14 +11,11 @@
     const tc = reel.querySelector("[data-reel-tc]");
     const fill = reel.querySelector("[data-reel-fill]");
     const track = reel.querySelector("[data-reel-track]");
-    const label = reel.querySelector("[data-reel-cover-label]");
     const playBtn = reel.querySelector("[data-reel-play]");
     const muteBtn = reel.querySelector("[data-reel-mute]");
     const fullBtn = reel.querySelector("[data-reel-full]");
     const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-    let manualPause = false;
-    let raf = 0;
+    let manualPause = false, raf = 0;
 
     const paint = () => {
       const p = v.duration ? v.currentTime / v.duration : 0;
@@ -27,35 +24,23 @@
       tc.textContent = fmt(v.currentTime);
     };
     const loop = () => { paint(); raf = requestAnimationFrame(loop); };
-    const startLoop = () => { cancelAnimationFrame(raf); raf = requestAnimationFrame(loop); };
-    const stopLoop = () => { cancelAnimationFrame(raf); paint(); };
 
     const sync = () => {
       reel.classList.toggle("is-paused", v.paused);
       reel.classList.toggle("is-muted", v.muted);
       playBtn.setAttribute("aria-label", v.paused ? "Reproducir" : "Pausar");
       muteBtn.setAttribute("aria-label", v.muted ? "Activar sonido" : "Silenciar");
-      v.paused ? stopLoop() : startLoop();
+      cancelAnimationFrame(raf);
+      if (v.paused) paint(); else raf = requestAnimationFrame(loop);
     };
 
-    const enableSound = () => {
-      reel.classList.add("is-sound");
-      manualPause = false;
-      v.loop = false;
-      v.muted = false;
-      v.currentTime = 0;
-      v.play().catch(() => { v.muted = true; v.play(); });
-      sync();
-      reel.scrollIntoView({ block: "nearest", behavior: reduce ? "auto" : "smooth" });
-    };
-
-    document.querySelectorAll("[data-reel-sound]").forEach((b) => b.addEventListener("click", enableSound));
+    const toggleMute = () => { v.muted = !v.muted; sync(); };
+    muteBtn.addEventListener("click", toggleMute);
+    v.addEventListener("click", toggleMute);
 
     playBtn.addEventListener("click", () => {
       if (v.paused) { manualPause = false; v.play(); } else { manualPause = true; v.pause(); }
     });
-    v.addEventListener("click", () => { if (reel.classList.contains("is-sound")) playBtn.click(); });
-    muteBtn.addEventListener("click", () => { v.muted = !v.muted; sync(); });
 
     fullBtn.addEventListener("click", () => {
       if (document.fullscreenElement) document.exitFullscreen();
@@ -63,9 +48,9 @@
       else if (v.webkitEnterFullscreen) v.webkitEnterFullscreen();
     });
 
-    const seek = (clientX) => {
+    const seek = (x) => {
       const r = track.getBoundingClientRect();
-      v.currentTime = Math.max(0, Math.min(1, (clientX - r.left) / r.width)) * (v.duration || 0);
+      v.currentTime = Math.max(0, Math.min(1, (x - r.left) / r.width)) * (v.duration || 0);
       paint();
     };
     track.addEventListener("click", (e) => seek(e.clientX));
@@ -74,15 +59,8 @@
       if (e.key === "ArrowLeft") v.currentTime = Math.max(0, v.currentTime - 5);
     });
 
-    // al terminar con sonido: vuelve al loop mudo y ofrece repetir
-    v.addEventListener("ended", () => {
-      reel.classList.remove("is-sound");
-      label.textContent = "Ver de nuevo con sonido";
-      v.loop = true; v.muted = true; v.currentTime = 0; v.play(); sync();
-    });
-    v.addEventListener("play", sync);
-    v.addEventListener("pause", sync);
-    v.addEventListener("volumechange", sync);
+    ["play", "pause", "volumechange"].forEach((ev) => v.addEventListener(ev, sync));
+    v.addEventListener("loadedmetadata", paint);
 
     // ahorro de batería/datos: pausa fuera de pantalla
     new IntersectionObserver(([en]) => {
@@ -91,7 +69,6 @@
     }, { threshold: 0.15 }).observe(reel);
 
     if (reduce) { v.removeAttribute("autoplay"); v.pause(); }
-    v.addEventListener("loadedmetadata", paint);
     sync();
   }
   document.addEventListener("partials:loaded", init);

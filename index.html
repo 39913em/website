@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Eduardo M. Gutiérrez Orduña — Producción y postproducción audiovisual</title>
 <meta name="description" content="Producción y postproducción audiovisual, diseño sonoro y diseño UI. Galería digital de obra: cortometraje, videoarte, fotografía, glitch y piezas sonoras.">
-<meta name="theme-color" content="#0B0B0B">
+<meta name="theme-color" content="#000000">
 
 <!-- Seguridad: CSP en <meta> (GitHub Pages no permite headers). Sin scripts ni estilos inline. -->
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' data:; media-src 'self'; frame-src https://www.youtube-nocookie.com; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'">
@@ -29,7 +29,6 @@
 <link rel="stylesheet" href="css/header.css">
 <link rel="stylesheet" href="css/hero.css">
 <link rel="stylesheet" href="css/ticker.css">
-<link rel="stylesheet" href="css/servicios.css">
 <link rel="stylesheet" href="css/obra.css">
 <link rel="stylesheet" href="css/lightbox.css">
 <link rel="stylesheet" href="css/trayectoria.css">
@@ -37,13 +36,13 @@
 </head>
 <body>
 <a class="skip" href="#obra">Saltar a la obra</a>
+<p id="boot">Cargando… Si solo ves este texto: no abras index.html con doble clic. Usa Live Server (VS Code) o la URL de GitHub Pages.</p>
 
 <!-- Cada bloque vive en partials/ y se inyecta con js/include.js -->
 <div data-include="partials/header.html"></div>
 <main>
   <div data-include="partials/hero.html"></div>
   <div data-include="partials/ticker.html"></div>
-  <div data-include="partials/servicios.html"></div>
   <div data-include="partials/obra.html"></div>
   <div data-include="partials/trayectoria.html"></div>
   <div data-include="partials/contacto.html"></div>

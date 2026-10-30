@@ -1,4 +1,4 @@
-// nav.js — progreso de lectura, sección activa, CTA flotante, año del footer.
+// nav.js — barra de progreso de lectura, sección activa en el menú y año del footer.
 (function () {
   function init() {
     const y = document.getElementById("year");
@@ -18,7 +18,6 @@
     addEventListener("scroll", onScroll, { passive: true });
     onScroll();
 
-    // sección activa en el menú
     const links = new Map([...document.querySelectorAll("[data-nav]")].map((a) => [a.dataset.nav, a]));
     const secs = [...document.querySelectorAll("[data-section]")];
     const visible = new Set();
@@ -26,10 +25,6 @@
       entries.forEach((e) => (e.isIntersecting ? visible.add(e.target.dataset.section) : visible.delete(e.target.dataset.section)));
       const current = secs.map((s) => s.dataset.section).filter((id) => visible.has(id)).pop();
       links.forEach((a, id) => a.setAttribute("aria-current", id === current ? "true" : "false"));
-
-      // CTA flotante: tras el reel y hasta Contacto
-      const fab = document.querySelector("[data-fab]");
-      if (fab) fab.classList.toggle("show", !visible.has("reel") && !visible.has("contacto") && scrollY > 200);
     }, { rootMargin: "-35% 0px -45% 0px" });
     secs.forEach((s) => io.observe(s));
   }

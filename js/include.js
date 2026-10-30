@@ -17,5 +17,6 @@ async function loadPartial(el) {
 
 document.addEventListener("DOMContentLoaded", async () => {
   await Promise.all([...document.querySelectorAll("[data-include]")].map(loadPartial));
+  document.getElementById("boot")?.remove();
   document.dispatchEvent(new CustomEvent("partials:loaded"));
 });
