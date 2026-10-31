@@ -11,9 +11,20 @@
    "desc": "Diseño sonoro y música original."
   },
   {
-   "id": "imagen",
-   "label": "Imagen",
-   "desc": "Fotografía, arte digital y diseño de interfaces."
+   "id": "fotografia",
+   "label": "Fotografía",
+   "desc": "Retrato, calle, registro y editorial."
+  },
+  {
+   "id": "arte",
+   "label": "Arte digital",
+   "desc": "Glitch, tipografía, ilustración y loops."
+  },
+  {
+   "id": "pintura",
+   "label": "Pintura",
+   "desc": "Obra pictórica.",
+   "soon": "Más obra pictórica"
   }
  ],
  "works": [
@@ -32,7 +43,7 @@
    "credits": [
     [
      "Dirección",
-     "Eduardo M.G. Orduña"
+     "Eduardo Manuel"
     ],
     [
      "Producción",
@@ -104,11 +115,11 @@
    "credits": [
     [
      "Dirección y guion original",
-     "Eduardo M.G. Orduña"
+     "Eduardo Manuel"
     ],
     [
      "Producción",
-     "Ian Greendale, Pao Olivares, Eduardo M.G. Orduña"
+     "Ian Greendale, Pao Olivares, Eduardo Manuel"
     ],
     [
      "Dirección de fotografía",
@@ -168,7 +179,7 @@
    "credits": [
     [
      "Dirección",
-     "Eduardo M.G. Orduña"
+     "Eduardo Manuel"
     ],
     [
      "Formato",
@@ -220,7 +231,7 @@
    "credits": [
     [
      "Dirección",
-     "Eduardo M.G. Orduña"
+     "Eduardo Manuel"
     ],
     [
      "Colaboración",
@@ -268,7 +279,7 @@
    "credits": [
     [
      "Dirección",
-     "Eduardo M.G. Orduña"
+     "Eduardo Manuel"
     ]
    ],
    "items": [
@@ -301,7 +312,6 @@
     }
    ]
   },
-  
   {
    "id": "ctrl-fe",
    "cat": "sonido",
@@ -315,7 +325,7 @@
    "credits": [
     [
      "Autoría",
-     "Eduardo M.G. Orduña"
+     "Eduardo Manuel"
     ]
    ],
    "items": [
@@ -347,441 +357,624 @@
    ]
   },
   {
-   "id": "incarnare",
-   "cat": "imagen",
-   "title": "Incarnare",
-   "kicker": "Serie fotográfica — retrato",
-   "cover": "assets/img/t/incarnare-1.webp",
+   "id": "pret-a-mx",
+   "cat": "fotografia",
+   "title": "Pret à MX",
+   "kicker": "Fotografía editorial — 2018",
+   "cover": "assets/img/t/pret-10122018-pret-a-mx-106.webp",
    "items": [
     {
      "type": "img",
-     "src": "assets/img/f/incarnare-1.webp",
-     "thumb": "assets/img/t/incarnare-1.webp",
+     "src": "assets/img/f/pret-10122018-pret-a-mx-17.webp",
+     "thumb": "assets/img/t/pret-10122018-pret-a-mx-17.webp",
+     "alt": "Pret à MX — 1 de 20"
+    },
+    {
+     "type": "img",
+     "src": "assets/img/f/pret-10122018-pret-a-mx-72.webp",
+     "thumb": "assets/img/t/pret-10122018-pret-a-mx-72.webp",
+     "alt": "Pret à MX — 2 de 20"
+    },
+    {
+     "type": "img",
+     "src": "assets/img/f/pret-10122018-pret-a-mx-79.webp",
+     "thumb": "assets/img/t/pret-10122018-pret-a-mx-79.webp",
+     "alt": "Pret à MX — 3 de 20"
+    },
+    {
+     "type": "img",
+     "src": "assets/img/f/pret-10122018-pret-a-mx-81.webp",
+     "thumb": "assets/img/t/pret-10122018-pret-a-mx-81.webp",
+     "alt": "Pret à MX — 4 de 20"
+    },
+    {
+     "type": "img",
+     "src": "assets/img/f/pret-10122018-pret-a-mx-82.webp",
+     "thumb": "assets/img/t/pret-10122018-pret-a-mx-82.webp",
+     "alt": "Pret à MX — 5 de 20"
+    },
+    {
+     "type": "img",
+     "src": "assets/img/f/pret-10122018-pret-a-mx-83.webp",
+     "thumb": "assets/img/t/pret-10122018-pret-a-mx-83.webp",
+     "alt": "Pret à MX — 6 de 20"
+    },
+    {
+     "type": "img",
+     "src": "assets/img/f/pret-10122018-pret-a-mx-85.webp",
+     "thumb": "assets/img/t/pret-10122018-pret-a-mx-85.webp",
+     "alt": "Pret à MX — 7 de 20"
+    },
+    {
+     "type": "img",
+     "src": "assets/img/f/pret-10122018-pret-a-mx-91.webp",
+     "thumb": "assets/img/t/pret-10122018-pret-a-mx-91.webp",
+     "alt": "Pret à MX — 8 de 20"
+    },
+    {
+     "type": "img",
+     "src": "assets/img/f/pret-10122018-pret-a-mx-94.webp",
+     "thumb": "assets/img/t/pret-10122018-pret-a-mx-94.webp",
+     "alt": "Pret à MX — 9 de 20"
+    },
+    {
+     "type": "img",
+     "src": "assets/img/f/pret-10122018-pret-a-mx-99.webp",
+     "thumb": "assets/img/t/pret-10122018-pret-a-mx-99.webp",
+     "alt": "Pret à MX — 10 de 20"
+    },
+    {
+     "type": "img",
+     "src": "assets/img/f/pret-10122018-pret-a-mx-103.webp",
+     "thumb": "assets/img/t/pret-10122018-pret-a-mx-103.webp",
+     "alt": "Pret à MX — 11 de 20"
+    },
+    {
+     "type": "img",
+     "src": "assets/img/f/pret-10122018-pret-a-mx-106.webp",
+     "thumb": "assets/img/t/pret-10122018-pret-a-mx-106.webp",
+     "alt": "Pret à MX — 12 de 20"
+    },
+    {
+     "type": "img",
+     "src": "assets/img/f/pret-10122018-pret-a-mx-117.webp",
+     "thumb": "assets/img/t/pret-10122018-pret-a-mx-117.webp",
+     "alt": "Pret à MX — 13 de 20"
+    },
+    {
+     "type": "img",
+     "src": "assets/img/f/pret-10122018-pret-a-mx-131.webp",
+     "thumb": "assets/img/t/pret-10122018-pret-a-mx-131.webp",
+     "alt": "Pret à MX — 14 de 20"
+    },
+    {
+     "type": "img",
+     "src": "assets/img/f/pret-10122018-pret-a-mx-132.webp",
+     "thumb": "assets/img/t/pret-10122018-pret-a-mx-132.webp",
+     "alt": "Pret à MX — 15 de 20"
+    },
+    {
+     "type": "img",
+     "src": "assets/img/f/pret-10122018-pret-a-mx-136.webp",
+     "thumb": "assets/img/t/pret-10122018-pret-a-mx-136.webp",
+     "alt": "Pret à MX — 16 de 20"
+    },
+    {
+     "type": "img",
+     "src": "assets/img/f/pret-10122018-pret-a-mx-147.webp",
+     "thumb": "assets/img/t/pret-10122018-pret-a-mx-147.webp",
+     "alt": "Pret à MX — 17 de 20"
+    },
+    {
+     "type": "img",
+     "src": "assets/img/f/pret-10122018-pret-a-mx-148.webp",
+     "thumb": "assets/img/t/pret-10122018-pret-a-mx-148.webp",
+     "alt": "Pret à MX — 18 de 20"
+    },
+    {
+     "type": "img",
+     "src": "assets/img/f/pret-10122018-pret-a-mx-150.webp",
+     "thumb": "assets/img/t/pret-10122018-pret-a-mx-150.webp",
+     "alt": "Pret à MX — 19 de 20"
+    },
+    {
+     "type": "img",
+     "src": "assets/img/f/pret-10122018-pret-a-mx-151.webp",
+     "thumb": "assets/img/t/pret-10122018-pret-a-mx-151.webp",
+     "alt": "Pret à MX — 20 de 20"
+    }
+   ]
+  },
+  {
+   "id": "incarnare",
+   "cat": "fotografia",
+   "title": "Incarnare",
+   "kicker": "Serie fotográfica — retrato",
+   "cover": "assets/img/t/incarnare-bw1f-5.webp",
+   "items": [
+    {
+     "type": "img",
+     "src": "assets/img/f/incarnare-bw1f-5.webp",
+     "thumb": "assets/img/t/incarnare-bw1f-5.webp",
      "alt": "Incarnare — 1 de 4"
     },
     {
      "type": "img",
-     "src": "assets/img/f/incarnare-2.webp",
-     "thumb": "assets/img/t/incarnare-2.webp",
+     "src": "assets/img/f/incarnare-incarnare-1-3.webp",
+     "thumb": "assets/img/t/incarnare-incarnare-1-3.webp",
      "alt": "Incarnare — 2 de 4"
     },
     {
      "type": "img",
-     "src": "assets/img/f/incarnare-3.webp",
-     "thumb": "assets/img/t/incarnare-3.webp",
+     "src": "assets/img/f/incarnare-incarnare-2-3.webp",
+     "thumb": "assets/img/t/incarnare-incarnare-2-3.webp",
      "alt": "Incarnare — 3 de 4"
     },
     {
      "type": "img",
-     "src": "assets/img/f/incarnare-4.webp",
-     "thumb": "assets/img/t/incarnare-4.webp",
+     "src": "assets/img/f/incarnare-incarnare-3-3.webp",
+     "thumb": "assets/img/t/incarnare-incarnare-3-3.webp",
      "alt": "Incarnare — 4 de 4"
     }
    ]
   },
   {
-   "id": "pret-a-mx",
-   "cat": "imagen",
-   "title": "Pret à MX",
-   "kicker": "Fotografía editorial — 2018",
-   "cover": "assets/img/t/pret-01.webp",
+   "id": "calle-retrato",
+   "cat": "fotografia",
+   "title": "Calle y retrato",
+   "kicker": "Fotografía documental",
+   "cover": "assets/img/t/calle-dsc01244.webp",
    "items": [
     {
      "type": "img",
-     "src": "assets/img/f/pret-01.webp",
-     "thumb": "assets/img/t/pret-01.webp",
-     "alt": "Pret à MX — 1 de 10"
+     "src": "assets/img/f/calle-05122020byedd-5.webp",
+     "thumb": "assets/img/t/calle-05122020byedd-5.webp",
+     "alt": "Calle y retrato — 1 de 15"
     },
     {
      "type": "img",
-     "src": "assets/img/f/pret-02.webp",
-     "thumb": "assets/img/t/pret-02.webp",
-     "alt": "Pret à MX — 2 de 10"
+     "src": "assets/img/f/calle-08112020-dsc09865.webp",
+     "thumb": "assets/img/t/calle-08112020-dsc09865.webp",
+     "alt": "Calle y retrato — 2 de 15"
     },
     {
      "type": "img",
-     "src": "assets/img/f/pret-03.webp",
-     "thumb": "assets/img/t/pret-03.webp",
-     "alt": "Pret à MX — 3 de 10"
+     "src": "assets/img/f/calle-09082020-dsc00192.webp",
+     "thumb": "assets/img/t/calle-09082020-dsc00192.webp",
+     "alt": "Calle y retrato — 3 de 15"
     },
     {
      "type": "img",
-     "src": "assets/img/f/pret-04.webp",
-     "thumb": "assets/img/t/pret-04.webp",
-     "alt": "Pret à MX — 4 de 10"
+     "src": "assets/img/f/calle-23072020-dsc09938.webp",
+     "thumb": "assets/img/t/calle-23072020-dsc09938.webp",
+     "alt": "Calle y retrato — 4 de 15"
     },
     {
      "type": "img",
-     "src": "assets/img/f/pret-05.webp",
-     "thumb": "assets/img/t/pret-05.webp",
-     "alt": "Pret à MX — 5 de 10"
+     "src": "assets/img/f/calle-b-w-boring-weird-4.webp",
+     "thumb": "assets/img/t/calle-b-w-boring-weird-4.webp",
+     "alt": "Calle y retrato — 5 de 15"
     },
     {
      "type": "img",
-     "src": "assets/img/f/pret-06.webp",
-     "thumb": "assets/img/t/pret-06.webp",
-     "alt": "Pret à MX — 6 de 10"
+     "src": "assets/img/f/calle-captura-de-pantalla-5.webp",
+     "thumb": "assets/img/t/calle-captura-de-pantalla-5.webp",
+     "alt": "Calle y retrato — 6 de 15"
     },
     {
      "type": "img",
-     "src": "assets/img/f/pret-07.webp",
-     "thumb": "assets/img/t/pret-07.webp",
-     "alt": "Pret à MX — 7 de 10"
+     "src": "assets/img/f/calle-captura-de-pantalla-6.webp",
+     "thumb": "assets/img/t/calle-captura-de-pantalla-6.webp",
+     "alt": "Calle y retrato — 7 de 15"
     },
     {
      "type": "img",
-     "src": "assets/img/f/pret-08.webp",
-     "thumb": "assets/img/t/pret-08.webp",
-     "alt": "Pret à MX — 8 de 10"
+     "src": "assets/img/f/calle-captura-de-pantalla-7.webp",
+     "thumb": "assets/img/t/calle-captura-de-pantalla-7.webp",
+     "alt": "Calle y retrato — 8 de 15"
     },
     {
      "type": "img",
-     "src": "assets/img/f/pret-09.webp",
-     "thumb": "assets/img/t/pret-09.webp",
-     "alt": "Pret à MX — 9 de 10"
+     "src": "assets/img/f/calle-dsc00966.webp",
+     "thumb": "assets/img/t/calle-dsc00966.webp",
+     "alt": "Calle y retrato — 9 de 15"
     },
     {
      "type": "img",
-     "src": "assets/img/f/pret-10.webp",
-     "thumb": "assets/img/t/pret-10.webp",
-     "alt": "Pret à MX — 10 de 10"
+     "src": "assets/img/f/calle-dsc01170.webp",
+     "thumb": "assets/img/t/calle-dsc01170.webp",
+     "alt": "Calle y retrato — 10 de 15"
+    },
+    {
+     "type": "img",
+     "src": "assets/img/f/calle-dsc01244.webp",
+     "thumb": "assets/img/t/calle-dsc01244.webp",
+     "alt": "Calle y retrato — 11 de 15"
+    },
+    {
+     "type": "img",
+     "src": "assets/img/f/calle-hdr-4-de-8.webp",
+     "thumb": "assets/img/t/calle-hdr-4-de-8.webp",
+     "alt": "Calle y retrato — 12 de 15"
+    },
+    {
+     "type": "img",
+     "src": "assets/img/f/calle-introsspeccion-5.webp",
+     "thumb": "assets/img/t/calle-introsspeccion-5.webp",
+     "alt": "Calle y retrato — 13 de 15"
+    },
+    {
+     "type": "img",
+     "src": "assets/img/f/calle-miradas-cruzadas.webp",
+     "thumb": "assets/img/t/calle-miradas-cruzadas.webp",
+     "alt": "Calle y retrato — 14 de 15"
+    },
+    {
+     "type": "img",
+     "src": "assets/img/f/calle-visiones.webp",
+     "thumb": "assets/img/t/calle-visiones.webp",
+     "alt": "Calle y retrato — 15 de 15"
     }
    ]
   },
   {
-   "id": "calle-retrato",
-   "cat": "imagen",
-   "title": "Calle y retrato",
-   "kicker": "Fotografía documental",
-   "cover": "assets/img/t/calle-08.webp",
+   "id": "simetrias",
+   "cat": "fotografia",
+   "title": "Espejos y simetrías",
+   "kicker": "Fotografía de espacio",
+   "cover": "assets/img/t/simetrias-fr21-12-2013012131p-m.webp",
    "items": [
     {
      "type": "img",
-     "src": "assets/img/f/calle-01.webp",
-     "thumb": "assets/img/t/calle-01.webp",
-     "alt": "Calle y retrato — 1 de 10"
+     "src": "assets/img/f/simetrias-escape.webp",
+     "thumb": "assets/img/t/simetrias-escape.webp",
+     "alt": "Espejos y simetrías — 1 de 4"
     },
     {
      "type": "img",
-     "src": "assets/img/f/calle-02.webp",
-     "thumb": "assets/img/t/calle-02.webp",
-     "alt": "Calle y retrato — 2 de 10"
+     "src": "assets/img/f/simetrias-fr21-12-2013012131p-m.webp",
+     "thumb": "assets/img/t/simetrias-fr21-12-2013012131p-m.webp",
+     "alt": "Espejos y simetrías — 2 de 4"
     },
     {
      "type": "img",
-     "src": "assets/img/f/calle-03.webp",
-     "thumb": "assets/img/t/calle-03.webp",
-     "alt": "Calle y retrato — 3 de 10"
+     "src": "assets/img/f/simetrias-fr21-12-2013012821p-m.webp",
+     "thumb": "assets/img/t/simetrias-fr21-12-2013012821p-m.webp",
+     "alt": "Espejos y simetrías — 3 de 4"
     },
     {
      "type": "img",
-     "src": "assets/img/f/calle-04.webp",
-     "thumb": "assets/img/t/calle-04.webp",
-     "alt": "Calle y retrato — 4 de 10"
+     "src": "assets/img/f/simetrias-img-0352.webp",
+     "thumb": "assets/img/t/simetrias-img-0352.webp",
+     "alt": "Espejos y simetrías — 4 de 4"
+    }
+   ]
+  },
+  {
+   "id": "registro",
+   "cat": "fotografia",
+   "title": "Registro y documental",
+   "kicker": "Fotografía de directo y reportaje",
+   "cover": "assets/img/t/registro-moviemakers-4.webp",
+   "items": [
+    {
+     "type": "img",
+     "src": "assets/img/f/registro-airf-3-de-18.webp",
+     "thumb": "assets/img/t/registro-airf-3-de-18.webp",
+     "alt": "Registro y documental — 1 de 9"
     },
     {
      "type": "img",
-     "src": "assets/img/f/calle-05.webp",
-     "thumb": "assets/img/t/calle-05.webp",
-     "alt": "Calle y retrato — 5 de 10"
+     "src": "assets/img/f/registro-cdmx-1-de-2.webp",
+     "thumb": "assets/img/t/registro-cdmx-1-de-2.webp",
+     "alt": "Registro y documental — 2 de 9"
     },
     {
      "type": "img",
-     "src": "assets/img/f/calle-06.webp",
-     "thumb": "assets/img/t/calle-06.webp",
-     "alt": "Calle y retrato — 6 de 10"
+     "src": "assets/img/f/registro-firm-5.webp",
+     "thumb": "assets/img/t/registro-firm-5.webp",
+     "alt": "Registro y documental — 3 de 9"
     },
     {
      "type": "img",
-     "src": "assets/img/f/calle-07.webp",
-     "thumb": "assets/img/t/calle-07.webp",
-     "alt": "Calle y retrato — 7 de 10"
+     "src": "assets/img/f/registro-moviemakers-3.webp",
+     "thumb": "assets/img/t/registro-moviemakers-3.webp",
+     "alt": "Registro y documental — 4 de 9"
     },
     {
      "type": "img",
-     "src": "assets/img/f/calle-08.webp",
-     "thumb": "assets/img/t/calle-08.webp",
-     "alt": "Calle y retrato — 8 de 10"
+     "src": "assets/img/f/registro-moviemakers-4.webp",
+     "thumb": "assets/img/t/registro-moviemakers-4.webp",
+     "alt": "Registro y documental — 5 de 9"
     },
     {
      "type": "img",
-     "src": "assets/img/f/calle-09.webp",
-     "thumb": "assets/img/t/calle-09.webp",
-     "alt": "Calle y retrato — 9 de 10"
+     "src": "assets/img/f/registro-moviemakers-5.webp",
+     "thumb": "assets/img/t/registro-moviemakers-5.webp",
+     "alt": "Registro y documental — 6 de 9"
     },
     {
      "type": "img",
-     "src": "assets/img/f/calle-10.webp",
-     "thumb": "assets/img/t/calle-10.webp",
-     "alt": "Calle y retrato — 10 de 10"
+     "src": "assets/img/f/registro-moviemakers-6.webp",
+     "thumb": "assets/img/t/registro-moviemakers-6.webp",
+     "alt": "Registro y documental — 7 de 9"
+    },
+    {
+     "type": "img",
+     "src": "assets/img/f/registro-nofirm-1.webp",
+     "thumb": "assets/img/t/registro-nofirm-1.webp",
+     "alt": "Registro y documental — 8 de 9"
+    },
+    {
+     "type": "img",
+     "src": "assets/img/f/registro-vistas-f.webp",
+     "thumb": "assets/img/t/registro-vistas-f.webp",
+     "alt": "Registro y documental — 9 de 9"
+    }
+   ]
+  },
+  {
+   "id": "collage",
+   "cat": "fotografia",
+   "title": "Collage fotográfico",
+   "kicker": "Fotografía — 2018",
+   "cover": "assets/img/t/collage-si-20180903-213523.webp",
+   "items": [
+    {
+     "type": "img",
+     "src": "assets/img/f/collage-si-20180903-213523.webp",
+     "thumb": "assets/img/t/collage-si-20180903-213523.webp",
+     "alt": "Collage fotográfico — 1 de 2"
+    },
+    {
+     "type": "img",
+     "src": "assets/img/f/collage-si-20180918-193949.webp",
+     "thumb": "assets/img/t/collage-si-20180918-193949.webp",
+     "alt": "Collage fotográfico — 2 de 2"
     }
    ]
   },
   {
    "id": "glitch-retratos",
-   "cat": "imagen",
+   "cat": "arte",
    "title": "Retratos glitch",
    "kicker": "Arte digital — glitch",
-   "cover": "assets/img/t/glitch-01.webp",
+   "cover": "assets/img/t/glitch-263da810-076b-4383-9c16-347ac816d023.webp",
    "items": [
     {
      "type": "img",
-     "src": "assets/img/f/glitch-01.webp",
-     "thumb": "assets/img/t/glitch-01.webp",
+     "src": "assets/img/f/glitch-6afcfb60-681e-46ad-a8f1-bca72e25e453.webp",
+     "thumb": "assets/img/t/glitch-6afcfb60-681e-46ad-a8f1-bca72e25e453.webp",
      "alt": "Retratos glitch — 1 de 6"
     },
     {
      "type": "img",
-     "src": "assets/img/f/glitch-02.webp",
-     "thumb": "assets/img/t/glitch-02.webp",
+     "src": "assets/img/f/glitch-8b05b569-e648-436b-a3a4-e2c00342114d.webp",
+     "thumb": "assets/img/t/glitch-8b05b569-e648-436b-a3a4-e2c00342114d.webp",
      "alt": "Retratos glitch — 2 de 6"
     },
     {
      "type": "img",
-     "src": "assets/img/f/glitch-03.webp",
-     "thumb": "assets/img/t/glitch-03.webp",
+     "src": "assets/img/f/glitch-263da810-076b-4383-9c16-347ac816d023.webp",
+     "thumb": "assets/img/t/glitch-263da810-076b-4383-9c16-347ac816d023.webp",
      "alt": "Retratos glitch — 3 de 6"
     },
     {
      "type": "img",
-     "src": "assets/img/f/glitch-04.webp",
-     "thumb": "assets/img/t/glitch-04.webp",
+     "src": "assets/img/f/glitch-b63a91b8-c43e-4dc8-8beb-ecde6d49a18e.webp",
+     "thumb": "assets/img/t/glitch-b63a91b8-c43e-4dc8-8beb-ecde6d49a18e.webp",
      "alt": "Retratos glitch — 4 de 6"
     },
     {
      "type": "img",
-     "src": "assets/img/f/glitch-05.webp",
-     "thumb": "assets/img/t/glitch-05.webp",
+     "src": "assets/img/f/glitch-bb6ea918-6279-4344-b51e-68430f8608a6.webp",
+     "thumb": "assets/img/t/glitch-bb6ea918-6279-4344-b51e-68430f8608a6.webp",
      "alt": "Retratos glitch — 5 de 6"
     },
     {
      "type": "img",
-     "src": "assets/img/f/glitch-06.webp",
-     "thumb": "assets/img/t/glitch-06.webp",
+     "src": "assets/img/f/glitch-img-2101.webp",
+     "thumb": "assets/img/t/glitch-img-2101.webp",
      "alt": "Retratos glitch — 6 de 6"
     }
    ]
   },
   {
    "id": "tipografia",
-   "cat": "imagen",
+   "cat": "arte",
    "title": "Human / Metaverse / Hypervisual",
    "kicker": "Tipografía y glitch",
-   "cover": "assets/img/t/tipo-02.webp",
+   "cover": "assets/img/t/tipo-img-2105.webp",
    "items": [
     {
      "type": "img",
-     "src": "assets/img/f/tipo-01.webp",
-     "thumb": "assets/img/t/tipo-01.webp",
-     "alt": "Tipografía y glitch — 1 de 5"
+     "src": "assets/img/f/tipo-img-2093.webp",
+     "thumb": "assets/img/t/tipo-img-2093.webp",
+     "alt": "Human / Metaverse / Hypervisual — 1 de 6"
     },
     {
      "type": "img",
-     "src": "assets/img/f/tipo-02.webp",
-     "thumb": "assets/img/t/tipo-02.webp",
-     "alt": "Tipografía y glitch — 2 de 5"
+     "src": "assets/img/f/tipo-img-2094.webp",
+     "thumb": "assets/img/t/tipo-img-2094.webp",
+     "alt": "Human / Metaverse / Hypervisual — 2 de 6"
     },
     {
      "type": "img",
-     "src": "assets/img/f/tipo-03.webp",
-     "thumb": "assets/img/t/tipo-03.webp",
-     "alt": "Tipografía y glitch — 3 de 5"
+     "src": "assets/img/f/tipo-img-2104.webp",
+     "thumb": "assets/img/t/tipo-img-2104.webp",
+     "alt": "Human / Metaverse / Hypervisual — 3 de 6"
     },
     {
      "type": "img",
-     "src": "assets/img/f/tipo-04.webp",
-     "thumb": "assets/img/t/tipo-04.webp",
-     "alt": "Tipografía y glitch — 4 de 5"
+     "src": "assets/img/f/tipo-img-2104-1.webp",
+     "thumb": "assets/img/t/tipo-img-2104-1.webp",
+     "alt": "Human / Metaverse / Hypervisual — 4 de 6"
     },
     {
      "type": "img",
-     "src": "assets/img/f/tipo-05.webp",
-     "thumb": "assets/img/t/tipo-05.webp",
-     "alt": "Tipografía y glitch — 5 de 5"
+     "src": "assets/img/f/tipo-img-2105.webp",
+     "thumb": "assets/img/t/tipo-img-2105.webp",
+     "alt": "Human / Metaverse / Hypervisual — 5 de 6"
+    },
+    {
+     "type": "img",
+     "src": "assets/img/f/tipo-img-2106.webp",
+     "thumb": "assets/img/t/tipo-img-2106.webp",
+     "alt": "Human / Metaverse / Hypervisual — 6 de 6"
     }
    ]
   },
   {
    "id": "diseno-grafico",
-   "cat": "imagen",
+   "cat": "arte",
    "title": "Diseño gráfico",
    "kicker": "Collage digital y cartel",
-   "cover": "assets/img/t/dg-02.webp",
+   "cover": "assets/img/t/dg-captura-desde-2025-08-12-11-50-46.webp",
    "items": [
     {
      "type": "img",
-     "src": "assets/img/f/dg-01.webp",
-     "thumb": "assets/img/t/dg-01.webp",
+     "src": "assets/img/f/dg-captura-desde-2025-08-12-11-50-46.webp",
+     "thumb": "assets/img/t/dg-captura-desde-2025-08-12-11-50-46.webp",
      "alt": "Diseño gráfico — 1 de 4"
     },
     {
      "type": "img",
-     "src": "assets/img/f/dg-02.webp",
-     "thumb": "assets/img/t/dg-02.webp",
+     "src": "assets/img/f/dg-captura-desde-2025-08-12-11-53-17.webp",
+     "thumb": "assets/img/t/dg-captura-desde-2025-08-12-11-53-17.webp",
      "alt": "Diseño gráfico — 2 de 4"
     },
     {
      "type": "img",
-     "src": "assets/img/f/dg-03.webp",
-     "thumb": "assets/img/t/dg-03.webp",
+     "src": "assets/img/f/dg-img-0610.webp",
+     "thumb": "assets/img/t/dg-img-0610.webp",
      "alt": "Diseño gráfico — 3 de 4"
     },
     {
      "type": "img",
-     "src": "assets/img/f/dg-04.webp",
-     "thumb": "assets/img/t/dg-04.webp",
+     "src": "assets/img/f/dg-img-0621.webp",
+     "thumb": "assets/img/t/dg-img-0621.webp",
      "alt": "Diseño gráfico — 4 de 4"
     }
    ]
   },
   {
-   "id": "jardin-del-oraculo",
-   "cat": "imagen",
-   "title": "Jardín del oráculo",
-   "kicker": "Experiencia interactiva web",
-   "cover": {
-    "text": "Jardín del oráculo"
-   },
-   "desc": "Experiencia interactiva en línea. Se abre en una pestaña nueva.",
+   "id": "ilustracion-digital",
+   "cat": "arte",
+   "title": "Ilustración digital",
+   "kicker": "Retrato digital",
+   "cover": "assets/img/t/digital-b1764ee0-c551-4f16-835f-fcf116068f19.webp",
    "items": [
     {
-     "type": "link",
-     "url": "https://39913em.github.io/jardin-del-oraculo/",
-     "label": "Abrir experiencia"
+     "type": "img",
+     "src": "assets/img/f/digital-b1764ee0-c551-4f16-835f-fcf116068f19.webp",
+     "thumb": "assets/img/t/digital-b1764ee0-c551-4f16-835f-fcf116068f19.webp",
+     "alt": "Ilustración digital — 1 de 7"
+    },
+    {
+     "type": "img",
+     "src": "assets/img/f/digital-img-1384.webp",
+     "thumb": "assets/img/t/digital-img-1384.webp",
+     "alt": "Ilustración digital — 2 de 7"
+    },
+    {
+     "type": "img",
+     "src": "assets/img/f/digital-img-1386.webp",
+     "thumb": "assets/img/t/digital-img-1386.webp",
+     "alt": "Ilustración digital — 3 de 7"
+    },
+    {
+     "type": "img",
+     "src": "assets/img/f/digital-img-1387.webp",
+     "thumb": "assets/img/t/digital-img-1387.webp",
+     "alt": "Ilustración digital — 4 de 7"
+    },
+    {
+     "type": "img",
+     "src": "assets/img/f/digital-img-5173.webp",
+     "thumb": "assets/img/t/digital-img-5173.webp",
+     "alt": "Ilustración digital — 5 de 7"
+    },
+    {
+     "type": "img",
+     "src": "assets/img/f/digital-photo-4926991160199719990-x.webp",
+     "thumb": "assets/img/t/digital-photo-4926991160199719990-x.webp",
+     "alt": "Ilustración digital — 6 de 7"
+    },
+    {
+     "type": "img",
+     "src": "assets/img/f/digital-photo-4997052693956635183-y.webp",
+     "thumb": "assets/img/t/digital-photo-4997052693956635183-y.webp",
+     "alt": "Ilustración digital — 7 de 7"
     }
    ]
   },
   {
-   "id": "sonografia",
-   "cat": "imagen",
-   "title": "Sonografía",
-   "kicker": "Experiencia interactiva web",
-   "cover": {
-    "text": "Sonografía"
-   },
-   "desc": "Experiencia interactiva en línea. Se abre en una pestaña nueva.",
-   "items": [
-    {
-     "type": "link",
-     "url": "https://39913em.github.io/sonografia/",
-     "label": "Abrir experiencia"
-    }
-   ]
-  },
-  {
-   "id": "simetrias",
-   "cat": "imagen",
-   "title": "Espejos y simetrías",
-   "kicker": "Fotografía de espacio",
-   "cover": "assets/img/t/sim-01.webp",
+   "id": "proyectos-exposiciones",
+   "cat": "arte",
+   "title": "Proyectos y exposiciones",
+   "kicker": "Láminas de proyecto y exposición",
+   "cover": "assets/img/t/proyectos-sin-titulo-13.webp",
    "items": [
     {
      "type": "img",
-     "src": "assets/img/f/sim-01.webp",
-     "thumb": "assets/img/t/sim-01.webp",
-     "alt": "Espejos y simetrías — 1 de 4"
+     "src": "assets/img/f/proyectos-asx.webp",
+     "thumb": "assets/img/t/proyectos-asx.webp",
+     "alt": "Proyectos y exposiciones — 1 de 8"
     },
     {
      "type": "img",
-     "src": "assets/img/f/sim-02.webp",
-     "thumb": "assets/img/t/sim-02.webp",
-     "alt": "Espejos y simetrías — 2 de 4"
+     "src": "assets/img/f/proyectos-asxas.webp",
+     "thumb": "assets/img/t/proyectos-asxas.webp",
+     "alt": "Proyectos y exposiciones — 2 de 8"
     },
     {
      "type": "img",
-     "src": "assets/img/f/sim-03.webp",
-     "thumb": "assets/img/t/sim-03.webp",
-     "alt": "Espejos y simetrías — 3 de 4"
+     "src": "assets/img/f/proyectos-axsxa.webp",
+     "thumb": "assets/img/t/proyectos-axsxa.webp",
+     "alt": "Proyectos y exposiciones — 3 de 8"
     },
     {
      "type": "img",
-     "src": "assets/img/f/sim-04.webp",
-     "thumb": "assets/img/t/sim-04.webp",
-     "alt": "Espejos y simetrías — 4 de 4"
-    }
-   ],
-   "hidden": true
-  },
-  {
-   "id": "directo",
-   "cat": "imagen",
-   "title": "Registro en vivo",
-   "kicker": "Fotografía de directo",
-   "cover": "assets/img/t/directo-2.webp",
-   "items": [
-    {
-     "type": "img",
-     "src": "assets/img/f/directo-1.webp",
-     "thumb": "assets/img/t/directo-1.webp",
-     "alt": "Registro en vivo — 1 de 4"
+     "src": "assets/img/f/proyectos-sin-titulo-1.webp",
+     "thumb": "assets/img/t/proyectos-sin-titulo-1.webp",
+     "alt": "Proyectos y exposiciones — 4 de 8"
     },
     {
      "type": "img",
-     "src": "assets/img/f/directo-2.webp",
-     "thumb": "assets/img/t/directo-2.webp",
-     "alt": "Registro en vivo — 2 de 4"
+     "src": "assets/img/f/proyectos-sin-titulo-2.webp",
+     "thumb": "assets/img/t/proyectos-sin-titulo-2.webp",
+     "alt": "Proyectos y exposiciones — 5 de 8"
     },
     {
      "type": "img",
-     "src": "assets/img/f/directo-3.webp",
-     "thumb": "assets/img/t/directo-3.webp",
-     "alt": "Registro en vivo — 3 de 4"
+     "src": "assets/img/f/proyectos-sin-titulo-13.webp",
+     "thumb": "assets/img/t/proyectos-sin-titulo-13.webp",
+     "alt": "Proyectos y exposiciones — 6 de 8"
     },
     {
      "type": "img",
-     "src": "assets/img/f/directo-4.webp",
-     "thumb": "assets/img/t/directo-4.webp",
-     "alt": "Registro en vivo — 4 de 4"
+     "src": "assets/img/f/proyectos-sin-titulo-13png.webp",
+     "thumb": "assets/img/t/proyectos-sin-titulo-13png.webp",
+     "alt": "Proyectos y exposiciones — 7 de 8"
+    },
+    {
+     "type": "img",
+     "src": "assets/img/f/proyectos-x-39.webp",
+     "thumb": "assets/img/t/proyectos-x-39.webp",
+     "alt": "Proyectos y exposiciones — 8 de 8"
     }
    ],
-   "hidden": true
-  },
-  {
-   "id": "dibujo-pintura",
-   "cat": "imagen",
-   "title": "Dibujo y pintura",
-   "kicker": "Técnica mixta",
-   "cover": "assets/img/t/dib-01.webp",
-   "items": [
-    {
-     "type": "img",
-     "src": "assets/img/f/dib-01.webp",
-     "thumb": "assets/img/t/dib-01.webp",
-     "alt": "Dibujo y pintura — 1 de 5"
-    },
-    {
-     "type": "img",
-     "src": "assets/img/f/dib-02.webp",
-     "thumb": "assets/img/t/dib-02.webp",
-     "alt": "Dibujo y pintura — 2 de 5"
-    },
-    {
-     "type": "img",
-     "src": "assets/img/f/dib-03.webp",
-     "thumb": "assets/img/t/dib-03.webp",
-     "alt": "Dibujo y pintura — 3 de 5"
-    },
-    {
-     "type": "img",
-     "src": "assets/img/f/dib-04.webp",
-     "thumb": "assets/img/t/dib-04.webp",
-     "alt": "Dibujo y pintura — 4 de 5"
-    },
-    {
-     "type": "img",
-     "src": "assets/img/f/dib-05.webp",
-     "thumb": "assets/img/t/dib-05.webp",
-     "alt": "Dibujo y pintura — 5 de 5"
-    }
-   ],
-   "hidden": true
+   "desc": "Láminas de proyectos y exposiciones: Screen Life 1.0, Seducción de la hiperrealidad, Imagen-Ante, NoFace (2015-) e instalaciones."
   },
   {
    "id": "loops",
-   "cat": "imagen",
+   "cat": "arte",
    "title": "Loops",
    "kicker": "Glitch en movimiento",
-   "cover": "assets/video/loop-kg3.jpg",
+   "cover": {
+    "video": "assets/video/loop-kg3.mp4",
+    "poster": "assets/video/loop-kg3.jpg"
+   },
    "items": [
     {
      "type": "video",
@@ -806,9 +999,146 @@
      "src": "assets/video/loop-dan.mp4",
      "thumb": "assets/video/loop-dan.jpg",
      "alt": "Loop"
+    },
+    {
+     "type": "video",
+     "src": "assets/video/loop-tikt.mp4",
+     "thumb": "assets/video/loop-tikt.jpg",
+     "alt": "Loop"
     }
-   ],
-   "hidden": true
+   ]
+  },
+  {
+   "id": "obra-pictorica",
+   "cat": "pintura",
+   "title": "Obra pictórica",
+   "kicker": "Pintura",
+   "cover": "assets/img/t/pintura-img-4775.webp",
+   "items": [
+    {
+     "type": "img",
+     "src": "assets/img/f/pintura-img-4770.webp",
+     "thumb": "assets/img/t/pintura-img-4770.webp",
+     "alt": "Obra pictórica — 1 de 13"
+    },
+    {
+     "type": "img",
+     "src": "assets/img/f/pintura-img-4771.webp",
+     "thumb": "assets/img/t/pintura-img-4771.webp",
+     "alt": "Obra pictórica — 2 de 13"
+    },
+    {
+     "type": "img",
+     "src": "assets/img/f/pintura-img-4772.webp",
+     "thumb": "assets/img/t/pintura-img-4772.webp",
+     "alt": "Obra pictórica — 3 de 13"
+    },
+    {
+     "type": "img",
+     "src": "assets/img/f/pintura-img-4775.webp",
+     "thumb": "assets/img/t/pintura-img-4775.webp",
+     "alt": "Obra pictórica — 4 de 13"
+    },
+    {
+     "type": "img",
+     "src": "assets/img/f/pintura-img-4776.webp",
+     "thumb": "assets/img/t/pintura-img-4776.webp",
+     "alt": "Obra pictórica — 5 de 13"
+    },
+    {
+     "type": "img",
+     "src": "assets/img/f/pintura-img-4777.webp",
+     "thumb": "assets/img/t/pintura-img-4777.webp",
+     "alt": "Obra pictórica — 6 de 13"
+    },
+    {
+     "type": "img",
+     "src": "assets/img/f/pintura-img-4779.webp",
+     "thumb": "assets/img/t/pintura-img-4779.webp",
+     "alt": "Obra pictórica — 7 de 13"
+    },
+    {
+     "type": "img",
+     "src": "assets/img/f/pintura-img-4780.webp",
+     "thumb": "assets/img/t/pintura-img-4780.webp",
+     "alt": "Obra pictórica — 8 de 13"
+    },
+    {
+     "type": "img",
+     "src": "assets/img/f/pintura-img-4781.webp",
+     "thumb": "assets/img/t/pintura-img-4781.webp",
+     "alt": "Obra pictórica — 9 de 13"
+    },
+    {
+     "type": "img",
+     "src": "assets/img/f/pintura-img-5251.webp",
+     "thumb": "assets/img/t/pintura-img-5251.webp",
+     "alt": "Obra pictórica — 10 de 13"
+    },
+    {
+     "type": "img",
+     "src": "assets/img/f/pintura-img-6214.webp",
+     "thumb": "assets/img/t/pintura-img-6214.webp",
+     "alt": "Obra pictórica — 11 de 13"
+    },
+    {
+     "type": "img",
+     "src": "assets/img/f/pintura-img-6215.webp",
+     "thumb": "assets/img/t/pintura-img-6215.webp",
+     "alt": "Obra pictórica — 12 de 13"
+    },
+    {
+     "type": "img",
+     "src": "assets/img/f/pintura-img-6216.webp",
+     "thumb": "assets/img/t/pintura-img-6216.webp",
+     "alt": "Obra pictórica — 13 de 13"
+    }
+   ]
+  },
+  {
+   "id": "dibujo-tecnica-mixta",
+   "cat": "pintura",
+   "title": "Dibujo y técnica mixta",
+   "kicker": "Dibujo",
+   "cover": "assets/img/t/dibujo-img-1366.webp",
+   "items": [
+    {
+     "type": "img",
+     "src": "assets/img/f/dibujo-img-1365.webp",
+     "thumb": "assets/img/t/dibujo-img-1365.webp",
+     "alt": "Dibujo y técnica mixta — 1 de 6"
+    },
+    {
+     "type": "img",
+     "src": "assets/img/f/dibujo-img-1366.webp",
+     "thumb": "assets/img/t/dibujo-img-1366.webp",
+     "alt": "Dibujo y técnica mixta — 2 de 6"
+    },
+    {
+     "type": "img",
+     "src": "assets/img/f/dibujo-img-1367.webp",
+     "thumb": "assets/img/t/dibujo-img-1367.webp",
+     "alt": "Dibujo y técnica mixta — 3 de 6"
+    },
+    {
+     "type": "img",
+     "src": "assets/img/f/dibujo-img-1368.webp",
+     "thumb": "assets/img/t/dibujo-img-1368.webp",
+     "alt": "Dibujo y técnica mixta — 4 de 6"
+    },
+    {
+     "type": "img",
+     "src": "assets/img/f/dibujo-img-2085.webp",
+     "thumb": "assets/img/t/dibujo-img-2085.webp",
+     "alt": "Dibujo y técnica mixta — 5 de 6"
+    },
+    {
+     "type": "img",
+     "src": "assets/img/f/dibujo-img-4887.webp",
+     "thumb": "assets/img/t/dibujo-img-4887.webp",
+     "alt": "Dibujo y técnica mixta — 6 de 6"
+    }
+   ]
   }
  ]
 }

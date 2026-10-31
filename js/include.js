@@ -1,4 +1,3 @@
-
 document.documentElement.classList.add("js");
 
 async function loadPartial(el) {
@@ -8,13 +7,16 @@ async function loadPartial(el) {
     if (!res.ok) throw new Error("HTTP " + res.status);
     el.outerHTML = await res.text();
   } catch (err) {
-    el.textContent = "No se pudo cargar " + path + ". Usa Live Server o un servidor local (file:// no funciona).";
-    console.error("Partial:", path, err);
+    el.textContent = location.protocol === "file:"
+      ? "Abre este sitio con Live Server (VS Code) o desde GitHub Pages: el navegador no permite cargarlo con doble clic."
+      : "No se pudo cargar " + path;
   }
 }
 
 document.addEventListener("DOMContentLoaded", async () => {
   await Promise.all([...document.querySelectorAll("[data-include]")].map(loadPartial));
-  document.getElementById("boot")?.remove();
+  if (document.body.dataset.page === "legal") {
+    document.querySelectorAll('a[href^="#"]').forEach((a) => a.setAttribute("href", "index.html" + a.getAttribute("href")));
+  }
   document.dispatchEvent(new CustomEvent("partials:loaded"));
 });

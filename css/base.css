@@ -1,8 +1,7 @@
-
 :root {
   --ink: #000000;
   --paper: #FFFFFF;
-  --accent: #E00000;           
+  --accent: #E00000;
 
   --bw: 3px;
   --pad: clamp(16px, 3.2vw, 44px);
@@ -13,7 +12,6 @@
   --f-body: "Archivo", system-ui, -apple-system, "Segoe UI", sans-serif;
   --f-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
 
-  --art-filter: none;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -60,6 +58,10 @@ ul, ol { padding: 0; list-style: none; }
 .btn--solid { background: var(--ink); color: var(--paper); }
 .btn--solid:hover { background: var(--accent); border-color: var(--accent); color: var(--paper); }
 .btn--line:hover { background: var(--ink); color: var(--paper); }
+.btn--paper { background: var(--paper); color: var(--ink); border-color: var(--paper); }
+.btn--paper:hover { background: var(--accent); border-color: var(--accent); color: var(--paper); }
+.btn--line-inv { border-color: var(--paper); color: var(--paper); }
+.btn--line-inv:hover { background: var(--paper); color: var(--ink); }
 .btn--lg { font-size: 1.15rem; padding: 1em 1.5em; }
 .btn--xl { font-size: clamp(1.1rem, 2vw, 1.6rem); padding: 1em 1.6em; }
 
@@ -74,7 +76,6 @@ ul, ol { padding: 0; list-style: none; }
 .js [data-reveal] { opacity: 0; transform: translateY(28px); transition: opacity .6s ease, transform .6s cubic-bezier(.2,.8,.2,1); }
 .js [data-reveal].in { opacity: .999; transform: none; }
 @media (prefers-reduced-motion: reduce) { .js [data-reveal] { opacity: 1; transform: none; transition: none; } }
-
 
 .hdr, .ticker, .sec, .ftr, .lb, .btn { opacity: .999; }
 .hero { will-change: transform; }

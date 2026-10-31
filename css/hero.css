@@ -1,11 +1,12 @@
 .hero { background: var(--paper); color: var(--ink); display: flex; flex-direction: column; min-height: calc(100svh - var(--hdr-h)); }
 .hero__grid {
   flex: 1; display: grid;
+
   grid-template-columns: minmax(0, 1fr) clamp(300px, calc((100svh - var(--hdr-h)) * .5625), 46vw);
 }
 .hero__copy { display: flex; flex-direction: column; justify-content: flex-end; gap: clamp(18px, 2.4vw, 30px); padding: clamp(24px, 4vw, 56px) var(--pad) clamp(28px, 4vw, 56px); border-right: var(--bw) solid var(--ink); }
 
-.hero__name { font: 900 clamp(3.4rem, min(9.4vw, 19svh), 11rem)/.82 var(--f-display); font-stretch: 62%; text-transform: uppercase; letter-spacing: -.025em; }
+.hero__name { font: 900 clamp(4rem, min(15vw, 27svh), 15rem)/.82 var(--f-display); font-stretch: 62%; text-transform: uppercase; letter-spacing: -.025em; }
 .hero__name .ln { display: block; overflow: hidden; padding-bottom: .04em; }
 .hero__name .ln > span { display: block; transform: translateY(108%); animation: rise .95s cubic-bezier(.2,.8,.2,1) forwards; }
 .hero__name .ln:nth-child(2) > span { animation-delay: .1s; }
@@ -18,7 +19,7 @@
 .hero__actions { display: flex; flex-wrap: wrap; gap: 14px; }
 
 .reel { position: relative; background: var(--ink); color: var(--paper); overflow: hidden; min-height: 0; }
-.reel__video { width: 100%; height: 100%; object-fit: cover; filter: var(--art-filter); cursor: pointer; }
+.reel__video { width: 100%; height: 100%; object-fit: cover; cursor: pointer; }
 
 .reel__hud { position: absolute; inset: 14px 14px auto 14px; display: flex; justify-content: space-between; align-items: center; pointer-events: none; }
 .reel__rec { display: inline-flex; align-items: center; gap: 8px; background: var(--ink); padding: 6px 10px; font: 700 .78rem/1 var(--f-mono); letter-spacing: .08em; }
@@ -44,7 +45,7 @@
   .hero__grid { grid-template-columns: 1fr; }
   .reel { order: -1; height: min(78svh, 700px); aspect-ratio: 9 / 16; width: auto; max-width: 100%; margin-inline: auto; border-inline: var(--bw) solid var(--ink); }
   .hero__copy { border-right: 0; border-top: var(--bw) solid var(--ink); }
-  .hero__name { font-size: min(17vw, 7.5rem); }
+  .hero__name { font-size: min(26vw, 10rem); }
   .hero { min-height: 0; }
 }
 @media (max-width: 520px) { .hero__actions .btn { flex: 1 1 100%; } }

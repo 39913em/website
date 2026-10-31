@@ -1,4 +1,3 @@
-
 (function () {
   const counts = {};
   window.SiteTrack = { counts, report() { console.table(counts); } };

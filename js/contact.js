@@ -1,4 +1,3 @@
-
 (function () {
   async function init() {
     const a = document.querySelector("[data-email]");

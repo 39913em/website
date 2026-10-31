@@ -1,4 +1,3 @@
-
 (function () {
   const YT = /^[A-Za-z0-9_-]{11}$/;
   let dlg, stage, S = { id: null, i: 0 };

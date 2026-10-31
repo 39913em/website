@@ -2,8 +2,11 @@
 .contact__lede { margin-top: clamp(20px, 3vw, 40px); font: 600 clamp(1.2rem, 2.2vw, 1.9rem)/1.2 var(--f-body); max-width: 30ch; }
 .contact__actions { display: flex; flex-wrap: wrap; gap: 16px; margin-top: clamp(28px, 4vw, 52px); }
 
-.ftr { background: var(--ink); color: var(--paper); border-top: var(--bw) solid var(--ink); }
-.ftr__row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; padding-block: 22px; }
+.ftr { background: var(--ink); color: var(--paper); border-top: var(--bw) solid var(--ink); padding-block: 22px; }
+.ftr__row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 18px 32px; }
 .ftr__brand { display: inline-flex; align-items: center; gap: 14px; text-decoration: none; font: 800 1.05rem/1 var(--f-display); font-stretch: 70%; text-transform: uppercase; }
-.ftr .mono { font-size: .8rem; }
 .ftr__brand:hover { color: var(--accent); }
+.ftr__links { display: flex; flex-wrap: wrap; gap: 8px 28px; }
+.ftr__links a { font: 500 .82rem/1 var(--f-mono); text-transform: uppercase; letter-spacing: .04em; text-decoration: none; padding-block: 6px; border-bottom: 2px solid transparent; }
+.ftr__links a:hover { border-bottom-color: var(--accent); }
+.ftr__copy { margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--paper); font-size: .78rem; }

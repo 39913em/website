@@ -11,20 +11,19 @@
 
 .lb__body { flex: 1; min-height: 0; display: grid; grid-template-columns: minmax(0, 1fr) clamp(320px, 30vw, 440px); }
 
-
 .lb__stage { position: relative; display: grid; place-items: center; background: var(--ink); min-height: 0; overflow: hidden; }
 .lb__stage > img, .lb__stage > video {
   position: absolute; inset: var(--pad-stage);
   width: calc(100% - 2 * var(--pad-stage)); height: calc(100% - 2 * var(--pad-stage));
-  object-fit: contain; filter: var(--art-filter);
+  object-fit: contain;
 }
 
 .lb__embed { width: min(calc(100% - 2 * var(--pad-stage)), calc((100dvh - 56px - 2 * var(--pad-stage)) * 16 / 9)); aspect-ratio: 16 / 9; background: var(--ink); }
 .lb__embed--v { width: auto; height: calc(100% - 2 * var(--pad-stage)); aspect-ratio: 9 / 16; max-width: calc(100% - 2 * var(--pad-stage)); }
-.lb__embed iframe { width: 100%; height: 100%; border: 0; filter: var(--art-filter); }
+.lb__embed iframe { width: 100%; height: 100%; border: 0; }
 
 .lb__audio { width: min(calc(100% - 2 * var(--pad-stage)), 520px); display: grid; gap: 18px; }
-.lb__audio img { width: 100%; max-height: 52dvh; object-fit: contain; filter: var(--art-filter); }
+.lb__audio img { width: 100%; max-height: 52dvh; object-fit: contain; }
 .lb__audio audio { width: 100%; }
 
 .lb__link { display: grid; gap: 16px; justify-items: start; max-width: 520px; padding: var(--pad-stage); }
@@ -42,7 +41,7 @@
 
 .lb__thumbs { display: grid; grid-template-columns: repeat(auto-fill, minmax(64px, 1fr)); gap: 6px; }
 .lb__thumb { position: relative; aspect-ratio: 1; padding: 0; background: var(--ink); border: 2px solid var(--paper); cursor: pointer; overflow: hidden; display: grid; place-items: center; color: var(--paper); font: 700 .7rem/1.1 var(--f-mono); text-transform: uppercase; }
-.lb__thumb img { width: 100%; height: 100%; object-fit: cover; filter: var(--art-filter); }
+.lb__thumb img { width: 100%; height: 100%; object-fit: cover; }
 .lb__thumb:hover { background: var(--paper); color: var(--ink); }
 .lb__thumb[aria-current="true"] { border-color: var(--accent); border-width: 4px; }
 .lb__cta { margin-top: auto; justify-content: space-between; background: var(--paper); color: var(--ink); border-color: var(--paper); }
