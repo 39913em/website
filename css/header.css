@@ -20,7 +20,7 @@
 .hdr__progress { position: absolute; left: 0; right: 0; bottom: calc(var(--bw) * -1); height: var(--bw); pointer-events: none; }
 .hdr__progress i { display: block; height: 100%; background: var(--accent); transform-origin: 0 50%; transform: scaleX(var(--p, 0)); }
 
-@media (max-width: 860px) { .hdr__name { display: none; } }
+@media (max-width: 960px) { .hdr__name { display: none; } }
 @media (max-width: 560px) {
   :root { --hdr-h: 56px; }
   .hdr__nav a { padding: 0 14px; font-size: .72rem; letter-spacing: .03em; }

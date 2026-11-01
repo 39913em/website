@@ -13,5 +13,5 @@
 .tray__box li { padding: 10px 0; border-top: 1px solid var(--paper); font-size: 1.02rem; }
 .tray__box li:first-child { border-top: 0; }
 
-@media (max-width: 860px) { .about { grid-template-columns: 1fr; } }
+@media (max-width: 960px) { .about { grid-template-columns: 1fr; } }
 @media (max-width: 760px) { .tray { grid-template-columns: 1fr; } }
