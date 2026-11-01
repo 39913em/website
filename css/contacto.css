@@ -2,7 +2,7 @@
 .contact__lede { margin-top: clamp(20px, 3vw, 40px); font: 600 clamp(1.2rem, 2.2vw, 1.9rem)/1.2 var(--f-body); max-width: 30ch; }
 .contact__actions { display: flex; flex-wrap: wrap; gap: 16px; margin-top: clamp(28px, 4vw, 52px); }
 
-.ftr { background: var(--ink); color: var(--paper); border-top: var(--bw) solid var(--ink); padding-block: 22px; }
+.ftr { background: var(--ink); color: var(--paper); border-top: var(--bw) solid var(--paper); padding-block: 22px; }
 .ftr__row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 18px 32px; }
 .ftr__brand { display: inline-flex; align-items: center; gap: 14px; text-decoration: none; font: 800 1.05rem/1 var(--f-display); font-stretch: 70%; text-transform: uppercase; }
 .ftr__brand:hover { color: var(--accent); }
