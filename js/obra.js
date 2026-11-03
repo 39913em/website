@@ -38,13 +38,6 @@
     return li;
   }
 
-  function soonTile(text) {
-    const li = el("article", "card card--soon");
-    const box = el("div", "soon");
-    box.append(el("b", null, text), el("span", null, "Próximamente"));
-    li.appendChild(box);
-    return li;
-  }
 
   async function init() {
     const grid = document.querySelector("[data-grid]");
@@ -68,7 +61,6 @@
       const list = data.works.filter((w) => w.cat === current);
       data.visibleIds = list.map((w) => w.id);
       const nodes = list.map((w, i) => card(w, i + 1, i === 0 && w.featured));
-      if (cat.soon) nodes.push(soonTile(cat.soon));
       grid.replaceChildren(...nodes);
       grid.querySelectorAll(".card").forEach((c, i) => { c.style.transitionDelay = (i % 6) * 50 + "ms"; io.observe(c); });
       tabsEl.querySelectorAll(".tab").forEach((b) => {
