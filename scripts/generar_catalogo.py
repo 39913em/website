@@ -1,114 +1,99 @@
 #!/usr/bin/env python3
-"""Build the portfolio catalog from files placed in PORTAFOLIO/*."""
-import json
-import re
-import unicodedata
+"""Genera obras desde PORTAFOLIO/* sin editar manualmente el catálogo."""
+import json, re, unicodedata
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data" / "obra.json"
-MEDIA_ROOT = ROOT / "PORTAFOLIO"
-
+BASE = ROOT / "PORTAFOLIO"
 CATEGORIES = [
-    ("AUDIO", "audio", "Audio", "Piezas sonoras"),
-    ("VIDEO", "video", "Video", "Piezas audiovisuales"),
-    ("FOTOGRAFIA", "fotografia", "Fotografía", "Fotografía"),
-    ("ILUSTRACION/DIGITAL", "ilustracion-digital", "Ilustración digital", "Ilustración digital"),
-    ("ILUSTRACION/FISICA", "ilustracion-fisica", "Ilustración física", "Ilustración física"),
-    ("PINTURA", "pintura", "Pintura", "Obra pictórica"),
-    ("DIBUJO", "dibujo", "Dibujo", "Dibujo"),
-    ("EXPERIENCIAS-VIRTUALES", "experiencias-virtuales", "Experiencias virtuales", "Experiencia virtual"),
+    ("AUDIO", "audio", "Audio"),
+    ("VIDEO", "video", "Video"),
+    ("FOTOGRAFIA", "fotografia", "Fotografía"),
+    ("ILUSTRACION/DIGITAL", "ilustracion-digital", "Ilustración digital"),
+    ("ILUSTRACION/FISICA", "ilustracion-fisica", "Ilustración física"),
+    ("PINTURA", "pintura", "Pintura"),
+    ("DIBUJO", "dibujo", "Dibujo"),
+    ("EXPERIENCIAS-VIRTUALES", "experiencias-virtuales", "Experiencias virtuales"),
 ]
-IMAGE = {".jpg", ".jpeg", ".png", ".webp", ".gif", ".avif", ".svg"}
-AUDIO = {".mp3", ".wav", ".ogg", ".oga", ".m4a", ".aac", ".flac"}
-VIDEO = {".mp4", ".webm", ".m4v", ".mov"}
-WEB = {".html", ".htm"}
-DOC = {".pdf"}
+IMAGES={".jpg",".jpeg",".png",".webp",".gif",".avif",".svg"}
+AUDIOS={".mp3",".wav",".ogg",".oga",".m4a",".aac",".flac"}
+VIDEOS={".mp4",".webm",".m4v",".mov"}
+WEB={".html",".htm"}
+PDF={".pdf"}
 
-def slug(value):
-    value = unicodedata.normalize("NFKD", value).encode("ascii", "ignore").decode()
-    return re.sub(r"[^a-z0-9]+", "-", value.lower()).strip("-") or "archivo"
+def slug(s):
+    s=unicodedata.normalize("NFKD",s).encode("ascii","ignore").decode().lower()
+    return re.sub(r"[^a-z0-9]+","-",s).strip("-") or "archivo"
 
-def title_from(path):
-    return re.sub(r"[_-]+", " ", path.stem).strip().title() or "Sin título"
+def title_for(path):
+    return re.sub(r"[_-]+"," ",path.stem).strip().title() or "Sin título"
 
-def rel(path):
-    return path.relative_to(ROOT).as_posix()
+def rel(path): return path.relative_to(ROOT).as_posix()
 
-def make_work(category_id, path, relative_key, kind, title=None):
-    src = rel(path)
-    title = title or title_from(path)
-    work_id = "archivo-" + category_id + "-" + slug(relative_key)
-    item = {"type": kind, "src": src, "label": title}
-    if kind == "img":
-        item.update({"thumb": src, "alt": title})
-        cover = src
-    elif kind == "video":
-        item.update({"thumb": "", "alt": title})
-        cover = {"video": src}
-    elif kind == "audio":
-        cover = {"text": title}
-    elif kind == "link":
-        item = {"type": "link", "url": src, "label": "Abrir experiencia ↗"}
-        cover = {"text": title}
+def referenced_paths(value, found):
+    if isinstance(value,dict):
+        for v in value.values(): referenced_paths(v,found)
+    elif isinstance(value,list):
+        for v in value: referenced_paths(v,found)
+    elif isinstance(value,str) and value.startswith("PORTAFOLIO/"):
+        found.add(value)
+
+def make_work(cat,path,key,kind,title=None):
+    title=title or title_for(path)
+    src=rel(path)
+    if kind=="img":
+        cover=src; item={"type":"img","src":src,"thumb":src,"alt":title,"label":title}
+    elif kind=="video":
+        cover={"video":src}; item={"type":"video","src":src,"alt":title,"label":title}
+    elif kind=="audio":
+        cover={"text":title}; item={"type":"audio","src":src,"label":"Escuchar"}
     else:
-        item = {"type": "link", "url": src, "label": "Abrir documento ↗"}
-        cover = {"text": title}
-    return {
-        "id": work_id,
-        "cat": category_id,
-        "title": title,
-        "kicker": path.suffix.lstrip(".").upper(),
-        "cover": cover,
-        "items": [item],
-    }
+        cover={"text":title}
+        item={"type":"link","url":src,"label":"Abrir experiencia" if kind=="web" else "Abrir documento"}
+    return {"id":"archivo-"+cat+"-"+slug(key),"cat":cat,"title":title,"kicker":path.suffix.lstrip(".").upper(),"cover":cover,"items":[item]}
 
 def main():
-    data = json.loads(DATA.read_text(encoding="utf-8"))
-    generated = []
-    for folder, cat_id, _label, _desc in CATEGORIES:
-        base = MEDIA_ROOT / folder
-        base.mkdir(parents=True, exist_ok=True)
-        if not base.exists():
-            continue
-
-        # In EXPERIENCIAS-VIRTUALES, a folder containing index.html is one experience.
-        consumed = set()
-        if cat_id == "experiencias-virtuales":
-            for index in sorted(base.rglob("index.html")):
-                if any(part.startswith(".") for part in index.relative_to(base).parts):
-                    continue
-                key = index.parent.relative_to(base).as_posix()
-                title = index.parent.name.replace("-", " ").replace("_", " ").title()
-                generated.append(make_work(cat_id, index, key or "inicio", "link", title or "Experiencia virtual"))
-                consumed.add(index.resolve())
-
-        for path in sorted(base.rglob("*")):
-            if not path.is_file() or path.resolve() in consumed:
+    data=json.loads(DATA.read_text(encoding="utf-8"))
+    known=set(); referenced_paths(data.get("works",[]),known)
+    generated=[]
+    for folder,cat,label in CATEGORIES:
+        root=BASE/folder
+        root.mkdir(parents=True,exist_ok=True)
+        # A directory containing index.html is one complete virtual experience.
+        experience_dirs=[]
+        if cat=="experiencias-virtuales":
+            for index in sorted(root.rglob("index.html")):
+                rel_parts=index.relative_to(root).parts
+                if any(part.startswith(".") for part in rel_parts): continue
+                experience_dirs.append(index.parent)
+                key=index.parent.relative_to(root).as_posix()
+                title=index.parent.name.replace("-"," ").replace("_"," ").title() or "Experiencia virtual"
+                if rel(index) not in known:
+                    generated.append(make_work(cat,index,key or "inicio","web",title))
+        for path in sorted(root.rglob("*")):
+            if not path.is_file(): continue
+            rel_parts=path.relative_to(root).parts
+            if any(part.startswith(".") for part in rel_parts): continue
+            if any(parent==path.parent or parent in path.parents for parent in experience_dirs):
                 continue
-            if any(part.startswith(".") for part in path.relative_to(base).parts):
-                continue
-            ext = path.suffix.lower()
-            if ext in IMAGE:
-                kind = "img"
-            elif ext in AUDIO:
-                kind = "audio"
-            elif ext in VIDEO:
-                kind = "video"
-            elif ext in WEB:
-                kind = "link"
-            elif ext in DOC:
-                kind = "pdf"
-            else:
-                continue
-            key = path.relative_to(base).with_suffix("").as_posix()
-            generated.append(make_work(cat_id, path, key, kind))
+            if rel(path) in known: continue
+            ext=path.suffix.lower()
+            if ext in IMAGES: kind="img"
+            elif ext in AUDIOS: kind="audio"
+            elif ext in VIDEOS: kind="video"
+            elif ext in WEB: kind="web"
+            elif ext in PDF: kind="pdf"
+            else: continue
+            key=path.relative_to(root).with_suffix("").as_posix()
+            generated.append(make_work(cat,path,key,kind))
+    ids={w.get("id") for w in data.get("works",[])}
+    fresh=[]
+    for work in generated:
+        if work["id"] not in ids:
+            fresh.append(work); ids.add(work["id"])
+    data["works"].extend(fresh)
+    DATA.write_text(json.dumps(data,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
+    print(f"Catálogo listo: {len(fresh)} archivos nuevos; {len(data['works'])} obras totales.")
 
-    # Existing hand-curated projects remain intact; new files are appended automatically.
-    existing_ids = {w.get("id") for w in data.get("works", [])}
-    data["works"] = data.get("works", []) + [w for w in generated if w["id"] not in existing_ids]
-    DATA.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    print(f"Catálogo generado: {len(generated)} archivos nuevos; {len(data['works'])} obras en total.")
-
-if __name__ == "__main__":
-    main()
+if __name__=="__main__": main()

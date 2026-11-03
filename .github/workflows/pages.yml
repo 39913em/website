@@ -23,23 +23,18 @@ jobs:
     steps:
       - name: Obtener repositorio
         uses: actions/checkout@v4
-
       - name: Preparar Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.x"
-
-      - name: Generar catálogo multimedia
+      - name: Generar catálogo desde las carpetas multimedia
         run: python scripts/generar_catalogo.py
-
       - name: Configurar GitHub Pages
         uses: actions/configure-pages@v5
-
       - name: Preparar sitio
         uses: actions/upload-pages-artifact@v3
         with:
           path: .
-
       - name: Publicar sitio
         id: deployment
         uses: actions/deploy-pages@v4
