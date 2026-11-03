@@ -1,38 +1,26 @@
-# Portafolio — organización automática de obra
+# Portafolio — estructura de obra
 
-La interfaz original se conserva. La galería se alimenta de las carpetas `PORTAFOLIO/`: no necesitas editar `data/obra.json`, HTML, CSS ni JavaScript para añadir una obra.
+## Dónde colocar obra nueva
 
-## Carpetas de contenido
+Todo el material artístico se administra dentro de `PORTAFOLIO/`. No uses `assets/img/f`, `assets/img/t`, `assets/video` ni `assets/audio` para añadir obra nueva. Esas antiguas ubicaciones ya no forman parte del catálogo.
 
-```text
-PORTAFOLIO/
-├── AUDIO/
-├── VIDEO/
-├── FOTOGRAFIA/
-├── ILUSTRACION/
-│   ├── DIGITAL/
-│   └── FISICA/
-├── PINTURA/
-├── DIBUJO/
-└── EXPERIENCIAS-VIRTUALES/
-```
+- `PORTAFOLIO/VIDEO/`
+- `PORTAFOLIO/AUDIO/`
+- `PORTAFOLIO/FOTOGRAFIA/SESIONES/`
+- `PORTAFOLIO/FOTOGRAFIA/RETRATO/`
+- `PORTAFOLIO/FOTOGRAFIA/EXPERIMENTAL/`
+- `PORTAFOLIO/ILUSTRACION/DIGITAL/`
+- `PORTAFOLIO/ILUSTRACION/FISICA/`
+- `PORTAFOLIO/PINTURA/`
+- `PORTAFOLIO/DIBUJO/`
+- `PORTAFOLIO/EXPERIENCIAS-VIRTUALES/`
 
-Sube cada archivo a la carpeta que corresponda. El nombre del archivo se usa como título de la tarjeta. Se admiten imágenes JPG/JPEG/PNG/WEBP/GIF/AVIF/SVG, audio MP3/WAV/OGG/M4A/AAC/FLAC, video MP4/WEBM/MOV, PDF y HTML.
+Crea una carpeta por proyecto dentro del apartado correspondiente y coloca ahí sus archivos. Ejemplo: `PORTAFOLIO/FOTOGRAFIA/RETRATO/nuevo-retrato/`. El nombre de esa carpeta se usa como título de la tarjeta. El primer archivo visual funciona como portada; las demás imágenes y videos se agregan a la secuencia. Si agregas archivos a la carpeta de una obra que ya existe, se incorporan a esa misma obra. Para una miniatura opcional, usa el mismo nombre terminado en `--thumb` antes de la extensión (por ejemplo `foto--thumb.webp`). También puedes colocar un archivo directamente en el apartado: se mostrará como una obra individual.
 
-Para una experiencia virtual compuesta por varios archivos, crea una subcarpeta dentro de `EXPERIENCIAS-VIRTUALES/` y coloca ahí el sitio completo con su `index.html`. Se mostrará como una sola experiencia; los archivos internos no se convertirán en tarjetas independientes.
+Formatos: imágenes JPG/JPEG/PNG/WEBP/GIF/AVIF/SVG; video MP4/WEBM/M4V/MOV; audio MP3/WAV/OGG/M4A/AAC/FLAC. PDF y HTML/HTM se abren como enlaces. Para una experiencia virtual local, crea su carpeta dentro de `EXPERIENCIAS-VIRTUALES/`, coloca ahí un `index.html` y, si quieres, una imagen de portada.
 
-## Publicación automática
+La indexación se ejecuta automáticamente al desplegar en GitHub Actions. En GitHub, configura una sola vez **Settings → Pages → Build and deployment → Source: GitHub Actions**.
 
-1. Sube los archivos y confirma los cambios en la rama `main`.
-2. GitHub Actions detecta el contenido, genera el catálogo y publica el sitio.
-3. No edites el JSON generado ni ejecutes el script manualmente.
+## Recursos del sitio
 
-En GitHub, configura una sola vez **Settings → Pages → Build and deployment → Source: GitHub Actions**. El flujo está en `.github/workflows/pages.yml`.
-
-## Desarrollo local
-
-Desde esta carpeta ejecuta `python3 -m http.server 8000` y abre `http://localhost:8000`. Para probar el catálogo automático, ejecuta `python3 scripts/generar_catalogo.py`.
-
-## Contenido existente
-
-Las obras originales, sus descripciones, créditos, elementos multimedia y miniaturas se conservaron. Sus archivos multimedia referenciados también están organizados dentro de las carpetas `PORTAFOLIO/`; los recursos originales de `assets/` se mantienen para no romper el reel, las secciones ni los recursos compartidos del sitio.
+`assets/` queda reservado para recursos de funcionamiento general (fuentes, logotipos, presskit y video del reel), no para duplicar obras del catálogo.

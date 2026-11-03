@@ -1,99 +1,68 @@
 #!/usr/bin/env python3
-"""Genera obras desde PORTAFOLIO/* sin editar manualmente el catálogo."""
-import json, re, unicodedata
+"""Index new files placed under PORTAFOLIO without editing data/obra.json by hand."""
+import json, re, os
 from pathlib import Path
-
-ROOT = Path(__file__).resolve().parents[1]
-DATA = ROOT / "data" / "obra.json"
-BASE = ROOT / "PORTAFOLIO"
-CATEGORIES = [
-    ("AUDIO", "audio", "Audio"),
-    ("VIDEO", "video", "Video"),
-    ("FOTOGRAFIA", "fotografia", "Fotografía"),
-    ("ILUSTRACION/DIGITAL", "ilustracion-digital", "Ilustración digital"),
-    ("ILUSTRACION/FISICA", "ilustracion-fisica", "Ilustración física"),
-    ("PINTURA", "pintura", "Pintura"),
-    ("DIBUJO", "dibujo", "Dibujo"),
-    ("EXPERIENCIAS-VIRTUALES", "experiencias-virtuales", "Experiencias virtuales"),
-]
-IMAGES={".jpg",".jpeg",".png",".webp",".gif",".avif",".svg"}
-AUDIOS={".mp3",".wav",".ogg",".oga",".m4a",".aac",".flac"}
-VIDEOS={".mp4",".webm",".m4v",".mov"}
-WEB={".html",".htm"}
-PDF={".pdf"}
+ROOT=Path(__file__).resolve().parents[1]
+PORT=ROOT/'PORTAFOLIO'; DB=ROOT/'data/obra.json'
+IMG={'.jpg','.jpeg','.png','.webp','.gif','.avif','.svg'}
+VID={'.mp4','.webm','.m4v','.mov'}; AUD={'.mp3','.wav','.ogg','.oga','.m4a','.aac','.flac'}; LINK={'.html','.htm','.pdf'}
 
 def slug(s):
-    s=unicodedata.normalize("NFKD",s).encode("ascii","ignore").decode().lower()
-    return re.sub(r"[^a-z0-9]+","-",s).strip("-") or "archivo"
-
-def title_for(path):
-    return re.sub(r"[_-]+"," ",path.stem).strip().title() or "Sin título"
-
-def rel(path): return path.relative_to(ROOT).as_posix()
-
-def referenced_paths(value, found):
-    if isinstance(value,dict):
-        for v in value.values(): referenced_paths(v,found)
-    elif isinstance(value,list):
-        for v in value: referenced_paths(v,found)
-    elif isinstance(value,str) and value.startswith("PORTAFOLIO/"):
-        found.add(value)
-
-def make_work(cat,path,key,kind,title=None):
-    title=title or title_for(path)
-    src=rel(path)
-    if kind=="img":
-        cover=src; item={"type":"img","src":src,"thumb":src,"alt":title,"label":title}
-    elif kind=="video":
-        cover={"video":src}; item={"type":"video","src":src,"alt":title,"label":title}
-    elif kind=="audio":
-        cover={"text":title}; item={"type":"audio","src":src,"label":"Escuchar"}
-    else:
-        cover={"text":title}
-        item={"type":"link","url":src,"label":"Abrir experiencia" if kind=="web" else "Abrir documento"}
-    return {"id":"archivo-"+cat+"-"+slug(key),"cat":cat,"title":title,"kicker":path.suffix.lstrip(".").upper(),"cover":cover,"items":[item]}
+ s=s.lower().strip(); s=re.sub(r'[^a-z0-9]+','-',s).strip('-'); return s or 'obra'
+def title(s): return re.sub(r'[-_]+',' ',s).strip().title()
+def rel(p): return p.relative_to(ROOT).as_posix()
+def media_item(p, files):
+ ext=p.suffix.lower(); path=rel(p)
+ if ext in IMG:
+  if p.stem.endswith('--thumb') or any(q.stem==p.stem and q.suffix.lower() in VID for q in files): return None
+  thumb=next((q for q in files if q.stem==p.stem+'--thumb' and q.suffix.lower() in IMG),None)
+  return {'type':'img','src':path,'thumb':rel(thumb) if thumb else path,'alt':title(p.stem)}
+ if ext in VID:
+  poster=next((q for q in files if q.stem==p.stem and q.suffix.lower() in IMG),None)
+  return {'type':'video','src':path,'thumb':rel(poster) if poster else None,'alt':title(p.stem)}
+ if ext in AUD: return {'type':'audio','src':path,'label':title(p.stem)}
+ if ext in LINK: return {'type':'link','url':path,'label':'Abrir proyecto'}
+ return None
 
 def main():
-    data=json.loads(DATA.read_text(encoding="utf-8"))
-    known=set(); referenced_paths(data.get("works",[]),known)
-    generated=[]
-    for folder,cat,label in CATEGORIES:
-        root=BASE/folder
-        root.mkdir(parents=True,exist_ok=True)
-        # A directory containing index.html is one complete virtual experience.
-        experience_dirs=[]
-        if cat=="experiencias-virtuales":
-            for index in sorted(root.rglob("index.html")):
-                rel_parts=index.relative_to(root).parts
-                if any(part.startswith(".") for part in rel_parts): continue
-                experience_dirs.append(index.parent)
-                key=index.parent.relative_to(root).as_posix()
-                title=index.parent.name.replace("-"," ").replace("_"," ").title() or "Experiencia virtual"
-                if rel(index) not in known:
-                    generated.append(make_work(cat,index,key or "inicio","web",title))
-        for path in sorted(root.rglob("*")):
-            if not path.is_file(): continue
-            rel_parts=path.relative_to(root).parts
-            if any(part.startswith(".") for part in rel_parts): continue
-            if any(parent==path.parent or parent in path.parents for parent in experience_dirs):
-                continue
-            if rel(path) in known: continue
-            ext=path.suffix.lower()
-            if ext in IMAGES: kind="img"
-            elif ext in AUDIOS: kind="audio"
-            elif ext in VIDEOS: kind="video"
-            elif ext in WEB: kind="web"
-            elif ext in PDF: kind="pdf"
-            else: continue
-            key=path.relative_to(root).with_suffix("").as_posix()
-            generated.append(make_work(cat,path,key,kind))
-    ids={w.get("id") for w in data.get("works",[])}
-    fresh=[]
-    for work in generated:
-        if work["id"] not in ids:
-            fresh.append(work); ids.add(work["id"])
-    data["works"].extend(fresh)
-    DATA.write_text(json.dumps(data,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
-    print(f"Catálogo listo: {len(fresh)} archivos nuevos; {len(data['works'])} obras totales.")
-
-if __name__=="__main__": main()
+ data=json.loads(DB.read_text(encoding='utf-8')); known={w['id']:w for w in data['works']}; cats={c['id']:c for c in data['categories']}
+ roots=[('VIDEO','video',None),('AUDIO','audio',None),('FOTOGRAFIA/SESIONES','fotografia','sesiones'),('FOTOGRAFIA/RETRATO','fotografia','retrato'),('FOTOGRAFIA/EXPERIMENTAL','fotografia','experimental'),('ILUSTRACION/DIGITAL','ilustracion','digital'),('ILUSTRACION/FISICA','ilustracion','fisica'),('PINTURA','pintura',None),('DIBUJO','dibujo',None),('EXPERIENCIAS-VIRTUALES','experiencias-virtuales',None)]
+ changed=0
+ for folder,cat,sub in roots:
+  base=PORT/folder
+  if not base.exists(): continue
+  # A folder directly inside a category represents one project. Files placed directly in the category become one-card works.
+  projects=[p for p in base.iterdir() if p.is_dir()]
+  direct=[p for p in base.iterdir() if p.is_file() and p.suffix.lower() in IMG|VID|AUD|LINK]
+  groups=[(p.name,sorted([q for q in p.rglob('*') if q.is_file() and q.suffix.lower() in IMG|VID|AUD|LINK])) for p in projects]
+  groups += [(p.stem,[p]) for p in direct]
+  for name,files in groups:
+   files=sorted(files,key=lambda p:(p.stem.endswith('--thumb'),p.name.lower()))
+   index_file=next((p for p in files if p.name.lower() in ('index.html','index.htm')),None) if cat=='experiencias-virtuales' else None
+   if index_file:
+    items=[{'type':'link','url':rel(index_file),'label':'Abrir experiencia'}]
+   else:
+    items=[x for p in files if (x:=media_item(p,files))]
+   if not items: continue
+   wid=slug(name)
+   if wid in known and (known[wid].get('cat') != cat or known[wid].get('subcat') != sub):
+    wid=slug((sub or cat)+'-'+name)
+   if wid in known:
+    w=known[wid]; existing=set()
+    for item in w.get('items',[]):
+     for key in ('src','thumb','cover'):
+      if isinstance(item.get(key),str): existing.add(item[key])
+    if isinstance(w.get('cover'),str): existing.add(w['cover'])
+    elif isinstance(w.get('cover'),dict): existing.update(v for v in w['cover'].values() if isinstance(v,str))
+    new=[x for x in items if x.get('src') not in existing]
+    if new: w.setdefault('items',[]).extend(new); changed+=len(new)
+    continue
+   first=items[0]
+   image_cover=next((rel(p) for p in files if p.suffix.lower() in IMG and not p.stem.endswith('--thumb')),None)
+   cover=image_cover or first.get('thumb') or first.get('src') or {'text':title(name)}
+   w={'id':wid,'title':title(name),'cat':cat,'kicker':cats[cat]['label'],'cover':cover,'items':items}
+   if sub: w['subcat']=sub
+   data['works'].append(w); known[wid]=w; changed+=1
+ DB.write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+ print(f'Catálogo actualizado: {changed} elementos nuevos; {len(data["works"])} obras.')
+if __name__=='__main__': main()
