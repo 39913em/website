@@ -1,26 +1,38 @@
-# Portafolio — estructura de obra
+# Eduardo Manuel — Portafolio
 
-## Dónde colocar obra nueva
+Sitio estático (HTML + CSS + JS puro, sin frameworks), listo para GitHub Pages.
 
-Todo el material artístico se administra dentro de `PORTAFOLIO/`. No uses `assets/img/f`, `assets/img/t`, `assets/video` ni `assets/audio` para añadir obra nueva. Esas antiguas ubicaciones ya no forman parte del catálogo.
+## Orden de la página
+Reel → Experiencias interactivas → Obra (Video / Sonido / Fotografía / Arte digital / Pintura) → About (foto, semblanza, presskit y trayectoria) → Contacto.
+Páginas aparte: `terminos.html` y `privacidad.html` (enlazadas desde el footer).
 
-- `PORTAFOLIO/VIDEO/`
-- `PORTAFOLIO/AUDIO/`
-- `PORTAFOLIO/FOTOGRAFIA/SESIONES/`
-- `PORTAFOLIO/FOTOGRAFIA/RETRATO/`
-- `PORTAFOLIO/FOTOGRAFIA/EXPERIMENTAL/`
-- `PORTAFOLIO/ILUSTRACION/DIGITAL/`
-- `PORTAFOLIO/ILUSTRACION/FISICA/`
-- `PORTAFOLIO/PINTURA/`
-- `PORTAFOLIO/DIBUJO/`
-- `PORTAFOLIO/EXPERIENCIAS-VIRTUALES/`
+## Estructura
+```
+index.html, terminos.html, privacidad.html
+partials/   una sección por archivo
+css/        un CSS por bloque
+js/         un módulo por función
+data/obra.json   toda la galería
+data/site.json   correo de contacto
+assets/     img/, video/, audio/, logo/, fonts/, presskit/
+```
 
-Crea una carpeta por proyecto dentro del apartado correspondiente y coloca ahí sus archivos. Ejemplo: `PORTAFOLIO/FOTOGRAFIA/RETRATO/nuevo-retrato/`. El nombre de esa carpeta se usa como título de la tarjeta. El primer archivo visual funciona como portada; las demás imágenes y videos se agregan a la secuencia. Si agregas archivos a la carpeta de una obra que ya existe, se incorporan a esa misma obra. Para una miniatura opcional, usa el mismo nombre terminado en `--thumb` antes de la extensión (por ejemplo `foto--thumb.webp`). También puedes colocar un archivo directamente en el apartado: se mostrará como una obra individual.
+## Ver el sitio en tu compu
+No abras `index.html` con doble clic. Usa VS Code con la extensión Live Server (clic derecho en `index.html` → Open with Live Server) o `python3 -m http.server 8000`.
 
-Formatos: imágenes JPG/JPEG/PNG/WEBP/GIF/AVIF/SVG; video MP4/WEBM/M4V/MOV; audio MP3/WAV/OGG/M4A/AAC/FLAC. PDF y HTML/HTM se abren como enlaces. Para una experiencia virtual local, crea su carpeta dentro de `EXPERIENCIAS-VIRTUALES/`, coloca ahí un `index.html` y, si quieres, una imagen de portada.
+## Editar contenido
+- **Obra**: `data/obra.json`. Cada obra tiene `cat`: `video`, `sonido`, `fotografia`, `arte` o `pintura` (la pestaña donde aparece).
+- **Pintura**: agrega obras con `"cat": "pintura"`. La tarjeta "Próximamente" se muestra al final mientras exista `"soon"` en esa categoría.
+- **Experiencias**: `partials/experiencias.html` (imagen, texto y enlace de cada una).
+- **Semblanza y trayectoria**: `partials/about.html`.
+- **Presskit**: `assets/presskit/` (PDF y foto en alta).
+- **Correo**: `data/site.json`.
+- **Páginas legales**: `partials/legal-terminos.html` y `partials/legal-privacidad.html`. Son un borrador basado en las páginas legales de tus otros proyectos; conviene que un abogado las revise.
 
-La indexación se ejecuta automáticamente al desplegar en GitHub Actions. En GitHub, configura una sola vez **Settings → Pages → Build and deployment → Source: GitHub Actions**.
+## Publicar en GitHub Pages
+1. Sube todo el contenido de esta carpeta al repositorio (`index.html` en la raíz).
+2. Settings → Pages → Source: rama `main`, carpeta `/ (root)`.
+3. Activa Enforce HTTPS.
 
-## Recursos del sitio
-
-`assets/` queda reservado para recursos de funcionamiento general (fuentes, logotipos, presskit y video del reel), no para duplicar obras del catálogo.
+## Seguridad
+CSP estricta en `<meta>` (sin scripts ni estilos inline, solo `youtube-nocookie.com` en iframes), fuentes autoalojadas, enlaces externos con `noopener noreferrer`, correo armado en el navegador, sin formularios ni claves.

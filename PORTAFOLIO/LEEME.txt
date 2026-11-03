@@ -1,0 +1,19 @@
+PORTAFOLIO — organización de obra
+
+Toda la obra artística se administra dentro de esta carpeta. Las antiguas carpetas assets/img/f, assets/img/t y assets/audio ya no existen: sus recursos de obra fueron trasladados aquí. Los recursos propios del sitio (logo, fuentes, presskit, reel y las imágenes de la sección final de experiencias) permanecen fuera de PORTAFOLIO porque no son archivos de la galería.
+
+ESTRUCTURA
+- VIDEO/: una carpeta por obra.
+- AUDIO/: una carpeta por obra.
+- FOTOGRAFIA/SESIONES, RETRATO y EXPERIMENTAL: son las tres colecciones visibles; coloca directamente dentro de cada carpeta las nuevas fotografías.
+- ILUSTRACION/DIGITAL y FISICA: una carpeta por obra. Todas aparecen juntas en la pestaña única ILUSTRACIÓN, sin filtros ni submenús.
+- PINTURA/ y DIBUJO/: una carpeta por obra.
+
+PARA AÑADIR MATERIAL
+- Para ampliar una colección fotográfica existente, coloca el archivo directamente en SESIONES, RETRATO o EXPERIMENTAL.
+- Para añadir una obra nueva en VIDEO, AUDIO, ILUSTRACIÓN, PINTURA o DIBUJO, crea una carpeta con el nombre de la obra dentro del apartado correspondiente y coloca ahí sus archivos.
+- Formatos admitidos: JPG, JPEG, PNG, WEBP, GIF, AVIF, SVG, MP4, WEBM, M4V, MOV, MP3, WAV, OGG, OGA, M4A, AAC y FLAC.
+- Si agregas una miniatura optimizada, nómbrala igual que el original con el sufijo --thumb antes de la extensión. No es obligatoria.
+- Al subir los cambios a la rama main, GitHub Actions sincroniza el catálogo y publica la página. No edites data/obra.json para añadir archivos.
+
+La sección EXPERIENCIAS VIRTUALES se conserva una sola vez, al final de la página, fuera del menú OBRA.

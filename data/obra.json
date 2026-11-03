@@ -13,53 +13,22 @@
     {
       "id": "fotografia",
       "label": "Fotografía",
-      "desc": "Sesiones, retrato y experimentación.",
-      "subcategories": [
-        {
-          "id": "sesiones",
-          "label": "Sesiones"
-        },
-        {
-          "id": "retrato",
-          "label": "Retrato"
-        },
-        {
-          "id": "experimental",
-          "label": "Experimental"
-        }
-      ]
+      "desc": "Sesiones, retrato y experimentación."
     },
     {
       "id": "ilustracion",
       "label": "Ilustración",
-      "desc": "Ilustración digital y física.",
-      "subcategories": [
-        {
-          "id": "digital",
-          "label": "Digital"
-        },
-        {
-          "id": "fisica",
-          "label": "Física",
-          "soon": "Más ilustración física"
-        }
-      ]
+      "desc": "Obra digital y física."
     },
     {
       "id": "pintura",
       "label": "Pintura",
-      "desc": "Obra pictórica.",
-      "soon": "Más obra pictórica"
+      "desc": "Obra pictórica."
     },
     {
       "id": "dibujo",
       "label": "Dibujo",
       "desc": "Dibujo y técnica mixta."
-    },
-    {
-      "id": "experiencias-virtuales",
-      "label": "Experiencias virtuales",
-      "desc": "Entornos y piezas interactivas."
     }
   ],
   "works": [
@@ -134,7 +103,8 @@
           "alt": "Fotograma de La línea etérea",
           "label": "Fotograma"
         }
-      ]
+      ],
+      "folder": "PORTAFOLIO/VIDEO/la-linea-eterea"
     },
     {
       "id": "granicero",
@@ -202,7 +172,8 @@
           "alt": "Ficha técnica de Granicero",
           "label": "Ficha"
         }
-      ]
+      ],
+      "folder": "PORTAFOLIO/VIDEO/granicero"
     },
     {
       "id": "tic-toc",
@@ -254,14 +225,15 @@
           "alt": "Instalación Los Siete",
           "label": "Instalación"
         }
-      ]
+      ],
+      "folder": "PORTAFOLIO/VIDEO/tic-toc"
     },
     {
       "id": "autorretrato",
       "cat": "video",
       "title": "Autorretrato de mí sin mí",
       "kicker": "Experimental",
-      "cover": "PORTAFOLIO/VIDEO/autorretrato/auto-1.webp",
+      "cover": "PORTAFOLIO/VIDEO/autorretrato/auto-1--thumb.webp",
       "desc": "Exploración de autorretrato audiovisual sin mi propia presencia: integración de un mundo digital y su fisura con el mundo físico que me rodea. Producción en colaboración con el Departamento de Imagen y Sonido (DIS) de la Universidad de Guadalajara y la Facultad de Artes de la UAEMex.",
       "credits": [
         [
@@ -283,7 +255,14 @@
         {
           "type": "img",
           "src": "PORTAFOLIO/VIDEO/autorretrato/auto-1.webp",
-          "thumb": "PORTAFOLIO/VIDEO/autorretrato/auto-1.webp",
+          "thumb": "PORTAFOLIO/VIDEO/autorretrato/auto-1--thumb.webp",
+          "alt": "Still de Autorretrato de mí sin mí",
+          "label": "Still"
+        },
+        {
+          "type": "img",
+          "src": "PORTAFOLIO/VIDEO/autorretrato/auto-1.webp",
+          "thumb": "PORTAFOLIO/VIDEO/autorretrato/auto-1--thumb.webp",
           "alt": "Still de Autorretrato de mí sin mí",
           "label": "Still"
         },
@@ -294,7 +273,8 @@
           "alt": "Cartel de Tlanchana Fest, sexta edición",
           "label": "Tlanchana Fest"
         }
-      ]
+      ],
+      "folder": "PORTAFOLIO/VIDEO/autorretrato"
     },
     {
       "id": "fotos-por-minuto",
@@ -338,7 +318,8 @@
           "alt": "Cartel 6º Diálogo — Red Generación Espontánea",
           "label": "Documentación"
         }
-      ]
+      ],
+      "folder": "PORTAFOLIO/VIDEO/fotos-por-minuto"
     },
     {
       "id": "ctrl-fe",
@@ -365,7 +346,8 @@
           "alt": "Portada de CTRL+FE",
           "label": "Escuchar"
         }
-      ]
+      ],
+      "folder": "PORTAFOLIO/AUDIO/ctrl-fe"
     },
     {
       "id": "bitumen",
@@ -382,437 +364,408 @@
           "vertical": false,
           "label": "Escuchar"
         }
-      ]
+      ],
+      "folder": "PORTAFOLIO/AUDIO/bitumen"
     },
     {
-      "id": "pret-a-mx",
+      "id": "sesiones",
       "cat": "fotografia",
-      "title": "Pret à MX",
-      "kicker": "Fotografía editorial — 2018",
-      "cover": "PORTAFOLIO/FOTOGRAFIA/SESIONES/pret-a-mx/pret-10122018-pret-a-mx-106--thumb.webp",
+      "title": "Sesiones",
+      "kicker": "Fotografía editorial y registro",
+      "cover": "PORTAFOLIO/FOTOGRAFIA/SESIONES/pret-10122018-pret-a-mx-106--thumb.webp",
       "items": [
         {
           "type": "img",
-          "src": "PORTAFOLIO/FOTOGRAFIA/SESIONES/pret-a-mx/pret-10122018-pret-a-mx-17.webp",
-          "thumb": "PORTAFOLIO/FOTOGRAFIA/SESIONES/pret-a-mx/pret-10122018-pret-a-mx-17--thumb.webp",
+          "src": "PORTAFOLIO/FOTOGRAFIA/SESIONES/pret-10122018-pret-a-mx-17.webp",
+          "thumb": "PORTAFOLIO/FOTOGRAFIA/SESIONES/pret-10122018-pret-a-mx-17--thumb.webp",
           "alt": "Pret à MX — 1 de 20"
         },
         {
           "type": "img",
-          "src": "PORTAFOLIO/FOTOGRAFIA/SESIONES/pret-a-mx/pret-10122018-pret-a-mx-72.webp",
-          "thumb": "PORTAFOLIO/FOTOGRAFIA/SESIONES/pret-a-mx/pret-10122018-pret-a-mx-72--thumb.webp",
+          "src": "PORTAFOLIO/FOTOGRAFIA/SESIONES/pret-10122018-pret-a-mx-72.webp",
+          "thumb": "PORTAFOLIO/FOTOGRAFIA/SESIONES/pret-10122018-pret-a-mx-72--thumb.webp",
           "alt": "Pret à MX — 2 de 20"
         },
         {
           "type": "img",
-          "src": "PORTAFOLIO/FOTOGRAFIA/SESIONES/pret-a-mx/pret-10122018-pret-a-mx-79.webp",
-          "thumb": "PORTAFOLIO/FOTOGRAFIA/SESIONES/pret-a-mx/pret-10122018-pret-a-mx-79--thumb.webp",
+          "src": "PORTAFOLIO/FOTOGRAFIA/SESIONES/pret-10122018-pret-a-mx-79.webp",
+          "thumb": "PORTAFOLIO/FOTOGRAFIA/SESIONES/pret-10122018-pret-a-mx-79--thumb.webp",
           "alt": "Pret à MX — 3 de 20"
         },
         {
           "type": "img",
-          "src": "PORTAFOLIO/FOTOGRAFIA/SESIONES/pret-a-mx/pret-10122018-pret-a-mx-81.webp",
-          "thumb": "PORTAFOLIO/FOTOGRAFIA/SESIONES/pret-a-mx/pret-10122018-pret-a-mx-81--thumb.webp",
+          "src": "PORTAFOLIO/FOTOGRAFIA/SESIONES/pret-10122018-pret-a-mx-81.webp",
+          "thumb": "PORTAFOLIO/FOTOGRAFIA/SESIONES/pret-10122018-pret-a-mx-81--thumb.webp",
           "alt": "Pret à MX — 4 de 20"
         },
         {
           "type": "img",
-          "src": "PORTAFOLIO/FOTOGRAFIA/SESIONES/pret-a-mx/pret-10122018-pret-a-mx-82.webp",
-          "thumb": "PORTAFOLIO/FOTOGRAFIA/SESIONES/pret-a-mx/pret-10122018-pret-a-mx-82--thumb.webp",
+          "src": "PORTAFOLIO/FOTOGRAFIA/SESIONES/pret-10122018-pret-a-mx-82.webp",
+          "thumb": "PORTAFOLIO/FOTOGRAFIA/SESIONES/pret-10122018-pret-a-mx-82--thumb.webp",
           "alt": "Pret à MX — 5 de 20"
         },
         {
           "type": "img",
-          "src": "PORTAFOLIO/FOTOGRAFIA/SESIONES/pret-a-mx/pret-10122018-pret-a-mx-83.webp",
-          "thumb": "PORTAFOLIO/FOTOGRAFIA/SESIONES/pret-a-mx/pret-10122018-pret-a-mx-83--thumb.webp",
+          "src": "PORTAFOLIO/FOTOGRAFIA/SESIONES/pret-10122018-pret-a-mx-83.webp",
+          "thumb": "PORTAFOLIO/FOTOGRAFIA/SESIONES/pret-10122018-pret-a-mx-83--thumb.webp",
           "alt": "Pret à MX — 6 de 20"
         },
         {
           "type": "img",
-          "src": "PORTAFOLIO/FOTOGRAFIA/SESIONES/pret-a-mx/pret-10122018-pret-a-mx-85.webp",
-          "thumb": "PORTAFOLIO/FOTOGRAFIA/SESIONES/pret-a-mx/pret-10122018-pret-a-mx-85--thumb.webp",
+          "src": "PORTAFOLIO/FOTOGRAFIA/SESIONES/pret-10122018-pret-a-mx-85.webp",
+          "thumb": "PORTAFOLIO/FOTOGRAFIA/SESIONES/pret-10122018-pret-a-mx-85--thumb.webp",
           "alt": "Pret à MX — 7 de 20"
         },
         {
           "type": "img",
-          "src": "PORTAFOLIO/FOTOGRAFIA/SESIONES/pret-a-mx/pret-10122018-pret-a-mx-91.webp",
-          "thumb": "PORTAFOLIO/FOTOGRAFIA/SESIONES/pret-a-mx/pret-10122018-pret-a-mx-91--thumb.webp",
+          "src": "PORTAFOLIO/FOTOGRAFIA/SESIONES/pret-10122018-pret-a-mx-91.webp",
+          "thumb": "PORTAFOLIO/FOTOGRAFIA/SESIONES/pret-10122018-pret-a-mx-91--thumb.webp",
           "alt": "Pret à MX — 8 de 20"
         },
         {
           "type": "img",
-          "src": "PORTAFOLIO/FOTOGRAFIA/SESIONES/pret-a-mx/pret-10122018-pret-a-mx-94.webp",
-          "thumb": "PORTAFOLIO/FOTOGRAFIA/SESIONES/pret-a-mx/pret-10122018-pret-a-mx-94--thumb.webp",
+          "src": "PORTAFOLIO/FOTOGRAFIA/SESIONES/pret-10122018-pret-a-mx-94.webp",
+          "thumb": "PORTAFOLIO/FOTOGRAFIA/SESIONES/pret-10122018-pret-a-mx-94--thumb.webp",
           "alt": "Pret à MX — 9 de 20"
         },
         {
           "type": "img",
-          "src": "PORTAFOLIO/FOTOGRAFIA/SESIONES/pret-a-mx/pret-10122018-pret-a-mx-99.webp",
-          "thumb": "PORTAFOLIO/FOTOGRAFIA/SESIONES/pret-a-mx/pret-10122018-pret-a-mx-99--thumb.webp",
+          "src": "PORTAFOLIO/FOTOGRAFIA/SESIONES/pret-10122018-pret-a-mx-99.webp",
+          "thumb": "PORTAFOLIO/FOTOGRAFIA/SESIONES/pret-10122018-pret-a-mx-99--thumb.webp",
           "alt": "Pret à MX — 10 de 20"
         },
         {
           "type": "img",
-          "src": "PORTAFOLIO/FOTOGRAFIA/SESIONES/pret-a-mx/pret-10122018-pret-a-mx-103.webp",
-          "thumb": "PORTAFOLIO/FOTOGRAFIA/SESIONES/pret-a-mx/pret-10122018-pret-a-mx-103--thumb.webp",
+          "src": "PORTAFOLIO/FOTOGRAFIA/SESIONES/pret-10122018-pret-a-mx-103.webp",
+          "thumb": "PORTAFOLIO/FOTOGRAFIA/SESIONES/pret-10122018-pret-a-mx-103--thumb.webp",
           "alt": "Pret à MX — 11 de 20"
         },
         {
           "type": "img",
-          "src": "PORTAFOLIO/FOTOGRAFIA/SESIONES/pret-a-mx/pret-10122018-pret-a-mx-106.webp",
-          "thumb": "PORTAFOLIO/FOTOGRAFIA/SESIONES/pret-a-mx/pret-10122018-pret-a-mx-106--thumb.webp",
+          "src": "PORTAFOLIO/FOTOGRAFIA/SESIONES/pret-10122018-pret-a-mx-106.webp",
+          "thumb": "PORTAFOLIO/FOTOGRAFIA/SESIONES/pret-10122018-pret-a-mx-106--thumb.webp",
           "alt": "Pret à MX — 12 de 20"
         },
         {
           "type": "img",
-          "src": "PORTAFOLIO/FOTOGRAFIA/SESIONES/pret-a-mx/pret-10122018-pret-a-mx-117.webp",
-          "thumb": "PORTAFOLIO/FOTOGRAFIA/SESIONES/pret-a-mx/pret-10122018-pret-a-mx-117--thumb.webp",
+          "src": "PORTAFOLIO/FOTOGRAFIA/SESIONES/pret-10122018-pret-a-mx-117.webp",
+          "thumb": "PORTAFOLIO/FOTOGRAFIA/SESIONES/pret-10122018-pret-a-mx-117--thumb.webp",
           "alt": "Pret à MX — 13 de 20"
         },
         {
           "type": "img",
-          "src": "PORTAFOLIO/FOTOGRAFIA/SESIONES/pret-a-mx/pret-10122018-pret-a-mx-131.webp",
-          "thumb": "PORTAFOLIO/FOTOGRAFIA/SESIONES/pret-a-mx/pret-10122018-pret-a-mx-131--thumb.webp",
+          "src": "PORTAFOLIO/FOTOGRAFIA/SESIONES/pret-10122018-pret-a-mx-131.webp",
+          "thumb": "PORTAFOLIO/FOTOGRAFIA/SESIONES/pret-10122018-pret-a-mx-131--thumb.webp",
           "alt": "Pret à MX — 14 de 20"
         },
         {
           "type": "img",
-          "src": "PORTAFOLIO/FOTOGRAFIA/SESIONES/pret-a-mx/pret-10122018-pret-a-mx-132.webp",
-          "thumb": "PORTAFOLIO/FOTOGRAFIA/SESIONES/pret-a-mx/pret-10122018-pret-a-mx-132--thumb.webp",
+          "src": "PORTAFOLIO/FOTOGRAFIA/SESIONES/pret-10122018-pret-a-mx-132.webp",
+          "thumb": "PORTAFOLIO/FOTOGRAFIA/SESIONES/pret-10122018-pret-a-mx-132--thumb.webp",
           "alt": "Pret à MX — 15 de 20"
         },
         {
           "type": "img",
-          "src": "PORTAFOLIO/FOTOGRAFIA/SESIONES/pret-a-mx/pret-10122018-pret-a-mx-136.webp",
-          "thumb": "PORTAFOLIO/FOTOGRAFIA/SESIONES/pret-a-mx/pret-10122018-pret-a-mx-136--thumb.webp",
+          "src": "PORTAFOLIO/FOTOGRAFIA/SESIONES/pret-10122018-pret-a-mx-136.webp",
+          "thumb": "PORTAFOLIO/FOTOGRAFIA/SESIONES/pret-10122018-pret-a-mx-136--thumb.webp",
           "alt": "Pret à MX — 16 de 20"
         },
         {
           "type": "img",
-          "src": "PORTAFOLIO/FOTOGRAFIA/SESIONES/pret-a-mx/pret-10122018-pret-a-mx-147.webp",
-          "thumb": "PORTAFOLIO/FOTOGRAFIA/SESIONES/pret-a-mx/pret-10122018-pret-a-mx-147--thumb.webp",
+          "src": "PORTAFOLIO/FOTOGRAFIA/SESIONES/pret-10122018-pret-a-mx-147.webp",
+          "thumb": "PORTAFOLIO/FOTOGRAFIA/SESIONES/pret-10122018-pret-a-mx-147--thumb.webp",
           "alt": "Pret à MX — 17 de 20"
         },
         {
           "type": "img",
-          "src": "PORTAFOLIO/FOTOGRAFIA/SESIONES/pret-a-mx/pret-10122018-pret-a-mx-148.webp",
-          "thumb": "PORTAFOLIO/FOTOGRAFIA/SESIONES/pret-a-mx/pret-10122018-pret-a-mx-148--thumb.webp",
+          "src": "PORTAFOLIO/FOTOGRAFIA/SESIONES/pret-10122018-pret-a-mx-148.webp",
+          "thumb": "PORTAFOLIO/FOTOGRAFIA/SESIONES/pret-10122018-pret-a-mx-148--thumb.webp",
           "alt": "Pret à MX — 18 de 20"
         },
         {
           "type": "img",
-          "src": "PORTAFOLIO/FOTOGRAFIA/SESIONES/pret-a-mx/pret-10122018-pret-a-mx-150.webp",
-          "thumb": "PORTAFOLIO/FOTOGRAFIA/SESIONES/pret-a-mx/pret-10122018-pret-a-mx-150--thumb.webp",
+          "src": "PORTAFOLIO/FOTOGRAFIA/SESIONES/pret-10122018-pret-a-mx-150.webp",
+          "thumb": "PORTAFOLIO/FOTOGRAFIA/SESIONES/pret-10122018-pret-a-mx-150--thumb.webp",
           "alt": "Pret à MX — 19 de 20"
         },
         {
           "type": "img",
-          "src": "PORTAFOLIO/FOTOGRAFIA/SESIONES/pret-a-mx/pret-10122018-pret-a-mx-151.webp",
-          "thumb": "PORTAFOLIO/FOTOGRAFIA/SESIONES/pret-a-mx/pret-10122018-pret-a-mx-151--thumb.webp",
+          "src": "PORTAFOLIO/FOTOGRAFIA/SESIONES/pret-10122018-pret-a-mx-151.webp",
+          "thumb": "PORTAFOLIO/FOTOGRAFIA/SESIONES/pret-10122018-pret-a-mx-151--thumb.webp",
           "alt": "Pret à MX — 20 de 20"
-        }
-      ],
-      "subcat": "sesiones"
-    },
-    {
-      "id": "incarnare",
-      "cat": "fotografia",
-      "title": "Incarnare",
-      "kicker": "Serie fotográfica — retrato",
-      "cover": "PORTAFOLIO/FOTOGRAFIA/RETRATO/incarnare/incarnare-bw1f-5--thumb.webp",
-      "items": [
-        {
-          "type": "img",
-          "src": "PORTAFOLIO/FOTOGRAFIA/RETRATO/incarnare/incarnare-bw1f-5.webp",
-          "thumb": "PORTAFOLIO/FOTOGRAFIA/RETRATO/incarnare/incarnare-bw1f-5--thumb.webp",
-          "alt": "Incarnare — 1 de 4"
         },
         {
           "type": "img",
-          "src": "PORTAFOLIO/FOTOGRAFIA/RETRATO/incarnare/incarnare-incarnare-1-3.webp",
-          "thumb": "PORTAFOLIO/FOTOGRAFIA/RETRATO/incarnare/incarnare-incarnare-1-3--thumb.webp",
-          "alt": "Incarnare — 2 de 4"
-        },
-        {
-          "type": "img",
-          "src": "PORTAFOLIO/FOTOGRAFIA/RETRATO/incarnare/incarnare-incarnare-2-3.webp",
-          "thumb": "PORTAFOLIO/FOTOGRAFIA/RETRATO/incarnare/incarnare-incarnare-2-3--thumb.webp",
-          "alt": "Incarnare — 3 de 4"
-        },
-        {
-          "type": "img",
-          "src": "PORTAFOLIO/FOTOGRAFIA/RETRATO/incarnare/incarnare-incarnare-3-3.webp",
-          "thumb": "PORTAFOLIO/FOTOGRAFIA/RETRATO/incarnare/incarnare-incarnare-3-3--thumb.webp",
-          "alt": "Incarnare — 4 de 4"
-        }
-      ],
-      "subcat": "retrato"
-    },
-    {
-      "id": "calle-retrato",
-      "cat": "fotografia",
-      "title": "Calle y retrato",
-      "kicker": "Fotografía documental",
-      "cover": "PORTAFOLIO/FOTOGRAFIA/RETRATO/calle-retrato/calle-dsc01244--thumb.webp",
-      "items": [
-        {
-          "type": "img",
-          "src": "PORTAFOLIO/FOTOGRAFIA/RETRATO/calle-retrato/calle-05122020byedd-5.webp",
-          "thumb": "PORTAFOLIO/FOTOGRAFIA/RETRATO/calle-retrato/calle-05122020byedd-5--thumb.webp",
-          "alt": "Calle y retrato — 1 de 15"
-        },
-        {
-          "type": "img",
-          "src": "PORTAFOLIO/FOTOGRAFIA/RETRATO/calle-retrato/calle-08112020-dsc09865.webp",
-          "thumb": "PORTAFOLIO/FOTOGRAFIA/RETRATO/calle-retrato/calle-08112020-dsc09865--thumb.webp",
-          "alt": "Calle y retrato — 2 de 15"
-        },
-        {
-          "type": "img",
-          "src": "PORTAFOLIO/FOTOGRAFIA/RETRATO/calle-retrato/calle-09082020-dsc00192.webp",
-          "thumb": "PORTAFOLIO/FOTOGRAFIA/RETRATO/calle-retrato/calle-09082020-dsc00192--thumb.webp",
-          "alt": "Calle y retrato — 3 de 15"
-        },
-        {
-          "type": "img",
-          "src": "PORTAFOLIO/FOTOGRAFIA/RETRATO/calle-retrato/calle-23072020-dsc09938.webp",
-          "thumb": "PORTAFOLIO/FOTOGRAFIA/RETRATO/calle-retrato/calle-23072020-dsc09938--thumb.webp",
-          "alt": "Calle y retrato — 4 de 15"
-        },
-        {
-          "type": "img",
-          "src": "PORTAFOLIO/FOTOGRAFIA/RETRATO/calle-retrato/calle-b-w-boring-weird-4.webp",
-          "thumb": "PORTAFOLIO/FOTOGRAFIA/RETRATO/calle-retrato/calle-b-w-boring-weird-4--thumb.webp",
-          "alt": "Calle y retrato — 5 de 15"
-        },
-        {
-          "type": "img",
-          "src": "PORTAFOLIO/FOTOGRAFIA/RETRATO/calle-retrato/calle-captura-de-pantalla-5.webp",
-          "thumb": "PORTAFOLIO/FOTOGRAFIA/RETRATO/calle-retrato/calle-captura-de-pantalla-5--thumb.webp",
-          "alt": "Calle y retrato — 6 de 15"
-        },
-        {
-          "type": "img",
-          "src": "PORTAFOLIO/FOTOGRAFIA/RETRATO/calle-retrato/calle-captura-de-pantalla-6.webp",
-          "thumb": "PORTAFOLIO/FOTOGRAFIA/RETRATO/calle-retrato/calle-captura-de-pantalla-6--thumb.webp",
-          "alt": "Calle y retrato — 7 de 15"
-        },
-        {
-          "type": "img",
-          "src": "PORTAFOLIO/FOTOGRAFIA/RETRATO/calle-retrato/calle-captura-de-pantalla-7.webp",
-          "thumb": "PORTAFOLIO/FOTOGRAFIA/RETRATO/calle-retrato/calle-captura-de-pantalla-7--thumb.webp",
-          "alt": "Calle y retrato — 8 de 15"
-        },
-        {
-          "type": "img",
-          "src": "PORTAFOLIO/FOTOGRAFIA/RETRATO/calle-retrato/calle-dsc00966.webp",
-          "thumb": "PORTAFOLIO/FOTOGRAFIA/RETRATO/calle-retrato/calle-dsc00966--thumb.webp",
-          "alt": "Calle y retrato — 9 de 15"
-        },
-        {
-          "type": "img",
-          "src": "PORTAFOLIO/FOTOGRAFIA/RETRATO/calle-retrato/calle-dsc01170.webp",
-          "thumb": "PORTAFOLIO/FOTOGRAFIA/RETRATO/calle-retrato/calle-dsc01170--thumb.webp",
-          "alt": "Calle y retrato — 10 de 15"
-        },
-        {
-          "type": "img",
-          "src": "PORTAFOLIO/FOTOGRAFIA/RETRATO/calle-retrato/calle-dsc01244.webp",
-          "thumb": "PORTAFOLIO/FOTOGRAFIA/RETRATO/calle-retrato/calle-dsc01244--thumb.webp",
-          "alt": "Calle y retrato — 11 de 15"
-        },
-        {
-          "type": "img",
-          "src": "PORTAFOLIO/FOTOGRAFIA/RETRATO/calle-retrato/calle-hdr-4-de-8.webp",
-          "thumb": "PORTAFOLIO/FOTOGRAFIA/RETRATO/calle-retrato/calle-hdr-4-de-8--thumb.webp",
-          "alt": "Calle y retrato — 12 de 15"
-        },
-        {
-          "type": "img",
-          "src": "PORTAFOLIO/FOTOGRAFIA/RETRATO/calle-retrato/calle-introsspeccion-5.webp",
-          "thumb": "PORTAFOLIO/FOTOGRAFIA/RETRATO/calle-retrato/calle-introsspeccion-5--thumb.webp",
-          "alt": "Calle y retrato — 13 de 15"
-        },
-        {
-          "type": "img",
-          "src": "PORTAFOLIO/FOTOGRAFIA/RETRATO/calle-retrato/calle-miradas-cruzadas.webp",
-          "thumb": "PORTAFOLIO/FOTOGRAFIA/RETRATO/calle-retrato/calle-miradas-cruzadas--thumb.webp",
-          "alt": "Calle y retrato — 14 de 15"
-        },
-        {
-          "type": "img",
-          "src": "PORTAFOLIO/FOTOGRAFIA/RETRATO/calle-retrato/calle-visiones.webp",
-          "thumb": "PORTAFOLIO/FOTOGRAFIA/RETRATO/calle-retrato/calle-visiones--thumb.webp",
-          "alt": "Calle y retrato — 15 de 15"
-        }
-      ],
-      "subcat": "retrato"
-    },
-    {
-      "id": "simetrias",
-      "cat": "fotografia",
-      "title": "Espejos y simetrías",
-      "kicker": "Fotografía de espacio",
-      "cover": "PORTAFOLIO/FOTOGRAFIA/EXPERIMENTAL/simetrias/simetrias-fr21-12-2013012131p-m--thumb.webp",
-      "items": [
-        {
-          "type": "img",
-          "src": "PORTAFOLIO/FOTOGRAFIA/EXPERIMENTAL/simetrias/simetrias-escape.webp",
-          "thumb": "PORTAFOLIO/FOTOGRAFIA/EXPERIMENTAL/simetrias/simetrias-escape--thumb.webp",
-          "alt": "Espejos y simetrías — 1 de 4"
-        },
-        {
-          "type": "img",
-          "src": "PORTAFOLIO/FOTOGRAFIA/EXPERIMENTAL/simetrias/simetrias-fr21-12-2013012131p-m.webp",
-          "thumb": "PORTAFOLIO/FOTOGRAFIA/EXPERIMENTAL/simetrias/simetrias-fr21-12-2013012131p-m--thumb.webp",
-          "alt": "Espejos y simetrías — 2 de 4"
-        },
-        {
-          "type": "img",
-          "src": "PORTAFOLIO/FOTOGRAFIA/EXPERIMENTAL/simetrias/simetrias-fr21-12-2013012821p-m.webp",
-          "thumb": "PORTAFOLIO/FOTOGRAFIA/EXPERIMENTAL/simetrias/simetrias-fr21-12-2013012821p-m--thumb.webp",
-          "alt": "Espejos y simetrías — 3 de 4"
-        },
-        {
-          "type": "img",
-          "src": "PORTAFOLIO/FOTOGRAFIA/EXPERIMENTAL/simetrias/simetrias-img-0352.webp",
-          "thumb": "PORTAFOLIO/FOTOGRAFIA/EXPERIMENTAL/simetrias/simetrias-img-0352--thumb.webp",
-          "alt": "Espejos y simetrías — 4 de 4"
-        }
-      ],
-      "subcat": "experimental"
-    },
-    {
-      "id": "registro",
-      "cat": "fotografia",
-      "title": "Registro y documental",
-      "kicker": "Fotografía de directo y reportaje",
-      "cover": "PORTAFOLIO/FOTOGRAFIA/SESIONES/registro/registro-moviemakers-4--thumb.webp",
-      "items": [
-        {
-          "type": "img",
-          "src": "PORTAFOLIO/FOTOGRAFIA/SESIONES/registro/registro-airf-3-de-18.webp",
-          "thumb": "PORTAFOLIO/FOTOGRAFIA/SESIONES/registro/registro-airf-3-de-18--thumb.webp",
+          "src": "PORTAFOLIO/FOTOGRAFIA/SESIONES/registro-airf-3-de-18.webp",
+          "thumb": "PORTAFOLIO/FOTOGRAFIA/SESIONES/registro-airf-3-de-18--thumb.webp",
           "alt": "Registro y documental — 1 de 9"
         },
         {
           "type": "img",
-          "src": "PORTAFOLIO/FOTOGRAFIA/SESIONES/registro/registro-cdmx-1-de-2.webp",
-          "thumb": "PORTAFOLIO/FOTOGRAFIA/SESIONES/registro/registro-cdmx-1-de-2--thumb.webp",
+          "src": "PORTAFOLIO/FOTOGRAFIA/SESIONES/registro-cdmx-1-de-2.webp",
+          "thumb": "PORTAFOLIO/FOTOGRAFIA/SESIONES/registro-cdmx-1-de-2--thumb.webp",
           "alt": "Registro y documental — 2 de 9"
         },
         {
           "type": "img",
-          "src": "PORTAFOLIO/FOTOGRAFIA/SESIONES/registro/registro-firm-5.webp",
-          "thumb": "PORTAFOLIO/FOTOGRAFIA/SESIONES/registro/registro-firm-5--thumb.webp",
+          "src": "PORTAFOLIO/FOTOGRAFIA/SESIONES/registro-firm-5.webp",
+          "thumb": "PORTAFOLIO/FOTOGRAFIA/SESIONES/registro-firm-5--thumb.webp",
           "alt": "Registro y documental — 3 de 9"
         },
         {
           "type": "img",
-          "src": "PORTAFOLIO/FOTOGRAFIA/SESIONES/registro/registro-moviemakers-3.webp",
-          "thumb": "PORTAFOLIO/FOTOGRAFIA/SESIONES/registro/registro-moviemakers-3--thumb.webp",
+          "src": "PORTAFOLIO/FOTOGRAFIA/SESIONES/registro-moviemakers-3.webp",
+          "thumb": "PORTAFOLIO/FOTOGRAFIA/SESIONES/registro-moviemakers-3--thumb.webp",
           "alt": "Registro y documental — 4 de 9"
         },
         {
           "type": "img",
-          "src": "PORTAFOLIO/FOTOGRAFIA/SESIONES/registro/registro-moviemakers-4.webp",
-          "thumb": "PORTAFOLIO/FOTOGRAFIA/SESIONES/registro/registro-moviemakers-4--thumb.webp",
+          "src": "PORTAFOLIO/FOTOGRAFIA/SESIONES/registro-moviemakers-4.webp",
+          "thumb": "PORTAFOLIO/FOTOGRAFIA/SESIONES/registro-moviemakers-4--thumb.webp",
           "alt": "Registro y documental — 5 de 9"
         },
         {
           "type": "img",
-          "src": "PORTAFOLIO/FOTOGRAFIA/SESIONES/registro/registro-moviemakers-5.webp",
-          "thumb": "PORTAFOLIO/FOTOGRAFIA/SESIONES/registro/registro-moviemakers-5--thumb.webp",
+          "src": "PORTAFOLIO/FOTOGRAFIA/SESIONES/registro-moviemakers-5.webp",
+          "thumb": "PORTAFOLIO/FOTOGRAFIA/SESIONES/registro-moviemakers-5--thumb.webp",
           "alt": "Registro y documental — 6 de 9"
         },
         {
           "type": "img",
-          "src": "PORTAFOLIO/FOTOGRAFIA/SESIONES/registro/registro-moviemakers-6.webp",
-          "thumb": "PORTAFOLIO/FOTOGRAFIA/SESIONES/registro/registro-moviemakers-6--thumb.webp",
+          "src": "PORTAFOLIO/FOTOGRAFIA/SESIONES/registro-moviemakers-6.webp",
+          "thumb": "PORTAFOLIO/FOTOGRAFIA/SESIONES/registro-moviemakers-6--thumb.webp",
           "alt": "Registro y documental — 7 de 9"
         },
         {
           "type": "img",
-          "src": "PORTAFOLIO/FOTOGRAFIA/SESIONES/registro/registro-nofirm-1.webp",
-          "thumb": "PORTAFOLIO/FOTOGRAFIA/SESIONES/registro/registro-nofirm-1--thumb.webp",
+          "src": "PORTAFOLIO/FOTOGRAFIA/SESIONES/registro-nofirm-1.webp",
+          "thumb": "PORTAFOLIO/FOTOGRAFIA/SESIONES/registro-nofirm-1--thumb.webp",
           "alt": "Registro y documental — 8 de 9"
         },
         {
           "type": "img",
-          "src": "PORTAFOLIO/FOTOGRAFIA/SESIONES/registro/registro-vistas-f.webp",
-          "thumb": "PORTAFOLIO/FOTOGRAFIA/SESIONES/registro/registro-vistas-f--thumb.webp",
+          "src": "PORTAFOLIO/FOTOGRAFIA/SESIONES/registro-vistas-f.webp",
+          "thumb": "PORTAFOLIO/FOTOGRAFIA/SESIONES/registro-vistas-f--thumb.webp",
           "alt": "Registro y documental — 9 de 9"
         }
       ],
-      "subcat": "sesiones"
+      "folder": "PORTAFOLIO/FOTOGRAFIA/SESIONES"
     },
     {
-      "id": "collage",
+      "id": "retrato",
       "cat": "fotografia",
-      "title": "Collage fotográfico",
-      "kicker": "Fotografía — 2018",
-      "cover": "PORTAFOLIO/FOTOGRAFIA/EXPERIMENTAL/collage/collage-si-20180903-213523--thumb.webp",
+      "title": "Retrato",
+      "kicker": "Fotografía de retrato",
+      "cover": "PORTAFOLIO/FOTOGRAFIA/RETRATO/calle-dsc01244--thumb.webp",
       "items": [
         {
           "type": "img",
-          "src": "PORTAFOLIO/FOTOGRAFIA/EXPERIMENTAL/collage/collage-si-20180903-213523.webp",
-          "thumb": "PORTAFOLIO/FOTOGRAFIA/EXPERIMENTAL/collage/collage-si-20180903-213523--thumb.webp",
+          "src": "PORTAFOLIO/FOTOGRAFIA/RETRATO/calle-05122020byedd-5.webp",
+          "thumb": "PORTAFOLIO/FOTOGRAFIA/RETRATO/calle-05122020byedd-5--thumb.webp",
+          "alt": "Calle y retrato — 1 de 15"
+        },
+        {
+          "type": "img",
+          "src": "PORTAFOLIO/FOTOGRAFIA/RETRATO/calle-08112020-dsc09865.webp",
+          "thumb": "PORTAFOLIO/FOTOGRAFIA/RETRATO/calle-08112020-dsc09865--thumb.webp",
+          "alt": "Calle y retrato — 2 de 15"
+        },
+        {
+          "type": "img",
+          "src": "PORTAFOLIO/FOTOGRAFIA/RETRATO/calle-09082020-dsc00192.webp",
+          "thumb": "PORTAFOLIO/FOTOGRAFIA/RETRATO/calle-09082020-dsc00192--thumb.webp",
+          "alt": "Calle y retrato — 3 de 15"
+        },
+        {
+          "type": "img",
+          "src": "PORTAFOLIO/FOTOGRAFIA/RETRATO/calle-23072020-dsc09938.webp",
+          "thumb": "PORTAFOLIO/FOTOGRAFIA/RETRATO/calle-23072020-dsc09938--thumb.webp",
+          "alt": "Calle y retrato — 4 de 15"
+        },
+        {
+          "type": "img",
+          "src": "PORTAFOLIO/FOTOGRAFIA/RETRATO/calle-b-w-boring-weird-4.webp",
+          "thumb": "PORTAFOLIO/FOTOGRAFIA/RETRATO/calle-b-w-boring-weird-4--thumb.webp",
+          "alt": "Calle y retrato — 5 de 15"
+        },
+        {
+          "type": "img",
+          "src": "PORTAFOLIO/FOTOGRAFIA/RETRATO/calle-captura-de-pantalla-5.webp",
+          "thumb": "PORTAFOLIO/FOTOGRAFIA/RETRATO/calle-captura-de-pantalla-5--thumb.webp",
+          "alt": "Calle y retrato — 6 de 15"
+        },
+        {
+          "type": "img",
+          "src": "PORTAFOLIO/FOTOGRAFIA/RETRATO/calle-captura-de-pantalla-6.webp",
+          "thumb": "PORTAFOLIO/FOTOGRAFIA/RETRATO/calle-captura-de-pantalla-6--thumb.webp",
+          "alt": "Calle y retrato — 7 de 15"
+        },
+        {
+          "type": "img",
+          "src": "PORTAFOLIO/FOTOGRAFIA/RETRATO/calle-captura-de-pantalla-7.webp",
+          "thumb": "PORTAFOLIO/FOTOGRAFIA/RETRATO/calle-captura-de-pantalla-7--thumb.webp",
+          "alt": "Calle y retrato — 8 de 15"
+        },
+        {
+          "type": "img",
+          "src": "PORTAFOLIO/FOTOGRAFIA/RETRATO/calle-dsc00966.webp",
+          "thumb": "PORTAFOLIO/FOTOGRAFIA/RETRATO/calle-dsc00966--thumb.webp",
+          "alt": "Calle y retrato — 9 de 15"
+        },
+        {
+          "type": "img",
+          "src": "PORTAFOLIO/FOTOGRAFIA/RETRATO/calle-dsc01170.webp",
+          "thumb": "PORTAFOLIO/FOTOGRAFIA/RETRATO/calle-dsc01170--thumb.webp",
+          "alt": "Calle y retrato — 10 de 15"
+        },
+        {
+          "type": "img",
+          "src": "PORTAFOLIO/FOTOGRAFIA/RETRATO/calle-dsc01244.webp",
+          "thumb": "PORTAFOLIO/FOTOGRAFIA/RETRATO/calle-dsc01244--thumb.webp",
+          "alt": "Calle y retrato — 11 de 15"
+        },
+        {
+          "type": "img",
+          "src": "PORTAFOLIO/FOTOGRAFIA/RETRATO/calle-hdr-4-de-8.webp",
+          "thumb": "PORTAFOLIO/FOTOGRAFIA/RETRATO/calle-hdr-4-de-8--thumb.webp",
+          "alt": "Calle y retrato — 12 de 15"
+        },
+        {
+          "type": "img",
+          "src": "PORTAFOLIO/FOTOGRAFIA/RETRATO/calle-introsspeccion-5.webp",
+          "thumb": "PORTAFOLIO/FOTOGRAFIA/RETRATO/calle-introsspeccion-5--thumb.webp",
+          "alt": "Calle y retrato — 13 de 15"
+        },
+        {
+          "type": "img",
+          "src": "PORTAFOLIO/FOTOGRAFIA/RETRATO/calle-miradas-cruzadas.webp",
+          "thumb": "PORTAFOLIO/FOTOGRAFIA/RETRATO/calle-miradas-cruzadas--thumb.webp",
+          "alt": "Calle y retrato — 14 de 15"
+        },
+        {
+          "type": "img",
+          "src": "PORTAFOLIO/FOTOGRAFIA/RETRATO/calle-visiones.webp",
+          "thumb": "PORTAFOLIO/FOTOGRAFIA/RETRATO/calle-visiones--thumb.webp",
+          "alt": "Calle y retrato — 15 de 15"
+        },
+        {
+          "type": "img",
+          "src": "PORTAFOLIO/FOTOGRAFIA/RETRATO/incarnare-bw1f-5.webp",
+          "thumb": "PORTAFOLIO/FOTOGRAFIA/RETRATO/incarnare-bw1f-5--thumb.webp",
+          "alt": "Incarnare — 1 de 4"
+        },
+        {
+          "type": "img",
+          "src": "PORTAFOLIO/FOTOGRAFIA/RETRATO/incarnare-incarnare-1-3.webp",
+          "thumb": "PORTAFOLIO/FOTOGRAFIA/RETRATO/incarnare-incarnare-1-3--thumb.webp",
+          "alt": "Incarnare — 2 de 4"
+        },
+        {
+          "type": "img",
+          "src": "PORTAFOLIO/FOTOGRAFIA/RETRATO/incarnare-incarnare-2-3.webp",
+          "thumb": "PORTAFOLIO/FOTOGRAFIA/RETRATO/incarnare-incarnare-2-3--thumb.webp",
+          "alt": "Incarnare — 3 de 4"
+        },
+        {
+          "type": "img",
+          "src": "PORTAFOLIO/FOTOGRAFIA/RETRATO/incarnare-incarnare-3-3.webp",
+          "thumb": "PORTAFOLIO/FOTOGRAFIA/RETRATO/incarnare-incarnare-3-3--thumb.webp",
+          "alt": "Incarnare — 4 de 4"
+        }
+      ],
+      "folder": "PORTAFOLIO/FOTOGRAFIA/RETRATO"
+    },
+    {
+      "id": "experimental",
+      "cat": "fotografia",
+      "title": "Experimental",
+      "kicker": "Fotografía experimental y collage",
+      "cover": "PORTAFOLIO/FOTOGRAFIA/EXPERIMENTAL/simetrias-fr21-12-2013012131p-m--thumb.webp",
+      "items": [
+        {
+          "type": "img",
+          "src": "PORTAFOLIO/FOTOGRAFIA/EXPERIMENTAL/simetrias-escape.webp",
+          "thumb": "PORTAFOLIO/FOTOGRAFIA/EXPERIMENTAL/simetrias-escape--thumb.webp",
+          "alt": "Espejos y simetrías — 1 de 4"
+        },
+        {
+          "type": "img",
+          "src": "PORTAFOLIO/FOTOGRAFIA/EXPERIMENTAL/simetrias-fr21-12-2013012131p-m.webp",
+          "thumb": "PORTAFOLIO/FOTOGRAFIA/EXPERIMENTAL/simetrias-fr21-12-2013012131p-m--thumb.webp",
+          "alt": "Espejos y simetrías — 2 de 4"
+        },
+        {
+          "type": "img",
+          "src": "PORTAFOLIO/FOTOGRAFIA/EXPERIMENTAL/simetrias-fr21-12-2013012821p-m.webp",
+          "thumb": "PORTAFOLIO/FOTOGRAFIA/EXPERIMENTAL/simetrias-fr21-12-2013012821p-m--thumb.webp",
+          "alt": "Espejos y simetrías — 3 de 4"
+        },
+        {
+          "type": "img",
+          "src": "PORTAFOLIO/FOTOGRAFIA/EXPERIMENTAL/simetrias-img-0352.webp",
+          "thumb": "PORTAFOLIO/FOTOGRAFIA/EXPERIMENTAL/simetrias-img-0352--thumb.webp",
+          "alt": "Espejos y simetrías — 4 de 4"
+        },
+        {
+          "type": "img",
+          "src": "PORTAFOLIO/FOTOGRAFIA/EXPERIMENTAL/collage-si-20180903-213523.webp",
+          "thumb": "PORTAFOLIO/FOTOGRAFIA/EXPERIMENTAL/collage-si-20180903-213523--thumb.webp",
           "alt": "Collage fotográfico — 1 de 2"
         },
         {
           "type": "img",
-          "src": "PORTAFOLIO/FOTOGRAFIA/EXPERIMENTAL/collage/collage-si-20180918-193949.webp",
-          "thumb": "PORTAFOLIO/FOTOGRAFIA/EXPERIMENTAL/collage/collage-si-20180918-193949--thumb.webp",
+          "src": "PORTAFOLIO/FOTOGRAFIA/EXPERIMENTAL/collage-si-20180918-193949.webp",
+          "thumb": "PORTAFOLIO/FOTOGRAFIA/EXPERIMENTAL/collage-si-20180918-193949--thumb.webp",
           "alt": "Collage fotográfico — 2 de 2"
         }
       ],
-      "subcat": "experimental"
+      "folder": "PORTAFOLIO/FOTOGRAFIA/EXPERIMENTAL"
     },
     {
       "id": "glitch-retratos",
       "cat": "ilustracion",
       "title": "Retratos glitch",
       "kicker": "Arte digital — glitch",
-      "cover": "PORTAFOLIO/ILUSTRACION/DIGITAL/glitch-retratos/glitch-263da810-076b-4383-9c16-347ac816d023--thumb.webp",
+      "cover": "PORTAFOLIO/ILUSTRACION/DIGITAL/retratos-glitch/glitch-263da810-076b-4383-9c16-347ac816d023--thumb.webp",
       "items": [
         {
           "type": "img",
-          "src": "PORTAFOLIO/ILUSTRACION/DIGITAL/glitch-retratos/glitch-6afcfb60-681e-46ad-a8f1-bca72e25e453.webp",
-          "thumb": "PORTAFOLIO/ILUSTRACION/DIGITAL/glitch-retratos/glitch-6afcfb60-681e-46ad-a8f1-bca72e25e453--thumb.webp",
+          "src": "PORTAFOLIO/ILUSTRACION/DIGITAL/retratos-glitch/glitch-6afcfb60-681e-46ad-a8f1-bca72e25e453.webp",
+          "thumb": "PORTAFOLIO/ILUSTRACION/DIGITAL/retratos-glitch/glitch-6afcfb60-681e-46ad-a8f1-bca72e25e453--thumb.webp",
           "alt": "Retratos glitch — 1 de 6"
         },
         {
           "type": "img",
-          "src": "PORTAFOLIO/ILUSTRACION/DIGITAL/glitch-retratos/glitch-8b05b569-e648-436b-a3a4-e2c00342114d.webp",
-          "thumb": "PORTAFOLIO/ILUSTRACION/DIGITAL/glitch-retratos/glitch-8b05b569-e648-436b-a3a4-e2c00342114d--thumb.webp",
+          "src": "PORTAFOLIO/ILUSTRACION/DIGITAL/retratos-glitch/glitch-8b05b569-e648-436b-a3a4-e2c00342114d.webp",
+          "thumb": "PORTAFOLIO/ILUSTRACION/DIGITAL/retratos-glitch/glitch-8b05b569-e648-436b-a3a4-e2c00342114d--thumb.webp",
           "alt": "Retratos glitch — 2 de 6"
         },
         {
           "type": "img",
-          "src": "PORTAFOLIO/ILUSTRACION/DIGITAL/glitch-retratos/glitch-263da810-076b-4383-9c16-347ac816d023.webp",
-          "thumb": "PORTAFOLIO/ILUSTRACION/DIGITAL/glitch-retratos/glitch-263da810-076b-4383-9c16-347ac816d023--thumb.webp",
+          "src": "PORTAFOLIO/ILUSTRACION/DIGITAL/retratos-glitch/glitch-263da810-076b-4383-9c16-347ac816d023.webp",
+          "thumb": "PORTAFOLIO/ILUSTRACION/DIGITAL/retratos-glitch/glitch-263da810-076b-4383-9c16-347ac816d023--thumb.webp",
           "alt": "Retratos glitch — 3 de 6"
         },
         {
           "type": "img",
-          "src": "PORTAFOLIO/ILUSTRACION/DIGITAL/glitch-retratos/glitch-b63a91b8-c43e-4dc8-8beb-ecde6d49a18e.webp",
-          "thumb": "PORTAFOLIO/ILUSTRACION/DIGITAL/glitch-retratos/glitch-b63a91b8-c43e-4dc8-8beb-ecde6d49a18e--thumb.webp",
+          "src": "PORTAFOLIO/ILUSTRACION/DIGITAL/retratos-glitch/glitch-b63a91b8-c43e-4dc8-8beb-ecde6d49a18e.webp",
+          "thumb": "PORTAFOLIO/ILUSTRACION/DIGITAL/retratos-glitch/glitch-b63a91b8-c43e-4dc8-8beb-ecde6d49a18e--thumb.webp",
           "alt": "Retratos glitch — 4 de 6"
         },
         {
           "type": "img",
-          "src": "PORTAFOLIO/ILUSTRACION/DIGITAL/glitch-retratos/glitch-bb6ea918-6279-4344-b51e-68430f8608a6.webp",
-          "thumb": "PORTAFOLIO/ILUSTRACION/DIGITAL/glitch-retratos/glitch-bb6ea918-6279-4344-b51e-68430f8608a6--thumb.webp",
+          "src": "PORTAFOLIO/ILUSTRACION/DIGITAL/retratos-glitch/glitch-bb6ea918-6279-4344-b51e-68430f8608a6.webp",
+          "thumb": "PORTAFOLIO/ILUSTRACION/DIGITAL/retratos-glitch/glitch-bb6ea918-6279-4344-b51e-68430f8608a6--thumb.webp",
           "alt": "Retratos glitch — 5 de 6"
         },
         {
           "type": "img",
-          "src": "PORTAFOLIO/ILUSTRACION/DIGITAL/glitch-retratos/glitch-img-2101.webp",
-          "thumb": "PORTAFOLIO/ILUSTRACION/DIGITAL/glitch-retratos/glitch-img-2101--thumb.webp",
+          "src": "PORTAFOLIO/ILUSTRACION/DIGITAL/retratos-glitch/glitch-img-2101.webp",
+          "thumb": "PORTAFOLIO/ILUSTRACION/DIGITAL/retratos-glitch/glitch-img-2101--thumb.webp",
           "alt": "Retratos glitch — 6 de 6"
         }
       ],
-      "subcat": "digital"
+      "folder": "PORTAFOLIO/ILUSTRACION/DIGITAL/retratos-glitch"
     },
     {
       "id": "tipografia",
@@ -858,7 +811,7 @@
           "alt": "Human / Metaverse / Hypervisual — 6 de 6"
         }
       ],
-      "subcat": "digital"
+      "folder": "PORTAFOLIO/ILUSTRACION/DIGITAL/tipografia"
     },
     {
       "id": "diseno-grafico",
@@ -892,7 +845,7 @@
           "alt": "Diseño gráfico — 4 de 4"
         }
       ],
-      "subcat": "digital"
+      "folder": "PORTAFOLIO/ILUSTRACION/DIGITAL/diseno-grafico"
     },
     {
       "id": "ilustracion-digital",
@@ -944,7 +897,7 @@
           "alt": "Ilustración digital — 7 de 7"
         }
       ],
-      "subcat": "digital"
+      "folder": "PORTAFOLIO/ILUSTRACION/DIGITAL/ilustracion-digital"
     },
     {
       "id": "proyectos-exposiciones",
@@ -1003,7 +956,7 @@
         }
       ],
       "desc": "Láminas de proyectos y exposiciones: Screen Life 1.0, Seducción de la hiperrealidad, Imagen-Ante, NoFace (2015-) e instalaciones.",
-      "subcat": "digital"
+      "folder": "PORTAFOLIO/ILUSTRACION/DIGITAL/proyectos-exposiciones"
     },
     {
       "id": "loops",
@@ -1046,7 +999,7 @@
           "alt": "Loop"
         }
       ],
-      "subcat": "digital"
+      "folder": "PORTAFOLIO/ILUSTRACION/DIGITAL/loops"
     },
     {
       "id": "obra-pictorica",
@@ -1133,13 +1086,14 @@
           "thumb": "PORTAFOLIO/PINTURA/obra-pictorica/pintura-img-6216--thumb.webp",
           "alt": "Obra pictórica — 13 de 13"
         }
-      ]
+      ],
+      "folder": "PORTAFOLIO/PINTURA/obra-pictorica"
     },
     {
       "id": "dibujo-tecnica-mixta",
       "cat": "dibujo",
-      "title": "Dibujo y técnica mixta",
-      "kicker": "Dibujo",
+      "title": "Dibujo",
+      "kicker": "Dibujo y técnica mixta",
       "cover": "PORTAFOLIO/DIBUJO/dibujo-tecnica-mixta/dibujo-img-1366--thumb.webp",
       "items": [
         {
@@ -1178,52 +1132,8 @@
           "thumb": "PORTAFOLIO/DIBUJO/dibujo-tecnica-mixta/dibujo-img-4887--thumb.webp",
           "alt": "Dibujo y técnica mixta — 6 de 6"
         }
-      ]
-    },
-    {
-      "id": "jardin-del-oraculo",
-      "title": "Jardín del Oráculo",
-      "cat": "experiencias-virtuales",
-      "kicker": "Experiencia interactiva",
-      "desc": "Experiencia poética, sonora e interactiva.",
-      "cover": "PORTAFOLIO/EXPERIENCIAS-VIRTUALES/jardin-del-oraculo/exp-jardin.webp",
-      "items": [
-        {
-          "type": "link",
-          "url": "https://39913em.github.io/jardin-del-oraculo/",
-          "label": "Abrir experiencia"
-        }
-      ]
-    },
-    {
-      "id": "sonografia",
-      "title": "Sonografía",
-      "cat": "experiencias-virtuales",
-      "kicker": "Experiencia interactiva",
-      "desc": "Errores Visionoros: imagen, ruido y partitura.",
-      "cover": "PORTAFOLIO/EXPERIENCIAS-VIRTUALES/sonografia/exp-sonografia.webp",
-      "items": [
-        {
-          "type": "link",
-          "url": "https://39913em.github.io/sonografia/",
-          "label": "Abrir experiencia"
-        }
-      ]
-    },
-    {
-      "id": "archivo-de-senal",
-      "title": "Archivo de señal",
-      "cat": "experiencias-virtuales",
-      "kicker": "Publicación digital",
-      "desc": "Arte, tecnología experimental y pensamiento crítico.",
-      "cover": "PORTAFOLIO/EXPERIENCIAS-VIRTUALES/archivo-de-senal/exp-blog.webp",
-      "items": [
-        {
-          "type": "link",
-          "url": "https://39913em.github.io/archivo-de-senal/",
-          "label": "Abrir experiencia"
-        }
-      ]
+      ],
+      "folder": "PORTAFOLIO/DIBUJO/dibujo-tecnica-mixta"
     }
   ]
 }
