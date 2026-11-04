@@ -1,38 +1,38 @@
-# Eduardo Manuel — Portafolio
+# Portafolio — organización automática de obra
 
-Sitio estático (HTML + CSS + JS puro, sin frameworks), listo para GitHub Pages.
+La interfaz original se conserva. La galería se alimenta de las carpetas `PORTAFOLIO/`: no necesitas editar `data/obra.json`, HTML, CSS ni JavaScript para añadir una obra.
 
-## Orden de la página
-Reel → Experiencias interactivas → Obra (Video / Sonido / Fotografía / Arte digital / Pintura) → About (foto, semblanza, presskit y trayectoria) → Contacto.
-Páginas aparte: `terminos.html` y `privacidad.html` (enlazadas desde el footer).
+## Carpetas de contenido
 
-## Estructura
+```text
+PORTAFOLIO/
+├── AUDIO/
+├── VIDEO/
+├── FOTOGRAFIA/
+├── ILUSTRACION/
+│   ├── DIGITAL/
+│   └── FISICA/
+├── PINTURA/
+├── DIBUJO/
+└── EXPERIENCIAS-VIRTUALES/
 ```
-index.html, terminos.html, privacidad.html
-partials/   una sección por archivo
-css/        un CSS por bloque
-js/         un módulo por función
-data/obra.json   toda la galería
-data/site.json   correo de contacto
-assets/     img/, video/, audio/, logo/, fonts/, presskit/
-```
 
-## Ver el sitio en tu compu
-No abras `index.html` con doble clic. Usa VS Code con la extensión Live Server (clic derecho en `index.html` → Open with Live Server) o `python3 -m http.server 8000`.
+Sube cada archivo a la carpeta que corresponda. El nombre del archivo se usa como título de la tarjeta. Se admiten imágenes JPG/JPEG/PNG/WEBP/GIF/AVIF/SVG, audio MP3/WAV/OGG/M4A/AAC/FLAC, video MP4/WEBM/MOV, PDF y HTML.
 
-## Editar contenido
-- **Obra**: `data/obra.json`. Cada obra tiene `cat`: `video`, `sonido`, `fotografia`, `arte` o `pintura` (la pestaña donde aparece).
-- **Pintura**: agrega obras con `"cat": "pintura"`. La tarjeta "Próximamente" se muestra al final mientras exista `"soon"` en esa categoría.
-- **Experiencias**: `partials/experiencias.html` (imagen, texto y enlace de cada una).
-- **Semblanza y trayectoria**: `partials/about.html`.
-- **Presskit**: `assets/presskit/` (PDF y foto en alta).
-- **Correo**: `data/site.json`.
-- **Páginas legales**: `partials/legal-terminos.html` y `partials/legal-privacidad.html`. Son un borrador basado en las páginas legales de tus otros proyectos; conviene que un abogado las revise.
+Para una experiencia virtual compuesta por varios archivos, crea una subcarpeta dentro de `EXPERIENCIAS-VIRTUALES/` y coloca ahí el sitio completo con su `index.html`. Se mostrará como una sola experiencia; los archivos internos no se convertirán en tarjetas independientes.
 
-## Publicar en GitHub Pages
-1. Sube todo el contenido de esta carpeta al repositorio (`index.html` en la raíz).
-2. Settings → Pages → Source: rama `main`, carpeta `/ (root)`.
-3. Activa Enforce HTTPS.
+## Publicación automática
 
-## Seguridad
-CSP estricta en `<meta>` (sin scripts ni estilos inline, solo `youtube-nocookie.com` en iframes), fuentes autoalojadas, enlaces externos con `noopener noreferrer`, correo armado en el navegador, sin formularios ni claves.
+1. Sube los archivos y confirma los cambios en la rama `main`.
+2. GitHub Actions detecta el contenido, genera el catálogo y publica el sitio.
+3. No edites el JSON generado ni ejecutes el script manualmente.
+
+En GitHub, configura una sola vez **Settings → Pages → Build and deployment → Source: GitHub Actions**. El flujo está en `.github/workflows/pages.yml`.
+
+## Desarrollo local
+
+Desde esta carpeta ejecuta `python3 -m http.server 8000` y abre `http://localhost:8000`. Para probar el catálogo automático, ejecuta `python3 scripts/generar_catalogo.py`.
+
+## Contenido existente
+
+Las obras originales, sus descripciones, créditos, elementos multimedia y miniaturas se conservaron. Sus archivos multimedia referenciados también están organizados dentro de las carpetas `PORTAFOLIO/`; los recursos originales de `assets/` se mantienen para no romper el reel, las secciones ni los recursos compartidos del sitio.

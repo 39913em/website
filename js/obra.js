@@ -49,6 +49,7 @@
   async function init() {
     const grid = document.querySelector("[data-grid]");
     const tabsEl = document.querySelector("[data-tabs]");
+    const subtabsEl = document.querySelector("[data-subtabs]");
     if (!grid) return;
 
     let data;
@@ -58,6 +59,7 @@
     window.OBRA = data;
     data.visibleIds = data.works.map((w) => w.id);
     let current = data.categories[0].id;
+    let currentSub = "ilustracion-digital";
 
     const io = new IntersectionObserver((entries) => entries.forEach((e) => {
       if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
@@ -65,24 +67,39 @@
 
     function render() {
       const cat = data.categories.find((c) => c.id === current);
-      const list = data.works.filter((w) => w.cat === current);
+      const isIllustration = current === "ilustracion";
+      if (isIllustration && !cat.subcategories.some((s) => s.id === currentSub)) currentSub = cat.subcategories[0].id;
+      const list = data.works.filter((w) => isIllustration ? w.cat === currentSub : w.cat === current);
       data.visibleIds = list.map((w) => w.id);
       const nodes = list.map((w, i) => card(w, i + 1, i === 0 && w.featured));
       if (cat.soon) nodes.push(soonTile(cat.soon));
       grid.replaceChildren(...nodes);
       grid.querySelectorAll(".card").forEach((c, i) => { c.style.transitionDelay = (i % 6) * 50 + "ms"; io.observe(c); });
+
+      subtabsEl.hidden = !isIllustration;
+      subtabsEl.replaceChildren();
+      if (isIllustration) {
+        subtabsEl.replaceChildren(...cat.subcategories.map((sub) => {
+          const b = el("button", "subtab", sub.label.toUpperCase());
+          b.type = "button"; b.setAttribute("role", "tab"); b.dataset.subtab = sub.id;
+          b.setAttribute("aria-selected", String(sub.id === currentSub));
+          b.addEventListener("click", () => { currentSub = sub.id; render(); });
+          return b;
+        }));
+      }
+
       tabsEl.querySelectorAll(".tab").forEach((b) => {
         b.setAttribute("aria-selected", String(b.dataset.tab === current));
         b.tabIndex = b.dataset.tab === current ? 0 : -1;
       });
-      grid.setAttribute("aria-labelledby", "tab-" + current);
+      grid.setAttribute("aria-labelledby", isIllustration ? "tab-ilustracion" : "tab-" + current);
     }
 
     tabsEl.replaceChildren(...data.categories.map((c) => {
       const b = el("button", "tab");
       b.type = "button"; b.id = "tab-" + c.id;
       b.setAttribute("role", "tab"); b.dataset.tab = c.id; b.dataset.track = "tab-" + c.id;
-      b.append(el("b", null, c.label), el("span", null, c.desc));
+      b.append(el("b", null, c.label), el("span", null, c.desc || ""));
       b.addEventListener("click", () => { current = c.id; render(); });
       return b;
     }));
@@ -95,9 +112,20 @@
       tabsEl.querySelector(`[data-tab="${current}"]`).focus();
     });
 
+    subtabsEl.addEventListener("keydown", (e) => {
+      if (e.key !== "ArrowRight" && e.key !== "ArrowLeft") return;
+      const ids = data.categories.find((c) => c.id === "ilustracion").subcategories.map((s) => s.id);
+      currentSub = ids[(ids.indexOf(currentSub) + (e.key === "ArrowRight" ? 1 : -1) + ids.length) % ids.length];
+      render();
+      subtabsEl.querySelector(`[data-subtab="${currentSub}"]`).focus();
+    });
+
     const m = location.hash.match(/^#obra\/([\w-]+)$/);
     const target = m && data.works.find((w) => w.id === m[1]);
-    if (target) current = target.cat;
+    if (target) {
+      current = target.cat.startsWith("ilustracion-") ? "ilustracion" : target.cat;
+      if (target.cat.startsWith("ilustracion-")) currentSub = target.cat;
+    }
 
     render();
     document.dispatchEvent(new CustomEvent("obra:ready"));

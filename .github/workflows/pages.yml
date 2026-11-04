@@ -1,33 +1,40 @@
 name: Publicar portafolio
+
 on:
   push:
     branches: [main]
   workflow_dispatch:
+
 permissions:
   contents: read
   pages: write
   id-token: write
+
 concurrency:
-  group: pages
+  group: github-pages
   cancel-in-progress: true
+
 jobs:
-  build:
+  build-and-deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - name: Descargar repositorio
+      - name: Obtener repositorio
         uses: actions/checkout@v4
       - name: Preparar Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.x'
-      - name: Sincronizar obras desde PORTAFOLIO
-        run: python scripts/sincronizar_portafolio.py
+          python-version: "3.x"
+      - name: Generar catálogo desde las carpetas multimedia
+        run: python scripts/generar_catalogo.py
       - name: Configurar GitHub Pages
         uses: actions/configure-pages@v5
       - name: Preparar sitio
         uses: actions/upload-pages-artifact@v3
         with:
-          path: '.'
-      - name: Publicar
+          path: .
+      - name: Publicar sitio
         id: deployment
         uses: actions/deploy-pages@v4
