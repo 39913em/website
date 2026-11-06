@@ -38,3 +38,7 @@ jobs:
       - name: Publicar sitio
         id: deployment
         uses: actions/deploy-pages@v4
+      - name: Verificar que la galería publicada incluye las obras nuevas
+        env:
+          SITE_URL: ${{ steps.deployment.outputs.page_url }}
+        run: python scripts/generar_catalogo.py --verificar-publicado "$SITE_URL"
