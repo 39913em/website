@@ -23,15 +23,21 @@ Para una experiencia virtual compuesta por varios archivos, crea una subcarpeta 
 
 ## Publicación automática
 
-1. Sube los archivos y confirma los cambios en la rama `main`.
-2. GitHub Actions detecta el contenido, genera el catálogo y publica el sitio.
-3. No edites el JSON generado ni ejecutes el script manualmente.
+1. Copia la imagen en su carpeta (por ejemplo `PORTAFOLIO/DIBUJO/`) y **súbela a Git**: `git add PORTAFOLIO`, `git commit` y `git push` a la rama `main`. Un archivo que solo está en tu equipo no existe para GitHub.
+2. GitHub Actions detecta el contenido, genera el catálogo, publica el sitio y, al final, comprueba que el sitio publicado incluye las obras nuevas y que sus portadas se descargan (paso «Verificar que la galería publicada…»).
+3. No necesitas editar `data/obra.json` ni ejecutar el script a mano. Si lo ejecutas para previsualizar, puedes subir o descartar el cambio en `data/obra.json`: Actions lo regenera siempre.
 
-En GitHub, configura una sola vez **Settings → Pages → Build and deployment → Source: GitHub Actions**. El flujo está en `.github/workflows/pages.yml`.
+En GitHub, configura una sola vez **Settings → Pages → Build and deployment → Source: GitHub Actions**. Si queda en «Deploy from a branch», GitHub publica el `data/obra.json` que está guardado en el repositorio y **nunca** el catálogo que genera Actions: las imágenes nuevas no aparecen aunque el flujo termine en verde. El flujo está en `.github/workflows/pages.yml`.
+
+### Si una imagen no aparece
+
+- En GitHub abre **Actions → Publicar portafolio →** la última ejecución. El resumen lista las obras nuevas por categoría y los archivos que se omitieron con su motivo.
+- Se omiten a propósito: archivos con una extensión no admitida, archivos ocultos (empiezan con `.`), miniaturas/pósters dentro de subcarpetas (nombres terminados en `-thumb`, `_thumb`, `--thumb`, `-poster`, `_poster`) y archivos con **exactamente el mismo contenido** que otro ya publicado.
+- Los nombres de carpeta no distinguen mayúsculas de minúsculas, pero conviene mantener `DIBUJO`, `PINTURA`, etc. tal como están.
 
 ## Desarrollo local
 
-Desde esta carpeta ejecuta `python3 -m http.server 8000` y abre `http://localhost:8000`. Para probar el catálogo automático, ejecuta `python3 scripts/generar_catalogo.py`.
+Desde esta carpeta ejecuta `python3 -m http.server 8000` y abre `http://localhost:8000`. Para probar el catálogo automático, ejecuta `python3 scripts/generar_catalogo.py`: informa de las obras nuevas y avisa de cada archivo que omite y por qué.
 
 ## Contenido existente
 
