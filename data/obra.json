@@ -13,7 +13,21 @@
     {
       "id": "fotografia",
       "label": "Fotografía",
-      "desc": "Retrato, calle, registro y fotografía editorial."
+      "desc": "Retrato, calle, registro y fotografía editorial.",
+      "subcategories": [
+        {
+          "id": "fotografia-sesiones",
+          "label": "Sesiones"
+        },
+        {
+          "id": "fotografia-autoria",
+          "label": "Autoría"
+        },
+        {
+          "id": "fotografia-calle-retrato",
+          "label": "Calle / Retrato"
+        }
+      ]
     },
     {
       "id": "ilustracion",
@@ -117,7 +131,7 @@
     },
     {
       "id": "pret-a-mx",
-      "cat": "fotografia",
+      "cat": "fotografia-sesiones",
       "title": "Pret à MX",
       "kicker": "Fotografía editorial — 2018",
       "cover": "PORTAFOLIO/FOTOGRAFIA/pret-10122018-pret-a-mx-106.webp",
@@ -246,7 +260,7 @@
     },
     {
       "id": "incarnare",
-      "cat": "fotografia",
+      "cat": "fotografia-autoria",
       "title": "Incarnare",
       "kicker": "Serie fotográfica — retrato",
       "cover": "PORTAFOLIO/FOTOGRAFIA/incarnare-bw1f-5.webp",
@@ -279,7 +293,7 @@
     },
     {
       "id": "calle-retrato",
-      "cat": "fotografia",
+      "cat": "fotografia-calle-retrato",
       "title": "Calle y retrato",
       "kicker": "Fotografía documental",
       "cover": "PORTAFOLIO/FOTOGRAFIA/calle-dsc01244.webp",
@@ -378,7 +392,7 @@
     },
     {
       "id": "simetrias",
-      "cat": "fotografia",
+      "cat": "fotografia-autoria",
       "title": "Espejos y simetrías",
       "kicker": "Fotografía de espacio",
       "cover": "PORTAFOLIO/FOTOGRAFIA/simetrias-fr21-12-2013012131p-m.webp",
@@ -411,7 +425,7 @@
     },
     {
       "id": "registro",
-      "cat": "fotografia",
+      "cat": "fotografia-sesiones",
       "title": "Registro y documental",
       "kicker": "Fotografía de directo y reportaje",
       "cover": "PORTAFOLIO/FOTOGRAFIA/registro-moviemakers-4.webp",
@@ -474,7 +488,7 @@
     },
     {
       "id": "collage",
-      "cat": "fotografia",
+      "cat": "fotografia-autoria",
       "title": "Collage fotográfico",
       "kicker": "Fotografía — 2018",
       "cover": "PORTAFOLIO/FOTOGRAFIA/collage-si-20180903-213523.webp",

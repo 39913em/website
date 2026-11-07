@@ -31,7 +31,10 @@ MEDIA = {
     ".pdf": "pdf", ".html": "web", ".htm": "web",
 }
 CATEGORY_DIRS = {
-    "AUDIO": "audio", "VIDEO": "video", "FOTOGRAFIA": "fotografia",
+    "AUDIO": "audio", "VIDEO": "video",
+    "FOTOGRAFIA/SESIONES": "fotografia-sesiones",
+    "FOTOGRAFIA/AUTORIA": "fotografia-autoria",
+    "FOTOGRAFIA/CALLE-RETRATO": "fotografia-calle-retrato",
     "ILUSTRACION/DIGITAL": "ilustracion-digital",
     "ILUSTRACION/FISICA": "ilustracion-fisica",
     "PINTURA": "pintura", "DIBUJO": "dibujo",
@@ -169,6 +172,19 @@ def auditar(known, owner):
     return omitted, missing
 
 
+def avisar_sueltas(known):
+    """Fotografía se divide en SESIONES, AUTORIA y CALLE-RETRATO: una imagen nueva
+    suelta en PORTAFOLIO/FOTOGRAFIA/ no pertenece a ningún apartado y no se publicaría."""
+    root = find_dir(BASE, "FOTOGRAFIA")
+    sueltas = []
+    if root is not None:
+        for path in sorted(root.iterdir()):
+            if path.is_file() and not path.name.startswith(".") and path.suffix.lower() in MEDIA and rel(path) not in known:
+                sueltas.append(rel(path))
+                aviso(f"{rel(path)} está suelto en FOTOGRAFIA y no se publicó: muévelo a SESIONES, AUTORIA o CALLE-RETRATO.")
+    return sueltas
+
+
 def aviso(texto):
     if os.environ.get("GITHUB_ACTIONS") == "true":
         escapado = texto.replace("%", "%25").replace("\r", "%0D").replace("\n", "%0A")
@@ -239,6 +255,7 @@ def main():
     for r, motivo in omitted:
         aviso(f"{r} no se publicó como obra: {motivo}.")
 
+    avisar_sueltas(known)
     summary = os.environ.get("GITHUB_STEP_SUMMARY")
     if summary:
         with open(summary, "a", encoding="utf-8") as stream:

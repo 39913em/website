@@ -59,7 +59,7 @@
     window.OBRA = data;
     data.visibleIds = data.works.map((w) => w.id);
     let current = data.categories[0].id;
-    let currentSub = "ilustracion-digital";
+    const subs = {}; // subsección elegida en cada categoría que tiene subcategorías
 
     const io = new IntersectionObserver((entries) => entries.forEach((e) => {
       if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
@@ -67,23 +67,25 @@
 
     function render() {
       const cat = data.categories.find((c) => c.id === current);
-      const isIllustration = current === "ilustracion";
-      if (isIllustration && !cat.subcategories.some((s) => s.id === currentSub)) currentSub = cat.subcategories[0].id;
-      const list = data.works.filter((w) => isIllustration ? w.cat === currentSub : w.cat === current);
+      const hasSubs = Array.isArray(cat.subcategories) && cat.subcategories.length > 0;
+      if (hasSubs && !cat.subcategories.some((s) => s.id === subs[cat.id])) subs[cat.id] = cat.subcategories[0].id;
+      const list = data.works.filter((w) => w.cat === (hasSubs ? subs[cat.id] : current));
       data.visibleIds = list.map((w) => w.id);
       const nodes = list.map((w, i) => card(w, i + 1, i === 0 && w.featured));
       if (cat.soon) nodes.push(soonTile(cat.soon));
       grid.replaceChildren(...nodes);
       grid.querySelectorAll(".card").forEach((c, i) => { c.style.transitionDelay = (i % 6) * 50 + "ms"; io.observe(c); });
 
-      subtabsEl.hidden = !isIllustration;
+      subtabsEl.hidden = !hasSubs;
       subtabsEl.replaceChildren();
-      if (isIllustration) {
+      if (hasSubs) {
+        subtabsEl.setAttribute("aria-label", "Tipo de " + cat.label.toLowerCase());
+        subtabsEl.style.setProperty("--subtabs", cat.subcategories.length);
         subtabsEl.replaceChildren(...cat.subcategories.map((sub) => {
           const b = el("button", "subtab", sub.label.toUpperCase());
           b.type = "button"; b.setAttribute("role", "tab"); b.dataset.subtab = sub.id;
-          b.setAttribute("aria-selected", String(sub.id === currentSub));
-          b.addEventListener("click", () => { currentSub = sub.id; render(); });
+          b.setAttribute("aria-selected", String(sub.id === subs[cat.id]));
+          b.addEventListener("click", () => { subs[cat.id] = sub.id; render(); });
           return b;
         }));
       }
@@ -92,7 +94,7 @@
         b.setAttribute("aria-selected", String(b.dataset.tab === current));
         b.tabIndex = b.dataset.tab === current ? 0 : -1;
       });
-      grid.setAttribute("aria-labelledby", isIllustration ? "tab-ilustracion" : "tab-" + current);
+      grid.setAttribute("aria-labelledby", "tab-" + current);
     }
 
     tabsEl.replaceChildren(...data.categories.map((c) => {
@@ -114,17 +116,20 @@
 
     subtabsEl.addEventListener("keydown", (e) => {
       if (e.key !== "ArrowRight" && e.key !== "ArrowLeft") return;
-      const ids = data.categories.find((c) => c.id === "ilustracion").subcategories.map((s) => s.id);
-      currentSub = ids[(ids.indexOf(currentSub) + (e.key === "ArrowRight" ? 1 : -1) + ids.length) % ids.length];
+      const cat = data.categories.find((c) => c.id === current);
+      if (!cat || !cat.subcategories) return;
+      const ids = cat.subcategories.map((s) => s.id);
+      subs[cat.id] = ids[(ids.indexOf(subs[cat.id]) + (e.key === "ArrowRight" ? 1 : -1) + ids.length) % ids.length];
       render();
-      subtabsEl.querySelector(`[data-subtab="${currentSub}"]`).focus();
+      subtabsEl.querySelector(`[data-subtab="${subs[cat.id]}"]`).focus();
     });
 
     const m = location.hash.match(/^#obra\/([\w-]+)$/);
     const target = m && data.works.find((w) => w.id === m[1]);
     if (target) {
-      current = target.cat.startsWith("ilustracion-") ? "ilustracion" : target.cat;
-      if (target.cat.startsWith("ilustracion-")) currentSub = target.cat;
+      const parent = data.categories.find((c) => c.subcategories && c.subcategories.some((s) => s.id === target.cat));
+      current = parent ? parent.id : target.cat;
+      if (parent) subs[parent.id] = target.cat;
     }
 
     render();
