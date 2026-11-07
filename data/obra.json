@@ -27,7 +27,8 @@
           "id": "fotografia-calle-retrato",
           "label": "Calle / Retrato"
         }
-      ]
+      ],
+      "flat": true
     },
     {
       "id": "ilustracion",
@@ -42,7 +43,8 @@
           "id": "ilustracion-fisica",
           "label": "Física"
         }
-      ]
+      ],
+      "flat": true
     },
     {
       "id": "pintura",
@@ -53,6 +55,12 @@
       "id": "dibujo",
       "label": "Dibujo",
       "desc": "Dibujo y técnica mixta."
+    },
+    {
+      "id": "exposiciones",
+      "label": "Exposiciones",
+      "desc": "Proyectos y exposiciones.",
+      "flat": true
     }
   ],
   "works": [
@@ -938,7 +946,7 @@
     },
     {
       "id": "proyectos-exposiciones",
-      "cat": "ilustracion-digital",
+      "cat": "exposiciones",
       "title": "Proyectos y exposiciones",
       "kicker": "Láminas de proyecto y exposición",
       "cover": "PORTAFOLIO/ILUSTRACION/DIGITAL/proyectos-sin-titulo-13.webp",

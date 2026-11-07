@@ -37,7 +37,7 @@ CATEGORY_DIRS = {
     "FOTOGRAFIA/CALLE-RETRATO": "fotografia-calle-retrato",
     "ILUSTRACION/DIGITAL": "ilustracion-digital",
     "ILUSTRACION/FISICA": "ilustracion-fisica",
-    "PINTURA": "pintura", "DIBUJO": "dibujo",
+    "PINTURA": "pintura", "DIBUJO": "dibujo", "EXPOSICIONES": "exposiciones",
 }
 THUMB_SUFFIXES = ("--thumb", "-thumb", "_thumb", "-poster", "_poster")
 
@@ -77,6 +77,96 @@ def find_dir(base, relative):
     return current
 
 
+def es_derivado(path):
+    """Los archivos con '--' en el nombre son derivados (miniaturas/portadas) de otro archivo."""
+    return "--" in path.stem
+
+
+def _nfc(texto):
+    return unicodedata.normalize("NFC", texto)
+
+
+@lru_cache(maxsize=None)
+def _nombres(carpeta):
+    try:
+        return frozenset(_nfc(n) for n in os.listdir(carpeta))
+    except OSError:
+        return frozenset()
+
+
+def existe(ruta):
+    """True si el archivo existe con las MISMAS mayúsculas (como lo ve GitHub Pages en Linux)."""
+    actual = ROOT
+    for parte in ruta.split("/"):
+        if _nfc(parte) not in _nombres(actual):
+            return False
+        actual = actual / parte
+    return actual.is_file()
+
+
+def referencia(valor):
+    """Ruta (sin codificar) si el valor apunta a un archivo de PORTAFOLIO/; si no, None."""
+    return unquote(valor) if isinstance(valor, str) and valor.startswith("PORTAFOLIO/") else None
+
+
+def falta(valor):
+    ruta = referencia(valor)
+    return ruta is not None and not existe(ruta)
+
+
+def portada_valida(work, items):
+    cover = work["cover"]
+    if isinstance(cover, str):
+        if not falta(cover):
+            return cover
+    elif isinstance(cover, dict) and "video" in cover:
+        if not falta(cover["video"]):
+            return {k: v for k, v in cover.items() if k != "poster"} if falta(cover.get("poster")) else cover
+    else:
+        return cover  # portada de texto: no depende de ningún archivo
+    for it in items:  # la portada desapareció: usa la primera pieza que sigue existiendo
+        if it.get("type") == "img":
+            return it.get("thumb") or it["src"]
+    for it in items:
+        if it.get("type") == "video":
+            return {"video": it["src"], "poster": it["thumb"]} if it.get("thumb") else {"video": it["src"]}
+    return {"text": work["title"]}
+
+
+def limpiar_catalogo(data):
+    """Quita del catálogo lo que ya no está en PORTAFOLIO/.
+
+    Una foto (src + miniatura) se quita si falta CUALQUIERA de sus dos archivos; una obra
+    se quita cuando se queda sin piezas. Devuelve (quitados, sobrantes): el informe y los
+    archivos que siguen en las carpetas pero ya no pertenecen a nada.
+    """
+    quitados, sobrantes, vivas = [], set(), []
+    for work in data["works"]:
+        piezas = []
+        for it in work["items"]:
+            archivos = [it.get("src"), it.get("thumb")] if it.get("type") == "img" else [it.get("src") or it.get("url")]
+            ausentes = [referencia(v) for v in archivos if falta(v)]
+            if ausentes:
+                quitados.append(f"{ausentes[0]} (de «{work['title']}»)")
+                for v in (it.get("src"), it.get("thumb"), it.get("cover"), it.get("poster")):
+                    ruta = referencia(v)
+                    if ruta and existe(ruta):
+                        sobrantes.add(ruta)
+                continue
+            for clave in ("thumb", "cover", "poster"):  # extras opcionales: si faltan, se omiten
+                if falta(it.get(clave)):
+                    del it[clave]
+            piezas.append(it)
+        if not piezas:
+            quitados.append(f"obra «{work['title']}» ({work['id']}): ya no tiene archivos")
+            continue
+        work["items"] = piezas
+        work["cover"] = portada_valida(work, piezas)
+        vivas.append(work)
+    data["works"] = vivas
+    return quitados, sobrantes
+
+
 def media_files(folder):
     if not folder.exists():
         return []
@@ -84,7 +174,7 @@ def media_files(folder):
     for path in sorted(folder.rglob("*")):
         if not path.is_file() or any(part.startswith(".") for part in path.relative_to(folder).parts):
             continue
-        if path.stem.lower().endswith(THUMB_SUFFIXES):
+        if path.stem.lower().endswith(THUMB_SUFFIXES) or es_derivado(path):
             continue
         if path.suffix.lower() in MEDIA:
             found.append(path)
@@ -146,7 +236,7 @@ def make_work(cat, name, files, taken):
     }
 
 
-def auditar(known, owner):
+def auditar(known, owner, sobrantes=frozenset()):
     """Revisa TODOS los archivos de las carpetas de categoría y explica cada uno
     que no quedó como obra. Devuelve (omitidos, sin_registrar)."""
     omitted, missing = [], []
@@ -161,8 +251,12 @@ def auditar(known, owner):
             r = rel(path)
             if r in known:
                 continue
-            if path.suffix.lower() not in MEDIA:
+            if r in sobrantes:
+                omitted.append((r, "sobra: era parte de una foto/obra que ya quitaste; bórralo también"))
+            elif path.suffix.lower() not in MEDIA:
                 omitted.append((r, "extensión no admitida (" + (path.suffix or "sin extensión") + ")"))
+            elif es_derivado(path):
+                omitted.append((r, "es un archivo derivado (lleva '--' en el nombre); no se publica por sí solo"))
             elif len(parts) > 1 and path.stem.lower().endswith(THUMB_SUFFIXES):
                 omitted.append((r, "es una miniatura/póster interno; se omite a propósito"))
             elif file_hash(path) in owner:
@@ -172,7 +266,7 @@ def auditar(known, owner):
     return omitted, missing
 
 
-def avisar_sueltas(known):
+def avisar_sueltas(known, sobrantes=frozenset()):
     """Fotografía se divide en SESIONES, AUTORIA y CALLE-RETRATO: una imagen nueva
     suelta en PORTAFOLIO/FOTOGRAFIA/ no pertenece a ningún apartado y no se publicaría."""
     root = find_dir(BASE, "FOTOGRAFIA")
@@ -181,7 +275,10 @@ def avisar_sueltas(known):
         for path in sorted(root.iterdir()):
             if path.is_file() and not path.name.startswith(".") and path.suffix.lower() in MEDIA and rel(path) not in known:
                 sueltas.append(rel(path))
-                aviso(f"{rel(path)} está suelto en FOTOGRAFIA y no se publicó: muévelo a SESIONES, AUTORIA o CALLE-RETRATO.")
+                if rel(path) in sobrantes:
+                    aviso(f"{rel(path)} no se publicó como obra: sobra: era parte de una foto/obra que ya quitaste; bórralo también.")
+                elif not es_derivado(path):
+                    aviso(f"{rel(path)} está suelto en FOTOGRAFIA y no se publicó: muévelo a SESIONES, AUTORIA o CALLE-RETRATO.")
     return sueltas
 
 
@@ -193,7 +290,7 @@ def aviso(texto):
         print("AVISO: " + texto)
 
 
-def resumen_markdown(data, nuevas, omitidos):
+def resumen_markdown(data, nuevas, omitidos, quitados=()):
     por_cat = {}
     for w in data["works"]:
         por_cat.setdefault(w["cat"], [0, 0])
@@ -203,6 +300,8 @@ def resumen_markdown(data, nuevas, omitidos):
     lineas += [f"| {cat} | {n} | {f} |" for cat, (n, f) in sorted(por_cat.items())]
     lineas += ["", f"**Obras nuevas en esta ejecución:** {len(nuevas)}", ""]
     lineas += [f"- `{w['id']}` ({w['cat']})" for w in nuevas]
+    if quitados:
+        lineas += ["", "### Quitado del catálogo (ya no está en PORTAFOLIO/)", ""] + [f"- `{q}`" for q in quitados]
     if omitidos:
         lineas += ["", "### Archivos omitidos", ""] + [f"- `{r}`: {motivo}" for r, motivo in omitidos]
     return "\n".join(lineas) + "\n"
@@ -210,6 +309,14 @@ def resumen_markdown(data, nuevas, omitidos):
 
 def main():
     data = json.loads(DATA.read_text(encoding="utf-8"))
+    quitados, sobrantes = [], set()
+    if any(p.is_file() for p in BASE.rglob("*")):
+        quitados, sobrantes = limpiar_catalogo(data)
+        vigentes = set()
+        path_refs(data["works"], vigentes)
+        sobrantes -= vigentes  # lo que otra pieza sigue usando no es un sobrante
+    else:  # sin PORTAFOLIO/ (p. ej. una copia incompleta) no se puede saber qué falta: no se toca nada
+        aviso("No se encontró la carpeta PORTAFOLIO/ con archivos: no se limpió el catálogo.")
     known = set()
     path_refs(data.get("works", []), known)
     owner = {}  # hash de contenido -> primera ruta que lo usa
@@ -229,14 +336,14 @@ def main():
             if child.name.startswith("."):
                 continue
             if child.is_file():
-                candidates = [child] if child.suffix.lower() in MEDIA else []
+                candidates = [child] if child.suffix.lower() in MEDIA and not es_derivado(child) else []
                 title = child.stem
             elif child.is_dir():
                 candidates = media_files(child)
                 title = child.name
             else:
                 continue
-            candidates = [p for p in candidates if rel(p) not in known and file_hash(p) not in owner]
+            candidates = [p for p in candidates if rel(p) not in known and rel(p) not in sobrantes and file_hash(p) not in owner]
             if not candidates:
                 continue
             work = make_work(cat, title, candidates, taken)
@@ -250,16 +357,20 @@ def main():
     print(f"Catálogo listo: {len(additions)} archivos nuevos; {len(data['works'])} obras totales.")
     for w in new_works:
         print(f"  + {w['id']}  [{w['cat']}]  {len(w['items'])} archivo(s)")
+    if quitados:
+        print(f"Quitado del catálogo porque ya no existe en PORTAFOLIO/ ({len(quitados)}):")
+        for q in quitados:
+            print("  - " + q)
 
-    omitted, missing = auditar(known, owner)
+    omitted, missing = auditar(known, owner, sobrantes)
     for r, motivo in omitted:
         aviso(f"{r} no se publicó como obra: {motivo}.")
 
-    avisar_sueltas(known)
+    avisar_sueltas(known, sobrantes)
     summary = os.environ.get("GITHUB_STEP_SUMMARY")
     if summary:
         with open(summary, "a", encoding="utf-8") as stream:
-            stream.write(resumen_markdown(data, new_works, omitted))
+            stream.write(resumen_markdown(data, new_works, omitted, quitados))
 
     if missing:
         print("ERROR: archivos de PORTAFOLIO que no quedaron en el catálogo y no tienen motivo conocido:", file=sys.stderr)

@@ -9,15 +9,27 @@ PORTAFOLIO/
 ├── AUDIO/
 ├── VIDEO/
 ├── FOTOGRAFIA/
+│   ├── SESIONES/
+│   ├── AUTORIA/
+│   └── CALLE-RETRATO/
 ├── ILUSTRACION/
 │   ├── DIGITAL/
 │   └── FISICA/
 ├── PINTURA/
 ├── DIBUJO/
+├── EXPOSICIONES/
 └── EXPERIENCIAS-VIRTUALES/
 ```
 
-Sube cada archivo a la carpeta que corresponda. El nombre del archivo se usa como título de la tarjeta. Se admiten imágenes JPG/JPEG/PNG/WEBP/GIF/AVIF/SVG, audio MP3/WAV/OGG/M4A/AAC/FLAC, video MP4/WEBM/MOV, PDF y HTML.
+**Meter o sacar archivos de una carpeta es lo único que hay que hacer.** El sitio se actualiza solo:
+
+- **Agregar:** copia el archivo a la carpeta que corresponda. Se admiten imágenes JPG/JPEG/PNG/WEBP/GIF/AVIF/SVG, audio MP3/WAV/OGG/M4A/AAC/FLAC, video MP4/WEBM/MOV, PDF y HTML.
+- **Quitar:** borra el archivo de la carpeta. Desaparece también de la página; no queda ningún recuadro vacío.
+- **Fotografía, Ilustración (Digital y Física) y Exposiciones** muestran todas sus imágenes juntas, cada una como un recuadro suelto. Las subcarpetas solo sirven para ordenarte: cada imagen de dentro es otro recuadro.
+- **Audio, Video, Pintura y Dibujo** siguen mostrando una tarjeta por obra.
+- Las fotos que ya estaban publicadas tienen **dos archivos** cada una (uno lleva `--` en el nombre, es su miniatura). Para quitar una foto vieja, borra los dos. Si borras solo uno, la foto se quita igual y Actions te avisa del archivo que sobra.
+- Los archivos con `--` en el nombre se consideran derivados y no se publican por sí solos: no uses `--` en el nombre de tus archivos nuevos.
+- Una imagen nueva suelta directamente en `PORTAFOLIO/FOTOGRAFIA/` no se publica: ponla en `SESIONES`, `AUTORIA` o `CALLE-RETRATO`.
 
 Para una experiencia virtual compuesta por varios archivos, crea una subcarpeta dentro de `EXPERIENCIAS-VIRTUALES/` y coloca ahí el sitio completo con su `index.html`. Se mostrará como una sola experiencia; los archivos internos no se convertirán en tarjetas independientes.
 
@@ -32,6 +44,7 @@ En GitHub, configura una sola vez **Settings → Pages → Build and deployment 
 ### Si una imagen no aparece
 
 - En GitHub abre **Actions → Publicar portafolio →** la última ejecución. El resumen lista las obras nuevas por categoría y los archivos que se omitieron con su motivo.
+- El mismo resumen lista lo que se quitó del catálogo porque el archivo ya no está en `PORTAFOLIO/`.
 - Se omiten a propósito: archivos con una extensión no admitida, archivos ocultos (empiezan con `.`), miniaturas/pósters dentro de subcarpetas (nombres terminados en `-thumb`, `_thumb`, `--thumb`, `-poster`, `_poster`) y archivos con **exactamente el mismo contenido** que otro ya publicado.
 - Los nombres de carpeta no distinguen mayúsculas de minúsculas, pero conviene mantener `DIBUJO`, `PINTURA`, etc. tal como están.
 

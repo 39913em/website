@@ -38,7 +38,7 @@
   function render() {
     const w = find(S.id), it = w.items[S.i], ids = seq();
     stage.replaceChildren(media(it));
-    $("[data-lb-count]").textContent = `${String(ids.indexOf(S.id) + 1).padStart(2, "0")}/${String(ids.length).padStart(2, "0")} — pieza ${S.i + 1}/${w.items.length}`;
+    $("[data-lb-count]").textContent = `${String(ids.indexOf(S.id) + 1).padStart(2, "0")}/${String(ids.length).padStart(2, "0")}` + (w.flat ? "" : ` — pieza ${S.i + 1}/${w.items.length}`);
     $("[data-lb-kicker]").textContent = w.kicker || "";
     $("[data-lb-title]").textContent = w.title;
     $("[data-lb-desc]").textContent = w.desc || "";

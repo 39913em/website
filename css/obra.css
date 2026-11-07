@@ -61,6 +61,7 @@
   .tab { border-bottom: var(--bw) solid var(--ink); }
   .tab:nth-child(4n) { border-right: var(--bw) solid var(--ink); }
   .tab:nth-child(2n) { border-right: 0; }
+  .tab:last-child:nth-child(odd) { grid-column: 1 / -1; border-right: 0; }
 }
 @media (max-width: 560px) { .tab:not([aria-selected="true"]) span { display: none; } }
 

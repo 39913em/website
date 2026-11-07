@@ -46,6 +46,26 @@
     return li;
   }
 
+  // Secciones "planas" (categoría con "flat": true): cada imagen o video de la sección es un
+  // recuadro suelto. Se muestran todas juntas, sin tarjetas intermedias por proyecto.
+  function flatten(data) {
+    const info = {};
+    data.categories.filter((c) => c.flat).forEach((c) => {
+      if (Array.isArray(c.subcategories) && c.subcategories.length) c.subcategories.forEach((s) => { info[s.id] = { title: s.label, kicker: c.label }; });
+      else info[c.id] = { title: c.label, kicker: c.desc || "" };
+    });
+    data.works = data.works.flatMap((w) => {
+      const section = info[w.cat];
+      if (!section) return [w];
+      return w.items.map((it, n) => ({
+        id: w.id + "-f" + (n + 1), cat: w.cat, flat: true, title: section.title, kicker: section.kicker, items: [it],
+        cover: it.type === "img" ? (it.thumb || it.src)
+          : it.type === "video" ? { video: it.src, poster: it.thumb || "" }
+          : { text: it.label || section.title },
+      }));
+    });
+  }
+
   async function init() {
     const grid = document.querySelector("[data-grid]");
     const tabsEl = document.querySelector("[data-tabs]");
@@ -56,6 +76,7 @@
     try { data = await (await fetch("data/obra.json")).json(); }
     catch (e) { grid.textContent = "No se pudo cargar la obra (data/obra.json)."; return; }
 
+    flatten(data);
     window.OBRA = data;
     data.visibleIds = data.works.map((w) => w.id);
     let current = data.categories[0].id;
