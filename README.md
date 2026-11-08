@@ -48,6 +48,23 @@ En GitHub, configura una sola vez **Settings → Pages → Build and deployment 
 - Se omiten a propósito: archivos con una extensión no admitida, archivos ocultos (empiezan con `.`), miniaturas/pósters dentro de subcarpetas (nombres terminados en `-thumb`, `_thumb`, `--thumb`, `-poster`, `_poster`) y archivos con **exactamente el mismo contenido** que otro ya publicado.
 - Los nombres de carpeta no distinguen mayúsculas de minúsculas, pero conviene mantener `DIBUJO`, `PINTURA`, etc. tal como están.
 
+## Portadas animadas de Experiencias
+
+Las tarjetas de **Experiencias** (Jardín del Oráculo, Sonografía) pueden mostrar un video o un GIF como portada. Se configura en un solo archivo, `data/portadas.json`, escribiendo entre las comillas de la tarjeta que quieras:
+
+```json
+"exp-jardin":     { "youtube": "https://youtu.be/XXXXXXXXXXX", "gif": "", "zoom": 1.2 },
+"exp-sonografia": { "youtube": "", "gif": "sonografia.gif" }
+```
+
+- **Video de YouTube:** pega el enlace normal del video (o solo su ID de 11 caracteres) en `"youtube"`. Se reproduce solo, sin sonido, en bucle y sin controles, únicamente mientras la portada está a la vista. En YouTube Studio deja activada la opción «Permitir incorporación»; un video «No listado» funciona. Si ves barras negras, sube `"zoom"` (de 1 a 3).
+- **GIF:** copia el archivo a `PORTAFOLIO/EXPERIENCIAS-VIRTUALES/` y escribe solo su nombre en `"gif"`. Conviene que pese menos de unos 8 MB.
+- Si `"youtube"` y `"gif"` están vacíos se ve la imagen fija de siempre. Si se llenan los dos, gana el video.
+- Quien tiene activado «reducir movimiento» en su dispositivo siempre ve la imagen fija.
+- Actions avisa si el ID o el nombre del GIF no son válidos o si el archivo no existe.
+
+Después de guardar `data/portadas.json` (y el GIF, si lo usas), sube los cambios como siempre.
+
 ## Desarrollo local
 
 Desde esta carpeta ejecuta `python3 -m http.server 8000` y abre `http://localhost:8000`. Para probar el catálogo automático, ejecuta `python3 scripts/generar_catalogo.py`: informa de las obras nuevas y avisa de cada archivo que omite y por qué.

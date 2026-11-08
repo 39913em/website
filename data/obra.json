@@ -77,42 +77,15 @@
       ],
       "desc": "En medio de su batalla contra una enfermedad degenerativa que la está dejando ciega, una mujer se encuentra en una encrucijada: arriesgarse a someterse a una cirugía que podría devolverle la visión, pero con el peligro real de morir en el quirófano o después del procedimiento. Debe sopesar la posibilidad de recuperar la vista frente al precio que tendrá que pagar.",
       "credits": [
-        [
-          "Dirección",
-          "Eduardo Manuel"
-        ],
-        [
-          "Producción",
-          "Carlos Lowmet"
-        ],
-        [
-          "Protagonista",
-          "Clarissa Rodríguez"
-        ],
-        [
-          "Dirección de fotografía",
-          "Mundus Nox"
-        ],
-        [
-          "Dirección de arte",
-          "Karla Arzate"
-        ],
-        [
-          "Asistente de producción",
-          "María José Anastasio"
-        ],
-        [
-          "Operador de cámara",
-          "Josant Encastin"
-        ],
-        [
-          "Música original",
-          "Raylen Rivera"
-        ],
-        [
-          "Presenta",
-          "InTheTreesFilms en asociación con IKITILAB"
-        ]
+        ["Dirección", "Eduardo Manuel"],
+        ["Producción", "Carlos Lowmet"],
+        ["Protagonista", "Clarissa Rodríguez"],
+        ["Dirección de fotografía", "Mundus Nox"],
+        ["Dirección de arte", "Karla Arzate"],
+        ["Asistente de producción", "María José Anastasio"],
+        ["Operador de cámara", "Josant Encastin"],
+        ["Música original", "Raylen Rivera"],
+        ["Presenta", "InTheTreesFilms en asociación con IKITILAB"]
       ],
       "items": [
         {
@@ -527,38 +500,14 @@
       ],
       "desc": "Un grupo de estudiantes universitarios llega a San Pedro Tlalolcan para documentar la vida de “El Granicero”, un personaje central en las tradiciones del pueblo. Tras conocerlo y registrar sus palabras, eventos inexplicables comienzan a suceder. Lo que parecía un proyecto documental se transforma en un registro fragmentado de momentos desconcertantes, capturados en las grabaciones encontradas tiempo después en el lugar de los hechos.",
       "credits": [
-        [
-          "Dirección y guion original",
-          "Eduardo Manuel"
-        ],
-        [
-          "Producción",
-          "Ian Greendale, Pao Olivares, Eduardo Manuel"
-        ],
-        [
-          "Dirección de fotografía",
-          "Josue Guadarrama"
-        ],
-        [
-          "Dirección de sonido y música original",
-          "Pelayo del Villar"
-        ],
-        [
-          "Montaje",
-          "Emilio Isai Almazán González"
-        ],
-        [
-          "Diseño de producción",
-          "Paola Olivares"
-        ],
-        [
-          "Productora",
-          "Cantos de Almaya / Eddmatography"
-        ],
-        [
-          "Distribución",
-          "CODICAM / Cantos de Almaya"
-        ]
+        ["Dirección y guion original", "Eduardo Manuel"],
+        ["Producción", "Ian Greendale, Pao Olivares, Eduardo Manuel"],
+        ["Dirección de fotografía", "Josue Guadarrama"],
+        ["Dirección de sonido y música original", "Pelayo del Villar"],
+        ["Montaje", "Emilio Isai Almazán González"],
+        ["Diseño de producción", "Paola Olivares"],
+        ["Productora", "Cantos de Almaya / Eddmatography"],
+        ["Distribución", "CODICAM / Cantos de Almaya"]
       ],
       "items": [
         {
@@ -591,14 +540,8 @@
       "cover": "PORTAFOLIO/VIDEO/loop-tikt.jpg",
       "desc": "Retoma la idea de obsesión compulsiva presente en el 2% de la población mundial para generar un discurso a partir de la falta de control motriz y mental en las personas que padecen trastorno obsesivo compulsivo (TOC). Se estimuló a dos personas con síndrome de Tourette con audios binaurales especiales para provocar sensación de desesperación, y se documentaron los impulsos que surgían al estar solas en una habitación frente a la cámara, con el equipo de audio a niveles elevados. Después se les pidió ver imágenes para seguir estimulando su padecimiento hasta que surgiera por completo. En la actualidad, compulsiones y pulsiones son respuesta a la velocidad, la inmediatez y la facilidad con la que resolvemos las cosas en la era digital.",
       "credits": [
-        [
-          "Dirección",
-          "Eduardo Manuel"
-        ],
-        [
-          "Formato",
-          "Videoarte / instalación"
-        ]
+        ["Dirección", "Eduardo Manuel"],
+        ["Formato", "Videoarte / instalación"]
       ],
       "items": [
         {
@@ -643,14 +586,8 @@
       "cover": "PORTAFOLIO/VIDEO/auto-1.webp",
       "desc": "Exploración de autorretrato audiovisual sin mi propia presencia: integración de un mundo digital y su fisura con el mundo físico que me rodea. Producción en colaboración con el Departamento de Imagen y Sonido (DIS) de la Universidad de Guadalajara y la Facultad de Artes de la UAEMex.",
       "credits": [
-        [
-          "Dirección",
-          "Eduardo Manuel"
-        ],
-        [
-          "Colaboración",
-          "DIS Universidad de Guadalajara / Facultad de Artes UAEMex"
-        ]
+        ["Dirección", "Eduardo Manuel"],
+        ["Colaboración", "DIS Universidad de Guadalajara / Facultad de Artes UAEMex"]
       ],
       "items": [
         {
@@ -658,13 +595,6 @@
           "id": "Im-gPuV9k9c",
           "vertical": false,
           "label": "Video"
-        },
-        {
-          "type": "img",
-          "src": "PORTAFOLIO/VIDEO/auto-2.webp",
-          "thumb": "PORTAFOLIO/VIDEO/auto-1.webp",
-          "alt": "Still de Autorretrato de mí sin mí",
-          "label": "Still"
         },
         {
           "type": "img",
@@ -691,10 +621,7 @@
         "text": "1,376,400"
       },
       "credits": [
-        [
-          "Dirección",
-          "Eduardo Manuel"
-        ]
+        ["Dirección", "Eduardo Manuel"]
       ],
       "items": [
         {
@@ -737,10 +664,7 @@
       ],
       "desc": "El punto de partida conceptual de la pieza surge de la alegoría bíblica de Moisés y la serpiente de bronce (Números 21:4-9), reinterpretada desde una sensibilidad contemporánea atravesada por la tecnología. La imagen de un objeto elevado que, al ser observado, cura, se traslada aquí hacia la inteligencia artificial como nuevo símbolo de mediación entre lo humano y lo no humano.\n\nElegí esta referencia porque condensa una tensión que considero vigente: la necesidad humana de depositar fe en algo externo a sí mismo. En el relato bíblico, la sanación ocurre al mirar; en la actualidad, esa mirada se desplaza hacia sistemas digitales que percibimos como más objetivos, más precisos, incluso más “puros” que la experiencia humana. Esta idea me llevó a pensar en la IA como una nueva “serpiente”, no de bronce, sino de código.\n\nLa aproximación para traducir este imaginario a sonido partió de construir una dualidad entre lo orgánico y lo maquínico. El live loop inicial “serpientes” funciona como un flujo caótico, casi biológico, con variaciones impredecibles en ritmo y timbre. A partir de ahí, la pieza evoluciona integrando capas más estructuradas: bajos definidos, patrones rítmicos más estables y texturas ambientales que sugieren un tránsito hacia un orden aparente. Este proceso busca reflejar el paso del desorden humano hacia la ilusión de control que ofrece lo digital.\n\nEl uso de escalas como la frigia responde a la intención de mantener una tensión constante, evitando resoluciones armónicas tradicionales. Los arpegios y variaciones rítmicas no buscan repetición exacta, sino micro-variaciones que generen una sensación de vida interna dentro del sistema, como si el código mismo respirara. Asimismo, el uso de paneos, filtros y efectos introduce un espacio sonoro que no es completamente físico ni completamente abstracto.\n\nA nivel estructural, la pieza está diseñada para desarrollarse progresivamente en tres minutos, transitando de una textura dispersa a una densidad rítmica y armónica mayor, para finalmente diluirse en un estado más contemplativo. Este recorrido puede entenderse como un “éxodo” sonoro: del ruido a la forma, de la incertidumbre a la aparente claridad.\n\nLo que busco que el escucha perciba no es una narrativa cerrada, sino una sensación de ambigüedad. Por un lado, la atracción hacia la precisión y la estabilidad de lo digital; por otro, una inquietud latente sobre la dependencia que se genera hacia estos sistemas. La pieza propone una experiencia en la que el oyente se sitúa entre dos planos: el físico, caótico e imperfecto, y el binario, estructurado pero ajeno.",
       "credits": [
-        [
-          "Autoría",
-          "Eduardo Manuel"
-        ]
+        ["Autoría", "Eduardo Manuel"]
       ],
       "items": [
         {
@@ -757,10 +681,20 @@
       "id": "bitumen",
       "cat": "audio",
       "title": "Bitumen",
-      "kicker": "Pieza sonora",
+      "kicker": "Pieza sonora — Neo Cyborg Poetry",
       "cover": {
         "text": "Bitumen"
       },
+       "badges": [
+        ["Festival de Arte Sonoro y Musica Electroacustica FASME Mex2024"],
+        ["Visuales Generativos", "Cesar Fureimes"]
+      ],
+      "desc": "Neo Cyborg Poetry es un proyecto de poesía sonora que explora la relación entre la voz humana y la tecnología, utilizando técnicas de procesamiento digital para crear paisajes sonoros que desafían la percepción tradicional del lenguaje. La obra se centra en la idea de la identidad fragmentada y la interacción entre lo orgánico y lo artificial, invitando al oyente a reflexionar sobre la naturaleza cambiante de la comunicación en la era digital.",
+      "credits": [
+        ["Paisaje sonoro, poesia y composición", "39913"],
+        ["Visuales Generativos", "Cesar Fureimes"]
+      ],
+     
       "items": [
         {
           "type": "yt",
@@ -1094,12 +1028,12 @@
       "cat": "pintura",
       "title": "Pintura 04",
       "kicker": "Pintura",
-      "cover": "PORTAFOLIO/PINTURA/pintura-img-4775.webp",
+      "cover": "PORTAFOLIO/PINTURA/obra-pictorica--pintura-img-4775.webp",
       "items": [
         {
           "type": "img",
-          "src": "PORTAFOLIO/PINTURA/obra-pictorica--pintura-img-4775.webp",
-          "thumb": "PORTAFOLIO/PINTURA/pintura-img-4775.webp",
+          "src": "PORTAFOLIO/PINTURA/pintura-img-4775.webp",
+          "thumb": "PORTAFOLIO/PINTURA/obra-pictorica--pintura-img-4775.webp",
           "alt": "Pintura — 04"
         }
       ]

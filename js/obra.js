@@ -145,6 +145,28 @@
       subtabsEl.querySelector(`[data-subtab="${subs[cat.id]}"]`).focus();
     });
 
+    // Botón flotante «Menú de obra»: aparece cuando ya bajaste de las áreas y regresa a ellas
+    // de un salto, para pasar a otra área (Dibujo, Foto, etc.) sin volver a recorrer la galería.
+    const upBtn = document.querySelector("[data-obra-up]");
+    const obraSec = document.getElementById("obra");
+    if (upBtn && obraSec) {
+      let queued = false;
+      const refresh = () => {
+        queued = false;
+        const hdr = (document.getElementById("hdr") || {}).offsetHeight || 64;
+        const tabs = tabsEl.getBoundingClientRect(), sec = obraSec.getBoundingClientRect();
+        upBtn.hidden = !(tabs.bottom < hdr + 8 && sec.bottom > innerHeight * 0.35);
+      };
+      const queue = () => { if (!queued) { queued = true; requestAnimationFrame(refresh); } };
+      addEventListener("scroll", queue, { passive: true });
+      addEventListener("resize", queue);
+      upBtn.addEventListener("click", () => {
+        tabsEl.scrollIntoView({ block: "start" });
+        const sel = tabsEl.querySelector('[aria-selected="true"]');
+        if (sel) sel.focus({ preventScroll: true });
+      });
+    }
+
     const m = location.hash.match(/^#obra\/([\w-]+)$/);
     const target = m && data.works.find((w) => w.id === m[1]);
     if (target) {

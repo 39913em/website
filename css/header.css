@@ -15,7 +15,6 @@
 .hdr__nav a:hover, .hdr__nav a[aria-current="true"] { background: var(--ink); color: var(--paper); }
 
 .hdr__cta { border: 0; border-left: var(--bw) solid var(--ink); height: calc(100% + var(--bw)); margin-bottom: calc(var(--bw) * -1); padding: 0 clamp(16px, 2.4vw, 34px); font-size: 1rem; }
-.hdr__cta .ico-mark { width: 1.5em; height: 1.3em; }
 
 .hdr__progress { position: absolute; left: 0; right: 0; bottom: calc(var(--bw) * -1); height: var(--bw); pointer-events: none; }
 .hdr__progress i { display: block; height: 100%; background: var(--accent); transform-origin: 0 50%; transform: scaleX(var(--p, 0)); }
@@ -23,7 +22,10 @@
 @media (max-width: 960px) { .hdr__name { display: none; } }
 @media (max-width: 560px) {
   :root { --hdr-h: 56px; }
-  .hdr__nav a { padding: 0 14px; font-size: .72rem; letter-spacing: .03em; }
-  .hdr__cta span:last-child { display: none; }
-  .hdr__cta { padding: 0 16px; }
+  .hdr__nav a { padding: 0 10px; font-size: .68rem; letter-spacing: .02em; }
+  .hdr__cta { padding: 0 12px; font-size: .74rem; }
+}
+@media (max-width: 359px) {
+  .hdr__nav a { padding: 0 6px; font-size: .6rem; letter-spacing: 0; }
+  .hdr__cta { padding: 0 8px; font-size: .64rem; }
 }

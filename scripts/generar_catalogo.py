@@ -16,11 +16,13 @@ import urllib.error
 import urllib.request
 from functools import lru_cache
 from pathlib import Path
-from urllib.parse import quote, unquote
+from urllib.parse import parse_qs, quote, unquote, urlparse
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data" / "obra.json"
 BASE = ROOT / "PORTAFOLIO"
+PORTADAS = ROOT / "data" / "portadas.json"
+CARPETA_PORTADAS = "PORTAFOLIO/EXPERIENCIAS-VIRTUALES/"
 
 MEDIA = {
     ".jpg": "img", ".jpeg": "img", ".png": "img", ".webp": "img",
@@ -282,6 +284,48 @@ def avisar_sueltas(known, sobrantes=frozenset()):
     return sueltas
 
 
+def youtube_id(valor):
+    """ID de 11 caracteres si el valor es un ID o un enlace de YouTube; si no, None."""
+    ide = re.compile(r"[A-Za-z0-9_-]{11}")
+    v = (valor or "").strip()
+    if ide.fullmatch(v):
+        return v
+    u = urlparse(v)
+    host = (u.hostname or "").lower()
+    if host == "youtu.be":
+        c = u.path.lstrip("/")[:11]
+        return c if ide.fullmatch(c) else None
+    if host == "youtube.com" or host.endswith(".youtube.com") or host.endswith("youtube-nocookie.com"):
+        q = parse_qs(u.query).get("v", [""])[0]
+        if ide.fullmatch(q):
+            return q
+        m = re.match(r"/(?:embed|shorts|live|v)/([A-Za-z0-9_-]{11})", u.path)
+        return m.group(1) if m else None
+    return None
+
+
+def revisar_portadas():
+    """Avisa si data/portadas.json tiene un error o apunta a un archivo que no existe."""
+    if not PORTADAS.is_file():
+        return
+    try:
+        cfg = json.loads(PORTADAS.read_text(encoding="utf-8"))
+    except ValueError as exc:
+        aviso(f"data/portadas.json tiene un error de escritura y las portadas animadas no se mostrarán: {exc}")
+        return
+    for clave, c in cfg.items():
+        if clave.startswith("_") or not isinstance(c, dict):
+            continue
+        video = (c.get("youtube") or "").strip()
+        if video and not youtube_id(video):
+            aviso(f"portadas.json → {clave}: «{video}» no parece un ID ni un enlace de YouTube; no se mostrará el video.")
+        gif = (c.get("gif") or "").strip()
+        if gif and not video:
+            ruta = gif if "/" in gif else CARPETA_PORTADAS + gif
+            if not existe(ruta):
+                aviso(f"portadas.json → {clave}: el archivo «{ruta}» no existe; se verá la imagen fija.")
+
+
 def aviso(texto):
     if os.environ.get("GITHUB_ACTIONS") == "true":
         escapado = texto.replace("%", "%25").replace("\r", "%0D").replace("\n", "%0A")
@@ -308,7 +352,15 @@ def resumen_markdown(data, nuevas, omitidos, quitados=()):
 
 
 def main():
-    data = json.loads(DATA.read_text(encoding="utf-8"))
+    try:
+        data = json.loads(DATA.read_text(encoding="utf-8"))
+    except ValueError as exc:
+        detalle = (f"línea {exc.lineno}, columna {exc.colno}: {exc.msg}" if hasattr(exc, "lineno") else str(exc))
+        mensaje = ("data/obra.json está mal escrito y no se publicó nada nuevo (" + detalle + "). "
+                   "Casi siempre falta una coma, una comilla o un cierre } ]. Mira esa línea y la anterior; "
+                   "para volver atrás usa «Deshacer cambios» en VS Code o restaura el archivo anterior.")
+        print(("::error title=obra.json mal escrito::" if os.environ.get("GITHUB_ACTIONS") == "true" else "ERROR: ") + mensaje, file=sys.stderr)
+        return 1
     quitados, sobrantes = [], set()
     if any(p.is_file() for p in BASE.rglob("*")):
         quitados, sobrantes = limpiar_catalogo(data)
@@ -362,6 +414,7 @@ def main():
         for q in quitados:
             print("  - " + q)
 
+    revisar_portadas()
     omitted, missing = auditar(known, owner, sobrantes)
     for r, motivo in omitted:
         aviso(f"{r} no se publicó como obra: {motivo}.")
@@ -378,6 +431,25 @@ def main():
             print("  - " + r, file=sys.stderr)
         return 1
     return 0
+
+
+def recursos_del_sitio():
+    """Archivos locales que el HTML del sitio y portadas.json referencian (Presskit, logo, reel...)."""
+    encontrados = set()
+    for archivo in [ROOT / "index.html", *sorted((ROOT / "partials").glob("*.html"))]:
+        for m in re.finditer(r'(?:src|href|poster)="([^"]+)"', archivo.read_text(encoding="utf-8")):
+            ruta = m.group(1).split("#")[0].split("?")[0]
+            if ruta and not re.match(r"^[a-z][a-z0-9+.-]*:|^//", ruta, re.I):
+                encontrados.add(unquote(ruta))
+    if PORTADAS.is_file():
+        try:
+            for clave, c in json.loads(PORTADAS.read_text(encoding="utf-8")).items():
+                gif = (c.get("gif") or "").strip() if isinstance(c, dict) and not (c.get("youtube") or "").strip() else ""
+                if gif:
+                    encontrados.add(gif if "/" in gif else CARPETA_PORTADAS + gif)
+        except ValueError:
+            pass
+    return sorted(encontrados)
 
 
 def verificar_publicado(base_url):
@@ -425,7 +497,21 @@ def verificar_publicado(base_url):
         for r in rotas:
             print("  - " + r, file=sys.stderr)
         return 1
-    print(f"Verificado: {len(esperados)} obras publicadas y sus portadas responden correctamente.")
+
+    # Presskit, foto en alta, logo, reel, hojas de estilo... deben responder en el sitio publicado.
+    ausentes = []
+    recursos = recursos_del_sitio()
+    for ruta in recursos:
+        try:
+            pedir(base_url + quote(ruta, safe="/%"), "HEAD")
+        except urllib.error.URLError as exc:
+            ausentes.append(f"{ruta} -> {exc}")
+    if ausentes:
+        print("ERROR: archivos del sitio que NO responden en la página publicada:", file=sys.stderr)
+        for r in ausentes:
+            print("  - " + r, file=sys.stderr)
+        return 1
+    print(f"Verificado: {len(esperados)} obras publicadas, sus portadas y {len(recursos)} archivos del sitio (Presskit, logo, reel...) responden correctamente.")
     return 0
 
 

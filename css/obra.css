@@ -70,3 +70,15 @@
 .card--soon b { font: 900 clamp(2.2rem, 3.8vw, 3.4rem)/.85 var(--f-display); font-stretch: 62%; text-transform: uppercase; }
 .card--soon span { font: 700 .85rem/1 var(--f-mono); text-transform: uppercase; letter-spacing: .05em; }
 .card--soon span::before { content: ""; display: inline-block; width: 10px; height: 10px; margin-right: 10px; background: var(--accent); }
+
+.obra-up {
+  position: fixed; left: 50%; bottom: max(16px, env(safe-area-inset-bottom)); z-index: 55; transform: translateX(-50%);
+  display: inline-flex; align-items: center; gap: .65em; padding: 14px 20px; cursor: pointer;
+  background: var(--ink); color: var(--paper); border: var(--bw) solid var(--paper); box-shadow: 0 0 0 var(--bw) var(--ink);
+  font: 700 .85rem/1 var(--f-mono); text-transform: uppercase; letter-spacing: .05em; white-space: nowrap;
+  animation: up-in .22s ease-out both;
+}
+.obra-up b { font-size: 1.15em; line-height: 1; }
+.obra-up:hover, .obra-up:focus-visible { background: var(--accent); border-color: var(--accent); box-shadow: 0 0 0 var(--bw) var(--ink); }
+@keyframes up-in { from { opacity: 0; transform: translate(-50%, 12px); } }
+@media (prefers-reduced-motion: reduce) { .obra-up { animation: none; } }

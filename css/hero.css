@@ -16,7 +16,6 @@
 
 .hero__role { font-size: .8rem; text-transform: uppercase; letter-spacing: .05em; max-width: 60ch; }
 .hero__pitch { font-size: clamp(1.15rem, 1.8vw, 1.6rem); line-height: 1.22; max-width: 30ch; font-weight: 600; }
-.hero__actions { display: flex; flex-wrap: wrap; gap: 14px; }
 
 .reel { position: relative; background: var(--ink); color: var(--paper); overflow: hidden; min-height: 0; }
 .reel__video { width: 100%; height: 100%; object-fit: cover; cursor: pointer; }
@@ -48,4 +47,3 @@
   .hero__name { font-size: min(26vw, 10rem); }
   .hero { min-height: 0; }
 }
-@media (max-width: 520px) { .hero__actions .btn { flex: 1 1 100%; } }
