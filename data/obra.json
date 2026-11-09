@@ -682,7 +682,7 @@
       "cat": "audio",
       "title": "Urbanización Primigenia",
       "kicker": "Pieza sonora",
-      "cover": "PORTAFOLIO/AUDIO/Urbanizacion-Primigenia.webp",
+      "cover": "PORTAFOLIO/AUDIO/urbanizacion.webp",
 
        "badges": [
         ["Festival Sur Aural, Radio Tsonami Bol2024"]
@@ -695,8 +695,8 @@
         {
           "type": "audio",
           "src": "PORTAFOLIO/AUDIO/Urbanizacion-Primigenia.mp3",
-          "cover": "PORTAFOLIO/AUDIO/Urbanizacion-Primigenia.webp",
-          "thumb": "PORTAFOLIO/AUDIO/Urbanizacion-Primigenia-thumb.webp",
+          "cover": "PORTAFOLIO/AUDIO/urbanizacion.webp",
+          "thumb": "PORTAFOLIO/AUDIO/urbanizacion.webp",
           "alt": "Portada de Urbanización Primigenia",
           "label": "Escuchar"
         }
