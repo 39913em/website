@@ -1,5 +1,4 @@
-{
-  "_leeme": "Portadas animadas de Experiencias. En cada tarjeta escribe UNA cosa entre las comillas: en \"youtube\" el enlace o el ID del video, o en \"gif\" el nombre del archivo que pusiste en PORTAFOLIO/EXPERIENCIAS-VIRTUALES/. Si los dos estan vacios se ve la imagen fija de siempre. \"zoom\" (opcional, de 1 a 3) agranda el video si ves barras negras.",
+{ 
   "exp-jardin":     { "youtube": "https://youtube.com/shorts/r30WWEODWMg?si=iQbrLTQJlMVp1uBd", "gif": "", "zoom": 1.5 },
   "exp-sonografia": { "youtube": "", "gif": "sonografia.gif", "zoom": 1.2 },
   "exp-blog":       { "youtube": "", "gif": "archivoseñal.gif", "zoom": 1.2 }

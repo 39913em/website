@@ -46,8 +46,7 @@
     return li;
   }
 
-  // Secciones "planas" (categoría con "flat": true): cada imagen o video de la sección es un
-  // recuadro suelto. Se muestran todas juntas, sin tarjetas intermedias por proyecto.
+  
   function flatten(data) {
     const info = {};
     data.categories.filter((c) => c.flat).forEach((c) => {
@@ -80,7 +79,7 @@
     window.OBRA = data;
     data.visibleIds = data.works.map((w) => w.id);
     let current = data.categories[0].id;
-    const subs = {}; // subsección elegida en cada categoría que tiene subcategorías
+    const subs = {}; 
 
     const io = new IntersectionObserver((entries) => entries.forEach((e) => {
       if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
@@ -145,8 +144,7 @@
       subtabsEl.querySelector(`[data-subtab="${subs[cat.id]}"]`).focus();
     });
 
-    // Botón flotante «Menú de obra»: aparece cuando ya bajaste de las áreas y regresa a ellas
-    // de un salto, para pasar a otra área (Dibujo, Foto, etc.) sin volver a recorrer la galería.
+   
     const upBtn = document.querySelector("[data-obra-up]");
     const obraSec = document.getElementById("obra");
     if (upBtn && obraSec) {

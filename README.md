@@ -50,11 +50,11 @@ En GitHub, configura una sola vez **Settings → Pages → Build and deployment 
 
 ## Portadas animadas de Experiencias
 
-Las tarjetas de **Experiencias** (Jardín del Oráculo, Sonografía) pueden mostrar un video o un GIF como portada. Se configura en un solo archivo, `data/portadas.json`, escribiendo entre las comillas de la tarjeta que quieras:
+Las tarjetas de **Experiencias**  pueden mostrar un video o un GIF como portada. Se configura en un solo archivo, `data/portadas.json`, escribiendo entre las comillas de la tarjeta que quieras:
 
 ```json
 "exp-jardin":     { "youtube": "https://youtu.be/XXXXXXXXXXX", "gif": "", "zoom": 1.2 },
-"exp-sonografia": { "youtube": "", "gif": "sonografia.gif" }
+"exp-sonografia": { "youtube": "", "gif": "xxxxxxx.gif" }
 ```
 
 - **Video de YouTube:** pega el enlace normal del video (o solo su ID de 11 caracteres) en `"youtube"`. Se reproduce solo, sin sonido, en bucle y sin controles, únicamente mientras la portada está a la vista. En YouTube Studio deja activada la opción «Permitir incorporación»; un video «No listado» funciona. Si ves barras negras, sube `"zoom"` (de 1 a 3).

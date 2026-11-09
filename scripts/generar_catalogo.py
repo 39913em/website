@@ -1,10 +1,5 @@
-#!/usr/bin/env python3
-"""Actualiza el catálogo sin convertir recursos internos o duplicados en obras.
 
-Uso:
-    python scripts/generar_catalogo.py                       # genera/actualiza data/obra.json
-    python scripts/generar_catalogo.py --verificar-publicado https://usuario.github.io/repo/
-"""
+
 import hashlib
 import json
 import os
@@ -56,16 +51,11 @@ def rel(path):
 
 
 def web(path_text):
-    """Ruta tal como se escribe en el catálogo: '#', '?' y '%' en un nombre de
-    archivo romperían la URL (el navegador los toma como fragmento/consulta)."""
-    return path_text.replace("%", "%25").replace("#", "%23").replace("?", "%3F")
+     return path_text.replace("%", "%25").replace("#", "%23").replace("?", "%3F")
 
 
 def find_dir(base, relative):
-    """Busca una carpeta ignorando mayúsculas/minúsculas.
-
-    Windows y macOS no distinguen 'DIBUJO' de 'Dibujo'; GitHub Actions (Linux) sí.
-    """
+   
     current = base
     for part in relative.split("/"):
         if not current.is_dir():
@@ -79,7 +69,7 @@ def find_dir(base, relative):
 
 
 def es_derivado(path):
-    """Los archivos con '--' en el nombre son derivados (miniaturas/portadas) de otro archivo."""
+   
     return "--" in path.stem
 
 
@@ -96,7 +86,7 @@ def _nombres(carpeta):
 
 
 def existe(ruta):
-    """True si el archivo existe con las MISMAS mayúsculas (como lo ve GitHub Pages en Linux)."""
+   
     actual = ROOT
     for parte in ruta.split("/"):
         if _nfc(parte) not in _nombres(actual):
@@ -106,7 +96,7 @@ def existe(ruta):
 
 
 def referencia(valor):
-    """Ruta (sin codificar) si el valor apunta a un archivo de PORTAFOLIO/; si no, None."""
+   
     return unquote(valor) if isinstance(valor, str) and valor.startswith("PORTAFOLIO/") else None
 
 
@@ -124,8 +114,8 @@ def portada_valida(work, items):
         if not falta(cover["video"]):
             return {k: v for k, v in cover.items() if k != "poster"} if falta(cover.get("poster")) else cover
     else:
-        return cover  # portada de texto: no depende de ningún archivo
-    for it in items:  # la portada desapareció: usa la primera pieza que sigue existiendo
+        return cover  
+    for it in items:  
         if it.get("type") == "img":
             return it.get("thumb") or it["src"]
     for it in items:
@@ -135,12 +125,7 @@ def portada_valida(work, items):
 
 
 def limpiar_catalogo(data):
-    """Quita del catálogo lo que ya no está en PORTAFOLIO/.
-
-    Una foto (src + miniatura) se quita si falta CUALQUIERA de sus dos archivos; una obra
-    se quita cuando se queda sin piezas. Devuelve (quitados, sobrantes): el informe y los
-    archivos que siguen en las carpetas pero ya no pertenecen a nada.
-    """
+   
     quitados, sobrantes, vivas = [], set(), []
     for work in data["works"]:
         piezas = []
@@ -154,7 +139,7 @@ def limpiar_catalogo(data):
                     if ruta and existe(ruta):
                         sobrantes.add(ruta)
                 continue
-            for clave in ("thumb", "cover", "poster"):  # extras opcionales: si faltan, se omiten
+            for clave in ("thumb", "cover", "poster"): 
                 if falta(it.get(clave)):
                     del it[clave]
             piezas.append(it)
@@ -213,8 +198,7 @@ def unique_id(cat, name, first, taken):
     base = "archivo-" + cat + "-" + slug(name)
     if base not in taken:
         return base
-    # Dos nombres distintos pueden dar el mismo slug (p. ej. «Árbol» y «arbol»).
-    # El sufijo sale de la ruta del archivo, así que es estable entre ejecuciones.
+  
     digest = hashlib.sha1(rel(first).encode("utf-8")).hexdigest()
     for size in range(6, len(digest) + 1):
         candidate = base + "-" + digest[:size]
@@ -238,8 +222,7 @@ def make_work(cat, name, files, taken):
 
 
 def auditar(known, owner, sobrantes=frozenset()):
-    """Revisa TODOS los archivos de las carpetas de categoría y explica cada uno
-    que no quedó como obra. Devuelve (omitidos, sin_registrar)."""
+  
     omitted, missing = [], []
     for folder_name in CATEGORY_DIRS:
         root = find_dir(BASE, folder_name)
@@ -268,8 +251,7 @@ def auditar(known, owner, sobrantes=frozenset()):
 
 
 def avisar_sueltas(known, sobrantes=frozenset()):
-    """Fotografía se divide en SESIONES, AUTORIA y CALLE-RETRATO: una imagen nueva
-    suelta en PORTAFOLIO/FOTOGRAFIA/ no pertenece a ningún apartado y no se publicaría."""
+   
     root = find_dir(BASE, "FOTOGRAFIA")
     sueltas = []
     if root is not None:
@@ -284,7 +266,7 @@ def avisar_sueltas(known, sobrantes=frozenset()):
 
 
 def youtube_id(valor):
-    """ID de 11 caracteres si el valor es un ID o un enlace de YouTube; si no, None."""
+   
     ide = re.compile(r"[A-Za-z0-9_-]{11}")
     v = (valor or "").strip()
     if ide.fullmatch(v):
@@ -304,7 +286,7 @@ def youtube_id(valor):
 
 
 def revisar_portadas():
-    """Avisa si data/portadas.json tiene un error o apunta a un archivo que no existe."""
+   
     if not PORTADAS.is_file():
         return
     try:
@@ -365,12 +347,12 @@ def main():
         quitados, sobrantes = limpiar_catalogo(data)
         vigentes = set()
         path_refs(data["works"], vigentes)
-        sobrantes -= vigentes  # lo que otra pieza sigue usando no es un sobrante
-    else:  # sin PORTAFOLIO/ (p. ej. una copia incompleta) no se puede saber qué falta: no se toca nada
+        sobrantes -= vigentes  
+    else:  
         aviso("No se encontró la carpeta PORTAFOLIO/ con archivos: no se limpió el catálogo.")
     known = set()
     path_refs(data.get("works", []), known)
-    owner = {}  # hash de contenido -> primera ruta que lo usa
+    owner = {}  
     for item in sorted(known):
         path = ROOT / item
         if path.is_file():
@@ -378,7 +360,7 @@ def main():
     taken = {w.get("id") for w in data["works"]}
 
     additions, new_works = [], []
-    # Other sections: a new subfolder is one project/mosaic; a loose file is one card.
+   
     for folder_name, cat in CATEGORY_DIRS.items():
         root = find_dir(BASE, folder_name)
         if root is None:
@@ -433,7 +415,7 @@ def main():
 
 
 def recursos_del_sitio():
-    """Archivos locales que el HTML del sitio y portadas.json referencian (Presskit, logo, reel...)."""
+  
     encontrados = set()
     for archivo in [ROOT / "index.html", *sorted((ROOT / "partials").glob("*.html"))]:
         for m in re.finditer(r'(?:src|href|poster)="([^"]+)"', archivo.read_text(encoding="utf-8")):
@@ -452,7 +434,7 @@ def recursos_del_sitio():
 
 
 def verificar_publicado(base_url):
-    """Comprueba que el sitio ya publicado sirve el catálogo nuevo y sus imágenes."""
+  
     intentos = int(os.environ.get("VERIFICAR_INTENTOS", "8"))
     espera = float(os.environ.get("VERIFICAR_ESPERA", "15"))
     base_url = base_url.rstrip("/") + "/"
@@ -482,7 +464,7 @@ def verificar_publicado(base_url):
         print("ERROR: " + ultimo, file=sys.stderr)
         return 1
 
-    # Las imágenes de las obras generadas por este sistema deben responder 200.
+  
     rotas = []
     for w in local["works"]:
         if w["id"].startswith("archivo-") and isinstance(w["cover"], str):
@@ -497,7 +479,7 @@ def verificar_publicado(base_url):
             print("  - " + r, file=sys.stderr)
         return 1
 
-    # Presskit, foto en alta, logo, reel, hojas de estilo... deben responder en el sitio publicado.
+   
     ausentes = []
     recursos = recursos_del_sitio()
     for ruta in recursos:

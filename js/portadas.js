@@ -3,7 +3,7 @@
   const FOLDER = "PORTAFOLIO/EXPERIENCIAS-VIRTUALES/";
   const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  // Acepta el ID de 11 caracteres o cualquier enlace normal de YouTube (watch, youtu.be, shorts, embed).
+  
   function youtubeId(value) {
     const v = String(value || "").trim();
     if (!v) return null;
@@ -17,11 +17,11 @@
         const m = u.pathname.match(/^\/(?:embed|shorts|live|v)\/([A-Za-z0-9_-]{11})/);
         if (m) return m[1];
       }
-    } catch (e) { /* no era un enlace */ }
+    } catch (e) 
     return null;
   }
 
-  // Solo imágenes del propio sitio: un nombre suelto se busca en PORTAFOLIO/EXPERIENCIAS-VIRTUALES/.
+ 
   function imagePath(value) {
     const v = String(value || "").trim();
     if (!v || /^[a-z][a-z0-9+.-]*:|^\/\//i.test(v) || v.includes("..") || !/\.(gif|webp|apng|png|avif|jpe?g)$/i.test(v)) return null;
@@ -32,7 +32,7 @@
     new IntersectionObserver((entries) => entries.forEach((e) => (e.isIntersecting ? onEnter() : onLeave && onLeave())), { rootMargin: margin, threshold: onLeave ? 0.25 : 0 }).observe(el);
   }
 
-  // GIF alojado en el sitio: reemplaza la imagen fija; si el archivo no existe, se queda la de siempre.
+  
   function gifCover(box, img, src) {
     let done = false;
     whenVisible(box, "300px", () => {
@@ -43,7 +43,7 @@
     });
   }
 
-  // Video de YouTube sin sonido, en bucle y sin controles. Solo existe mientras la portada está a la vista.
+ 
   function videoCover(box, id, title, zoom) {
     let frame = null, timer = 0;
     if (zoom >= 1 && zoom <= 3) box.style.setProperty("--zoom", String(zoom));
@@ -67,7 +67,7 @@
   async function init() {
     let cfg;
     try { cfg = await (await fetch("data/portadas.json")).json(); } catch (e) { return; }
-    if (reduce) return; // quien pide menos movimiento ve la imagen fija
+    if (reduce) return; 
     document.querySelectorAll(".exp__card[data-track]").forEach((card) => {
       const c = cfg[card.dataset.track];
       const box = card.querySelector(".exp__img");
