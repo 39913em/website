@@ -47,8 +47,7 @@ THUMB_SUFFIXES = ("--thumb", "-thumb", "_thumb", "-poster", "_poster")
 def slug(value):
     ascii_value = unicodedata.normalize("NFKD", value).encode("ascii", "ignore").decode().lower()
     cleaned = re.sub(r"[^a-z0-9]+", "-", ascii_value).strip("-")
-    # Un nombre sin letras ni números ASCII (solo ideogramas, emojis...) recibe
-    # un identificador estable derivado del propio nombre, para que no choque con otros.
+   
     return cleaned or "archivo-" + hashlib.sha1(value.encode("utf-8")).hexdigest()[:6]
 
 

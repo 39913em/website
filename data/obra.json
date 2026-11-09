@@ -678,13 +678,37 @@
       ]
     },
     {
+      "id": "Urbanizacion-Primigenia",
+      "cat": "audio",
+      "title": "Urbanización Primigenia",
+      "kicker": "Pieza sonora",
+      "cover": "PORTAFOLIO/AUDIO/Urbanizacion-Primigenia.webp",
+
+       "badges": [
+        ["Festival Sur Aural, Radio Tsonami Bol2024"]
+      ],
+      "desc": "linea del tiempo de la evolucion de la urbanizacion, desde la prehistoria hasta la actualidad, con un enfoque en la interaccion entre el ser humano y su entorno urbano. La pieza explora como la arquitectura y el diseño urbano han influido en la vida cotidiana y en la percepcion del espacio a lo largo de los siglos.",
+      "credits": [
+        ["Autoria y Composición", "39913"]
+      ],
+      "items": [
+        {
+          "type": "audio",
+          "src": "PORTAFOLIO/AUDIO/Urbanizacion-Primigenia.mp3",
+          "cover": "PORTAFOLIO/AUDIO/Urbanizacion-Primigenia.webp",
+          "thumb": "PORTAFOLIO/AUDIO/Urbanizacion-Primigenia-thumb.webp",
+          "alt": "Portada de Urbanización Primigenia",
+          "label": "Escuchar"
+        }
+      ]
+    },
+
+       {
       "id": "bitumen",
       "cat": "audio",
       "title": "Bitumen",
       "kicker": "Pieza sonora — Neo Cyborg Poetry",
-      "cover": {
-        "text": "Bitumen"
-      },
+      "cover": "PORTAFOLIO/AUDIO/bitumen.webp",
        "badges": [
         ["Festival de Arte Sonoro y Musica Electroacustica FASME Mex2024"],
         ["Visuales Generativos", "Cesar Fureimes"]
